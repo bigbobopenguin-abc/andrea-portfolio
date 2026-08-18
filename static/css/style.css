@@ -732,3 +732,27 @@
     padding:30px 18px;
   }
 }
+/* FIX CONTACT FORM NAME / EMAIL ROW */
+
+.contact-form .two{
+    width:100%;
+    height:auto;
+    min-height:0;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+@media(max-width:680px){
+
+    .contact-form .two{
+        width:100%;
+        height:auto;
+        min-height:0;
+
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+}
