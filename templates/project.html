@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ project.title }} | Andrea Lee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="project-page">
+<div id="progressBar" class="progress-bar"></div>
+<header class="site-header">
+  <a class="logo" href="{{ url_for('home') }}">andrea</a>
+  <nav class="project-nav">
+    <a href="{{ url_for('home') }}#projects">← All Projects</a>
+    <a href="{{ url_for('home') }}#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<section class="case-hero">
+  <div class="case-heading reveal">
+    <p class="case-kicker">{{ project.number }} / {{ project.category|upper }}</p>
+    <h1>{{ project.title }}</h1>
+    <p>{{ project.subtitle }}</p>
+  </div>
+  <div class="case-cover reveal">
+    {% if project.image %}
+      <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }}">
+    {% else %}
+      <div class="case-math"><span>ƒ(x)</span><svg viewBox="0 0 500 300"><path d="M20 225 C80 250 105 65 180 95 S260 260 335 165 S420 35 480 80" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/></svg></div>
+    {% endif %}
+  </div>
+</section>
+
+{% if slug == 'nesso' %}
+<section class="case-summary section">
+  <div class="case-side reveal">
+    <p class="section-label">PROJECT INFO</p>
+    <div class="info-block"><span>Sampling</span><strong>2 Hz</strong></div>
+    <div class="info-block"><span>Devices</span><strong>4 NESSO Sensors</strong></div>
+    <div class="info-block"><span>Connection</span><strong>Bluetooth Low Energy</strong></div>
+    <div class="info-block"><span>Deployment</span><strong>Local BLE + Render Dashboard</strong></div>
+  </div>
+  <div class="case-main reveal">
+    <h2>Project overview</h2>
+    <p class="case-lead">{{ project.summary }}</p>
+  </div>
+</section>
+
+<section class="visual-journey section">
+  <div class="journey-heading reveal">
+    <p class="section-label">DASHBOARD FEATURES</p>
+    <h2>What the dashboard can do.</h2>
+  </div>
+  <div class="journey-list">
+    {% for feature in project.dashboard_features %}
+    <article class="journey-row reveal">
+      <div class="journey-image"><img src="{{ url_for('static', filename='images/' + feature.image) }}" alt="{{ feature.title }}"></div>
+      <div class="journey-copy">
+        <span>0{{ loop.index }}</span>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+        <strong>{{ feature.detail }}</strong>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="case-sections section">
+  <article class="case-block reveal"><span>01</span><div><h2>The problem</h2><p>{{ project.problem }}</p></div></article>
+  <article class="case-block reveal"><span>02</span><div><h2>The solution</h2><p>{{ project.solution }}</p></div></article>
+  <article class="case-block reveal"><span>03</span><div><h2>What I worked on</h2><ul>{% for item in project.contribution %}<li>{{ item }}</li>{% endfor %}</ul></div></article>
+  <article class="case-block reveal"><span>04</span><div><h2>Technologies</h2><div class="tool-tags">{% for tool in project.tools %}<span>{{ tool }}</span>{% endfor %}</div></div></article>
+  <article class="case-block reveal"><span>05</span><div><h2>Outcome</h2><p>{{ project.outcome }}</p>{% if project.live_url %}<a class="btn case-button" href="{{ project.live_url }}">Open Live Dashboard ↗</a>{% endif %}</div></article>
+</section>
+
+{% elif slug == 'engineering' %}
+<section class="case-summary section">
+  <div class="case-side reveal">
+    <p class="section-label">PROJECT INFO</p>
+    <div class="info-block"><span>Project</span><strong>Engineering Exploration Project</strong></div>
+    <div class="info-block"><span>Final Concept</span><strong>Tri-Star Wheelchair</strong></div>
+    <div class="info-block"><span>My Role</span><strong>Drafter</strong></div>
+    <div class="info-block"><span>Focus</span><strong>Wheelchair Curb Mobility</strong></div>
+  </div>
+  <div class="case-main reveal">
+    <h2>Project overview</h2>
+    <p class="case-lead">{{ project.overview }}</p>
+  </div>
+</section>
+
+<section class="visual-journey section">
+  <div class="journey-heading reveal">
+    <p class="section-label">DESIGN & DEVELOPMENT PROCESS</p>
+    <h2>From idea to working prototype.</h2>
+  </div>
+  <div class="journey-list">
+    {% for step in project.process %}
+    <article class="journey-row reveal">
+      <div class="journey-image"><img src="{{ url_for('static', filename='images/' + step.image) }}" alt="{{ step.title }}"></div>
+      <div class="journey-copy">
+        <span>{{ step.number }}</span>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.description }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="fitness-video section">
+
+    <div class="journey-heading reveal">
+        <p class="section-label">FINAL PROTOTYPE VIDEO</p>
+
+        <h2>
+            See the final
+            <br>product in action.
+        </h2>
+
+        <p>
+            Final demonstration of our tri-star wheelchair prototype
+            showing the developed mechanism in operation.
+        </p>
+    </div>
+
+    <div class="video-container reveal">
+        <video
+            controls
+            playsinline
+            preload="metadata"
+        >
+            <source
+                src="{{ url_for('static', filename='videos/engineering-demo.mp4') }}"
+                type="video/mp4"
+            >
+            Your browser does not support HTML video.
+        </video>
+    </div>
+
+</section>
+
+<section class="case-sections section">
+  <article class="case-block reveal"><span>01</span><div><h2>The problem</h2><p>{{ project.problem }}</p></div></article>
+  <article class="case-block reveal"><span>02</span><div><h2>The solution</h2><p>{{ project.solution }}</p></div></article>
+  <article class="case-block reveal"><span>03</span><div><h2>My contribution</h2><ul>{% for item in project.contribution %}<li>{{ item }}</li>{% endfor %}</ul></div></article>
+  <article class="case-block reveal"><span>04</span><div><h2>Skills & technologies</h2><div class="tool-tags">{% for tool in project.tools %}<span>{{ tool }}</span>{% endfor %}</div></div></article>
+  <article class="case-block reveal"><span>05</span><div><h2>Outcome</h2><p>{{ project.outcome }}</p></div></article>
+</section>
+
+{% elif slug == 'fitness' %}
+
+<section class="case-summary section">
+  <div class="case-side reveal">
+    <p class="section-label">PROJECT INFO</p>
+    <div class="info-block"><span>Type</span><strong>IoT Wearable</strong></div>
+    <div class="info-block"><span>Sensors</span><strong>Step Counter + Light Sensor</strong></div>
+    <div class="info-block"><span>Processing</span><strong>Arduino + Raspberry Pi</strong></div>
+    <div class="info-block"><span>Storage</span><strong>MariaDB</strong></div>
+    <div class="info-block"><span>Web</span><strong>Flask</strong></div>
+  </div>
+  <div class="case-main reveal">
+    <h2>Project overview</h2>
+    <p class="case-lead">{{ project.overview }}</p>
+  </div>
+</section>
+
+<section class="fitness-features section">
+  <div class="journey-heading reveal">
+    <p class="section-label">WHAT THE SYSTEM DOES</p>
+    <h2>A wearable that understands activity and rest.</h2>
+  </div>
+
+  <div class="fitness-feature-grid">
+    {% for feature in project.features %}
+    <article class="fitness-feature reveal">
+      <span>0{{ loop.index }}</span>
+      <h3>{{ feature.title }}</h3>
+      <p>{{ feature.description }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="visual-journey section fitness-journey">
+  <div class="journey-heading reveal">
+    <p class="section-label">SYSTEM DEVELOPMENT</p>
+    <h2>From sensor readings to stored data.</h2>
+    <p>The project connects embedded hardware, Python processing, database storage and a web interface into one IoT workflow.</p>
+  </div>
+
+  <div class="journey-list">
+    {% for step in project.system_flow %}
+    <article class="journey-row reveal">
+      <div class="journey-image fitness-image">
+        <img src="{{ url_for('static', filename='images/' + step.image) }}" alt="{{ step.title }}">
+      </div>
+      <div class="journey-copy">
+        <span>{{ step.number }}</span>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.description }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="fitness-video section">
+  <div class="journey-heading reveal">
+    <p class="section-label">FINAL OUTCOME</p>
+    <h2>See the Smart Fitness Band in action.</h2>
+    <p>The final demonstration shows the physical prototype, LCD output and system behaviour.</p>
+  </div>
+
+  <div class="video-container reveal">
+    <video controls playsinline preload="metadata" poster="{{ url_for('static', filename='images/fitness/fitness-band.jpg') }}">
+      <source src="{{ url_for('static', filename='videos/' + project.video) }}" type="video/mp4">
+      Your browser does not support HTML video.
+    </video>
+  </div>
+</section>
+
+<section class="fitness-testing section">
+  <div class="journey-heading reveal">
+    <p class="section-label">TESTING & RESULTS</p>
+    <h2>Five test cases. Five passes.</h2>
+  </div>
+
+  <div class="test-grid">
+    {% for test in project.testing %}
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>TC{{ loop.index }}</span>
+        <strong>{{ test.status }}</strong>
+      </div>
+      <h3>{{ test.condition }}</h3>
+      <p>{{ test.result }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="case-sections section">
+  <article class="case-block reveal">
+    <span>01</span>
+    <div>
+      <h2>The problem</h2>
+      <p>{{ project.problem }}</p>
+    </div>
+  </article>
+
+  <article class="case-block reveal">
+    <span>02</span>
+    <div>
+      <h2>The solution</h2>
+      <p>{{ project.solution }}</p>
+    </div>
+  </article>
+
+  <article class="case-block reveal">
+    <span>03</span>
+    <div>
+      <h2>What I worked on</h2>
+      <ul>{% for item in project.contribution %}<li>{{ item }}</li>{% endfor %}</ul>
+    </div>
+  </article>
+
+  <article class="case-block reveal">
+    <span>04</span>
+    <div>
+      <h2>Technologies</h2>
+      <div class="tool-tags">{% for tool in project.tools %}<span>{{ tool }}</span>{% endfor %}</div>
+    </div>
+  </article>
+
+  <article class="case-block reveal">
+    <span>05</span>
+    <div>
+      <h2>Outcome</h2>
+      <p>{{ project.outcome }}</p>
+    </div>
+  </article>
+</section>
+
+{% else %}
+<section class="case-summary section">
+  <div class="case-side reveal">
+    <p class="section-label">PROJECT INFO</p>
+    <div class="info-block"><span>Category</span><strong>{{ project.category }}</strong></div>
+    <div class="info-block"><span>Project</span><strong>{{ project.number }}</strong></div>
+    <div class="info-block"><span>Tools</span><strong>{{ project.tools|join(' · ') }}</strong></div>
+  </div>
+  <div class="case-main reveal"><h2>Project overview</h2><p class="case-lead">{{ project.overview }}</p></div>
+</section>
+<section class="case-sections section">
+  <article class="case-block reveal"><span>01</span><div><h2>The problem</h2><p>{{ project.problem }}</p></div></article>
+  <article class="case-block reveal"><span>02</span><div><h2>The solution</h2><p>{{ project.solution }}</p></div></article>
+  <article class="case-block reveal"><span>03</span><div><h2>What I worked on</h2><ul>{% for item in project.contribution %}<li>{{ item }}</li>{% endfor %}</ul></div></article>
+  <article class="case-block reveal"><span>04</span><div><h2>Tools</h2><div class="tool-tags">{% for tool in project.tools %}<span>{{ tool }}</span>{% endfor %}</div></div></article>
+  <article class="case-block reveal"><span>05</span><div><h2>Outcome</h2><p>{{ project.outcome }}</p></div></article>
+</section>
+{% endif %}
+
+<section class="next-project"><p>Finished reading?</p><a href="{{ url_for('home') }}#projects">View all projects ↗</a></section>
+</main>
+
+<footer>
+  <a class="logo" href="{{ url_for('home') }}">andrea</a>
+  <p>{{ project.title }}</p>
+  <a href="{{ url_for('home') }}#projects">All Projects ↑</a>
+</footer>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
