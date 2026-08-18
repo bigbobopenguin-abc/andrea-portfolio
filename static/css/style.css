@@ -544,3 +544,191 @@
     }
 
 }
+
+
+/* =====================================================
+   MOBILE POLISH — DESKTOP UNAFFECTED
+===================================================== */
+@media (max-width: 680px){
+
+  /* HOME HERO */
+  .home-hero{
+    min-height:auto;
+    padding:92px 18px 46px;
+    row-gap:18px;
+    overflow:hidden;
+  }
+
+  .home-hero-copy{
+    max-width:100%;
+  }
+
+  .home-hero-copy h1{
+    font-size:3.15rem;
+    line-height:.93;
+    letter-spacing:-.055em;
+  }
+
+  .eyebrow{
+    margin-bottom:14px;
+    line-height:1.45;
+  }
+
+  .hero-text{
+    margin-top:20px;
+    font-size:.98rem;
+    line-height:1.65;
+  }
+
+  .hero-buttons{
+    margin-top:24px;
+    gap:10px;
+  }
+
+  .hero-buttons .btn{
+    width:100%;
+  }
+
+  /* STACKED PHOTO CAROUSEL */
+  .hero-card-carousel{
+    width:100%;
+    height:360px;
+    margin:10px auto 0;
+  }
+
+  .photo-card{
+    width:245px;
+  }
+
+  .photo-card.left-card{
+    transform:
+      translate(-68%, -48%)
+      rotate(-6deg)
+      scale(.88);
+  }
+
+  .photo-card.right-card{
+    transform:
+      translate(-32%, -47%)
+      rotate(6deg)
+      scale(.9);
+  }
+
+  .carousel-arrow{
+    width:40px;
+    height:40px;
+    font-size:1.05rem;
+  }
+
+  .carousel-prev{
+    left:0;
+  }
+
+  .carousel-next{
+    right:0;
+  }
+
+  .carousel-counter{
+    right:12px;
+    bottom:8px;
+    padding:7px 9px;
+    font-size:.66rem;
+  }
+
+  /* TICKER */
+  .ticker{
+    padding:11px 0;
+  }
+
+  .ticker div{
+    font-size:.66rem;
+  }
+
+  /* ABOUT */
+  .section{
+    padding:72px 18px;
+  }
+
+  .section-label{
+    margin-bottom:34px;
+  }
+
+  .about h2,
+  .projects h2,
+  .contact h2,
+  .journey-heading h2{
+    font-size:2.9rem;
+  }
+
+  .about-copy{
+    font-size:.96rem;
+    line-height:1.7;
+  }
+
+  .about-copy .lead{
+    font-size:1.12rem;
+  }
+
+  /* PROJECTS */
+  .projects-heading{
+    margin-bottom:34px;
+  }
+
+  .filters{
+    gap:7px;
+  }
+
+  .filter{
+    padding:8px 12px;
+    font-size:.78rem;
+  }
+
+  .project-grid{
+    gap:18px;
+  }
+
+  .project-card{
+    border-radius:18px;
+  }
+
+  .project-media,
+  .large .project-media{
+    height:260px;
+  }
+
+  .project-body{
+    padding:20px;
+  }
+
+  .project-body h3{
+    font-size:2rem;
+  }
+
+  /* CONTACT */
+  .contact{
+    gap:38px;
+  }
+
+  .contact-copy>p:not(.section-label){
+    margin:18px 0 26px;
+  }
+
+  .contact-socials{
+    gap:9px !important;
+  }
+
+  .contact-social-icon{
+    width:36px !important;
+    height:36px !important;
+  }
+
+  form{
+    padding:20px;
+    border-radius:18px;
+  }
+
+  /* FOOTER */
+  footer{
+    padding:30px 18px;
+  }
+}
