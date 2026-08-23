@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Cloud Web Application | Andrea Lee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body class="project-page">
+<div id="progressBar" class="progress-bar"></div>
+<header class="site-header">
+  <a class="logo" href="../index.html">andrea</a>
+  <nav class="project-nav">
+    <a href="../index.html#projects">← All Projects</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<section class="case-hero">
+  <div class="case-heading reveal">
+    <p class="case-kicker">04 / CLOUD COMPUTING</p>
+    <h1>AWS Cloud Web Application</h1>
+    <p>Designing and deploying a gardening-products web application using AWS networking, compute, database and object-storage services.</p>
+  </div>
+  <div class="case-cover reveal">
+    
+      <img src="../static/images/aws/application-top.png" alt="AWS Cloud Web Application">
+    
+  </div>
+</section>
+
+
+
+<section class="case-summary section">
+  <div class="case-side reveal">
+    <p class="section-label">PROJECT INFO</p>
+    <div class="info-block"><span>Platform</span><strong>Amazon Web Services</strong></div>
+    <div class="info-block"><span>Compute</span><strong>Amazon EC2</strong></div>
+    <div class="info-block"><span>Database</span><strong>Amazon RDS MySQL</strong></div>
+    <div class="info-block"><span>Storage</span><strong>Amazon S3</strong></div>
+    <div class="info-block"><span>Networking</span><strong>Amazon VPC</strong></div>
+  </div>
+  <div class="case-main reveal">
+    <h2>Project overview</h2>
+    <p class="case-lead">This project involved designing and deploying a cloud-based gardening-products web application on Amazon Web Services. The solution used a custom VPC with public and private subnets, an Amazon EC2 instance to host the Flask application, Amazon RDS MySQL for structured product information, and Amazon S3 for product-image storage. Security groups were used to control HTTP, SSH and database communication between components.</p>
+  </div>
+</section>
+
+<section class="visual-journey section">
+  <div class="journey-heading reveal">
+    <p class="section-label">CLOUD ARCHITECTURE & DEVELOPMENT</p>
+    <h2>From network design to deployed web application.</h2>
+    <p>The project connects AWS networking, compute, database and object storage into one working cloud solution.</p>
+  </div>
+
+  <div class="journey-list">
+    
+    <article class="journey-row reveal">
+      <div class="journey-image">
+        <img src="../static/images/aws/architecture.png" alt="Cloud Architecture">
+      </div>
+      <div class="journey-copy">
+        <span>01</span>
+        <h3>Cloud Architecture</h3>
+        <p>The solution was designed as a multi-tier AWS architecture. Users access the application through HTTP, the EC2 instance runs the web application, RDS MySQL stores product data, and Amazon S3 stores the product images.</p>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image">
+        <img src="../static/images/aws/vpc.png" alt="VPC & Subnet Design">
+      </div>
+      <div class="journey-copy">
+        <span>02</span>
+        <h3>VPC & Subnet Design</h3>
+        <p>A custom VPC using the 10.0.0.0/16 CIDR range was configured with two public and two private subnets. The public subnets support the web layer, while the private subnets are used for database resources.</p>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image">
+        <img src="../static/images/aws/ec2.png" alt="EC2 Web Server">
+      </div>
+      <div class="journey-copy">
+        <span>03</span>
+        <h3>EC2 Web Server</h3>
+        <p>The Flask application was hosted on an Amazon EC2 Ubuntu instance. Nginx and Gunicorn were used to serve the Python web application through the EC2 web server.</p>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image">
+        <img src="../static/images/aws/rds.png" alt="RDS MySQL Database">
+      </div>
+      <div class="journey-copy">
+        <span>04</span>
+        <h3>RDS MySQL Database</h3>
+        <p>Amazon RDS MySQL stored the structured gardening-product information. The database used a private subnet group so that the database layer was separated from direct public access.</p>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image">
+        <img src="../static/images/aws/s3.png" alt="Amazon S3 Object Storage">
+      </div>
+      <div class="journey-copy">
+        <span>05</span>
+        <h3>Amazon S3 Object Storage</h3>
+        <p>Nine gardening-product JPG images were uploaded to an Amazon S3 bucket. The Flask web application referenced the stored images when generating the final product listing page.</p>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image">
+        <img src="../static/images/aws/development.png" alt="Application Development">
+      </div>
+      <div class="journey-copy">
+        <span>06</span>
+        <h3>Application Development</h3>
+        <p>The application used Python, Flask and PyMySQL to retrieve product records from MySQL and render them through an HTML template. Product images were loaded separately from Amazon S3.</p>
+      </div>
+    </article>
+    
+  </div>
+</section>
+
+<section class="fitness-testing section">
+  <div class="journey-heading reveal">
+    <p class="section-label">CLOUD DESIGN PRACTICES</p>
+    <h2>Architecture, security and deployment.</h2>
+  </div>
+
+  <div class="test-grid">
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>01</span>
+        <strong>AWS</strong>
+      </div>
+      <h3>Configured separate public and private subnets to isolate the web and database layers.</h3>
+    </article>
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>02</span>
+        <strong>AWS</strong>
+      </div>
+      <h3>Used security groups to control HTTP, SSH and MySQL traffic.</h3>
+    </article>
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>03</span>
+        <strong>AWS</strong>
+      </div>
+      <h3>Placed RDS within a database subnet group using private subnets.</h3>
+    </article>
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>04</span>
+        <strong>AWS</strong>
+      </div>
+      <h3>Stored product images in S3 instead of embedding them directly in the database.</h3>
+    </article>
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>05</span>
+        <strong>AWS</strong>
+      </div>
+      <h3>Used Nginx and Gunicorn to serve the Flask application on EC2.</h3>
+    </article>
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>06</span>
+        <strong>AWS</strong>
+      </div>
+      <h3>Applied AWS monitoring, reliability and cost-optimisation practices during the project.</h3>
+    </article>
+    
+  </div>
+</section>
+
+<section class="visual-journey section">
+  <div class="journey-heading reveal">
+    <p class="section-label">FINAL WEB APPLICATION</p>
+    <h2>Gardening products delivered from the cloud.</h2>
+    <p>The final Flask application retrieves structured product data from RDS MySQL and displays product images stored in Amazon S3.</p>
+  </div>
+
+  <div class="journey-list">
+    
+    <article class="journey-row reveal">
+      <div class="journey-image" style="grid-column:1 / -1;">
+        <img src="../static/images/aws/application-top.png" alt="AWS gardening products application">
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image" style="grid-column:1 / -1;">
+        <img src="../static/images/aws/application-bottom.png" alt="AWS gardening products application">
+      </div>
+    </article>
+    
+  </div>
+</section>
+
+<section class="case-sections section">
+  <article class="case-block reveal"><span>01</span><div><h2>The problem</h2><p>The project required a web application that could separate structured product data from image storage while remaining accessible through a cloud-hosted environment. The architecture also needed to keep database resources isolated from direct public access and control traffic between the web server, database and internet.</p></div></article>
+  <article class="case-block reveal"><span>02</span><div><h2>The solution</h2><p>A custom AWS VPC was created with public subnets for the EC2 web server and private subnets for the RDS database. The Flask application ran on an Ubuntu EC2 instance using Nginx and Gunicorn. Product information was stored in RDS MySQL, while nine product images were stored in Amazon S3 and retrieved by the application. Security groups controlled HTTP, SSH and MySQL communication.</p></div></article>
+  <article class="case-block reveal"><span>03</span><div><h2>What I worked on</h2><ul><li>Designed and configured the AWS VPC and subnet structure.</li><li>Created and configured the EC2 web server.</li><li>Deployed the Flask application on Ubuntu using Nginx and Gunicorn.</li><li>Created and connected the Amazon RDS MySQL database.</li><li>Created the RDS database subnet group using private subnets.</li><li>Uploaded and managed nine product images in Amazon S3.</li><li>Configured security groups for HTTP, SSH and database communication.</li><li>Developed the Python/Flask application to retrieve and display product information.</li><li>Tested the final product listing application through the EC2-hosted web server.</li></ul></div></article>
+  <article class="case-block reveal"><span>04</span><div><h2>Technologies</h2><div class="tool-tags"><span>AWS</span><span>Amazon VPC</span><span>Amazon EC2</span><span>Amazon RDS</span><span>MySQL</span><span>Amazon S3</span><span>Python</span><span>Flask</span><span>PyMySQL</span><span>Ubuntu</span><span>Nginx</span><span>Gunicorn</span><span>HTML</span><span>Bootstrap</span></div></div></article>
+  <article class="case-block reveal"><span>05</span><div><h2>Outcome</h2><p>The completed project demonstrated a functioning multi-tier cloud application that connected AWS networking, compute, database and object storage. The Flask application successfully retrieved product information from RDS MySQL and displayed the corresponding images stored in S3 through the EC2-hosted web interface.</p></div></article>
+</section>
+
+
+
+
+<section class="next-project"><p>Finished reading?</p><a href="../index.html#projects">View all projects ↗</a></section>
+</main>
+
+<footer>
+  <a class="logo" href="../index.html">andrea</a>
+  <p>AWS Cloud Web Application</p>
+  <a href="../index.html#projects">All Projects ↑</a>
+</footer>
+<script src="../static/js/main.js"></script>
+</body>
+</html>

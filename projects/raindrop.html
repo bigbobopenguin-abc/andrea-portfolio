@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raindrop Detection & Weather Alert System | Andrea Lee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body class="project-page">
+<div id="progressBar" class="progress-bar"></div>
+<header class="site-header">
+  <a class="logo" href="../index.html">andrea</a>
+  <nav class="project-nav">
+    <a href="../index.html#projects">← All Projects</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<section class="case-hero">
+  <div class="case-heading reveal">
+    <p class="case-kicker">05 / IOT & EMBEDDED SYSTEMS</p>
+    <h1>Raindrop Detection & Weather Alert System</h1>
+    <p>An IoT weather-monitoring prototype combining rain, light, temperature and humidity sensing with automatic alerts, servo control and ThingSpeak cloud monitoring.</p>
+  </div>
+  <div class="case-cover reveal">
+    
+      <img src="../static/images/raindrop/hero.png" alt="Raindrop Detection & Weather Alert System">
+    
+  </div>
+</section>
+
+
+
+<section class="case-summary section">
+  <div class="case-side reveal">
+    <p class="section-label">PROJECT INFO</p>
+    <div class="info-block"><span>Type</span><strong>IoT Weather Monitoring</strong></div>
+    <div class="info-block"><span>Controller</span><strong>Arduino Nano</strong></div>
+    <div class="info-block"><span>Gateway</span><strong>Raspberry Pi</strong></div>
+    <div class="info-block"><span>Cloud</span><strong>ThingSpeak</strong></div>
+    <div class="info-block"><span>Response</span><strong>LEDs + Buzzer + Servo</strong></div>
+  </div>
+
+  <div class="case-main reveal">
+    <h2>Project overview</h2>
+    <p class="case-lead">The Raindrop Detection & Weather Alert System is an IoT prototype designed to detect unexpected rainfall and alert users before outdoor items such as laundry become wet. The system combines a raindrop sensor with environmental sensors and multiple actuators to respond automatically to changing weather conditions.</p>
+  </div>
+</section>
+
+<section class="fitness-features section">
+  <div class="journey-heading reveal">
+    <p class="section-label">WHAT THE SYSTEM DOES</p>
+    <h2>Detecting weather changes and responding automatically.</h2>
+  </div>
+
+  <div class="fitness-feature-grid">
+    
+    <article class="fitness-feature reveal">
+      <span>01</span>
+      <h3>Rain Detection</h3>
+      <p>An analogue raindrop sensor continuously monitors for the presence of water and triggers the rain-alert state when the configured threshold is reached.</p>
+    </article>
+    
+    <article class="fitness-feature reveal">
+      <span>02</span>
+      <h3>Ambient Light Monitoring</h3>
+      <p>A light sensor allows the system to distinguish between normal and dark environmental conditions.</p>
+    </article>
+    
+    <article class="fitness-feature reveal">
+      <span>03</span>
+      <h3>Temperature & Humidity Monitoring</h3>
+      <p>A DHT11 sensor measures temperature and humidity as additional environmental information.</p>
+    </article>
+    
+    <article class="fitness-feature reveal">
+      <span>04</span>
+      <h3>Visual Status Indicators</h3>
+      <p>Green, yellow and red LEDs provide immediate visual feedback for normal, dark and rain-detected states.</p>
+    </article>
+    
+    <article class="fitness-feature reveal">
+      <span>05</span>
+      <h3>Audible Rain Alert</h3>
+      <p>A buzzer produces an audible warning when rainfall is detected.</p>
+    </article>
+    
+    <article class="fitness-feature reveal">
+      <span>06</span>
+      <h3>Automatic Servo Response</h3>
+      <p>The servo motor automatically moves when rain is detected, demonstrating how the system could control a physical mechanism in response to weather.</p>
+    </article>
+    
+    <article class="fitness-feature reveal">
+      <span>07</span>
+      <h3>ThingSpeak Cloud Monitoring</h3>
+      <p>Sensor information is transmitted through a Raspberry Pi and uploaded to ThingSpeak for remote monitoring.</p>
+    </article>
+    
+  </div>
+</section>
+
+<section class="visual-journey section fitness-journey">
+  <div class="journey-heading reveal">
+    <p class="section-label">SYSTEM DEVELOPMENT</p>
+    <h2>From environmental sensing to cloud monitoring.</h2>
+    <p>
+      The prototype combines Arduino-based sensing and actuator control with
+      Raspberry Pi communication and ThingSpeak cloud monitoring.
+    </p>
+  </div>
+
+  <div class="journey-list">
+    
+    <article class="journey-row reveal">
+      <div class="journey-image fitness-image">
+        <img src="../static/images/raindrop/system-architecture.png" alt="System Architecture">
+      </div>
+
+      <div class="journey-copy">
+        <span>01</span>
+        <h3>System Architecture</h3>
+        <p>The system integrates environmental sensors with an Arduino Nano. The Arduino processes the incoming readings and controls the LEDs, buzzer and servo motor. A Raspberry Pi acts as the gateway between the sensor system and the ThingSpeak cloud platform.</p>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image fitness-image">
+        <img src="../static/images/raindrop/hero.png" alt="Normal Condition">
+      </div>
+
+      <div class="journey-copy">
+        <span>02</span>
+        <h3>Normal Condition</h3>
+        <p>When no rain is detected and the environment is not dark, the green LED remains illuminated to indicate normal environmental conditions.</p>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image fitness-image">
+        <img src="../static/images/raindrop/dark-condition.png" alt="Dark Environment Detection">
+      </div>
+
+      <div class="journey-copy">
+        <span>03</span>
+        <h3>Dark Environment Detection</h3>
+        <p>The light sensor continuously monitors ambient brightness. When the environment becomes dark without rain being detected, the yellow LED is activated to indicate the change in lighting conditions.</p>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image fitness-image">
+        <img src="../static/images/raindrop/rain-detection.png" alt="Rain Detection & Automatic Response">
+      </div>
+
+      <div class="journey-copy">
+        <span>04</span>
+        <h3>Rain Detection & Automatic Response</h3>
+        <p>When the raindrop sensor detects water, the system enters its rain-alert state. The red LED activates, the buzzer sounds and the servo motor moves to 180 degrees, demonstrating an automatic physical response to rainfall.</p>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image fitness-image">
+        <img src="../static/images/raindrop/thingspeak.png" alt="Cloud Data Monitoring">
+      </div>
+
+      <div class="journey-copy">
+        <span>05</span>
+        <h3>Cloud Data Monitoring</h3>
+        <p>The Raspberry Pi receives sensor information through serial communication and uploads the data to ThingSpeak, allowing environmental readings to be viewed through a cloud-based dashboard.</p>
+      </div>
+    </article>
+    
+  </div>
+</section>
+
+<section class="fitness-video section">
+  <div class="journey-heading reveal">
+    <p class="section-label">FINAL PROTOTYPE VIDEO</p>
+    <h2>See the weather alert system in action.</h2>
+    <p>
+      The demonstration shows the physical prototype responding to environmental
+      conditions using sensors, LEDs, a buzzer and servo control.
+    </p>
+  </div>
+
+  <div class="video-container reveal">
+    <video
+      controls
+      playsinline
+      preload="metadata"
+      poster="../static/images/raindrop/hero.png"
+    >
+      <source src="../static/videos/raindrop-demo.mp4" type="video/mp4">
+      Your browser does not support HTML video.
+    </video>
+  </div>
+</section>
+
+<section class="fitness-testing section">
+  <div class="journey-heading reveal">
+    <p class="section-label">TESTING & RESULTS</p>
+    <h2>Testing the system under different conditions.</h2>
+  </div>
+
+  <div class="test-grid">
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>TC1</span>
+        <strong>PASS</strong>
+      </div>
+      <h3>No rain + normal lighting</h3>
+      <p>Green LED activated; system remained in normal state</p>
+    </article>
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>TC2</span>
+        <strong>PASS</strong>
+      </div>
+      <h3>Dark environment + no rain</h3>
+      <p>Yellow LED activated to indicate low-light conditions</p>
+    </article>
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>TC3</span>
+        <strong>PASS</strong>
+      </div>
+      <h3>Rain detected</h3>
+      <p>Red LED and buzzer activated; servo moved to 180 degrees</p>
+    </article>
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>TC4</span>
+        <strong>PASS</strong>
+      </div>
+      <h3>Rain no longer detected</h3>
+      <p>Rain alert stopped and servo returned to its initial position</p>
+    </article>
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>TC5</span>
+        <strong>PASS</strong>
+      </div>
+      <h3>Sensor data transmitted to ThingSpeak</h3>
+      <p>Environmental data successfully displayed through the cloud dashboard</p>
+    </article>
+    
+  </div>
+</section>
+
+<section class="fitness-testing section">
+  <div class="journey-heading reveal">
+    <p class="section-label">DEBUGGING & IMPROVEMENTS</p>
+    <h2>Problems encountered and how they were solved.</h2>
+  </div>
+
+  <div class="test-grid">
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>01</span>
+        <strong>FIXED</strong>
+      </div>
+      <h3>Raindrop Sensor Connection</h3>
+      <p>The raindrop sensor initially failed because VCC and GND were connected incorrectly. Correcting the wiring restored sensor operation.</p>
+    </article>
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>02</span>
+        <strong>FIXED</strong>
+      </div>
+      <h3>Incorrect Light Detection Logic</h3>
+      <p>The yellow LED remained on because the light-threshold comparison in the Arduino code was reversed. Correcting the Boolean condition resolved the issue.</p>
+    </article>
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>03</span>
+        <strong>FIXED</strong>
+      </div>
+      <h3>Rain Alert LED</h3>
+      <p>The buzzer activated when rain was detected but the red LED did not. The LED output logic was corrected from LOW to HIGH.</p>
+    </article>
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>04</span>
+        <strong>FIXED</strong>
+      </div>
+      <h3>ThingSpeak Connection</h3>
+      <p>The ThingSpeak dashboard initially failed to display uploaded data. The Raspberry Pi code was corrected and the temperature reading was successfully displayed.</p>
+    </article>
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>05</span>
+        <strong>FIXED</strong>
+      </div>
+      <h3>Buzzer Wiring</h3>
+      <p>The buzzer initially failed because it was connected incorrectly. The wiring was corrected and the audible alert operated successfully.</p>
+    </article>
+    
+  </div>
+</section>
+
+<section class="case-sections section">
+  <article class="case-block reveal">
+    <span>01</span>
+    <div>
+      <h2>The problem</h2>
+      <p>Unexpected rainfall can cause outdoor laundry to become wet when users are indoors and unaware that weather conditions have changed. The project aimed to create an automated monitoring system capable of detecting rain and providing immediate visual, audible and physical responses.</p>
+    </div>
+  </article>
+
+  <article class="case-block reveal">
+    <span>02</span>
+    <div>
+      <h2>The solution</h2>
+      <p>An Arduino Nano processes readings from a raindrop sensor, light sensor and DHT11 temperature and humidity sensor. The Arduino uses threshold-based logic to determine environmental conditions. Different LEDs indicate normal, dark and rainy conditions, while detected rain activates a buzzer and moves a servo motor. Sensor information is transmitted to a Raspberry Pi and uploaded to ThingSpeak for cloud-based monitoring.</p>
+    </div>
+  </article>
+
+  <article class="case-block reveal">
+    <span>03</span>
+    <div>
+      <h2>What I worked on</h2>
+      <ul>
+        
+        <li>Developed the project as part of a three-person IoT project team.</li>
+        
+        <li>Integrated the raindrop, light and DHT environmental sensors with the Arduino Nano.</li>
+        
+        <li>Worked with Arduino threshold logic for rain and ambient-light detection.</li>
+        
+        <li>Implemented green, yellow and red LED status indicators.</li>
+        
+        <li>Integrated a buzzer to provide an audible rain warning.</li>
+        
+        <li>Integrated servo-motor control for an automatic physical response to detected rain.</li>
+        
+        <li>Worked with Raspberry Pi serial communication for receiving sensor information.</li>
+        
+        <li>Connected the IoT system to ThingSpeak for cloud-based monitoring.</li>
+        
+        <li>Tested and debugged sensor wiring, threshold logic, actuator behaviour and cloud communication.</li>
+        
+      </ul>
+    </div>
+  </article>
+
+  <article class="case-block reveal">
+    <span>04</span>
+    <div>
+      <h2>Technologies</h2>
+      <div class="tool-tags">
+        
+        <span>Arduino Nano</span>
+        
+        <span>Raspberry Pi</span>
+        
+        <span>Arduino IDE</span>
+        
+        <span>Python</span>
+        
+        <span>ThingSpeak</span>
+        
+        <span>Raindrop Sensor</span>
+        
+        <span>DHT11</span>
+        
+        <span>Light Sensor</span>
+        
+        <span>Servo Motor</span>
+        
+        <span>Buzzer</span>
+        
+        <span>LEDs</span>
+        
+        <span>Serial Communication</span>
+        
+        <span>IoT</span>
+        
+      </div>
+    </div>
+  </article>
+
+  <article class="case-block reveal">
+    <span>05</span>
+    <div>
+      <h2>Outcome</h2>
+      <p>The completed prototype successfully detected changes in rainfall and ambient lighting and responded through visual indicators, an audible alarm and servo movement. The project also demonstrated an end-to-end IoT workflow by connecting physical environmental sensing and embedded control with Raspberry Pi communication and ThingSpeak cloud monitoring.</p>
+    </div>
+  </article>
+</section>
+
+
+
+<section class="next-project"><p>Finished reading?</p><a href="../index.html#projects">View all projects ↗</a></section>
+</main>
+
+<footer>
+  <a class="logo" href="../index.html">andrea</a>
+  <p>Raindrop Detection & Weather Alert System</p>
+  <a href="../index.html#projects">All Projects ↑</a>
+</footer>
+<script src="../static/js/main.js"></script>
+</body>
+</html>

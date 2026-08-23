@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NESSO Safety Monitoring System | Andrea Lee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body class="project-page">
+<div id="progressBar" class="progress-bar"></div>
+<header class="site-header">
+  <a class="logo" href="../index.html">andrea</a>
+  <nav class="project-nav">
+    <a href="../index.html#projects">← All Projects</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<section class="case-hero">
+  <div class="case-heading reveal">
+    <p class="case-kicker">03 / DATA ENGINEERING</p>
+    <h1>NESSO Safety Monitoring System</h1>
+    <p>IoT-based worker safety monitoring using wearable NESSO sensors, BLE, Python and an interactive Flask dashboard.</p>
+  </div>
+  <div class="case-cover reveal">
+    
+      <img src="../static/images/dashboard.jpg" alt="NESSO Safety Monitoring System">
+    
+  </div>
+</section>
+
+
+<section class="case-summary section">
+  <div class="case-side reveal">
+    <p class="section-label">PROJECT INFO</p>
+    <div class="info-block"><span>Sampling</span><strong>2 Hz</strong></div>
+    <div class="info-block"><span>Devices</span><strong>4 NESSO Sensors</strong></div>
+    <div class="info-block"><span>Connection</span><strong>Bluetooth Low Energy</strong></div>
+    <div class="info-block"><span>Deployment</span><strong>Local BLE + Render Dashboard</strong></div>
+  </div>
+  <div class="case-main reveal">
+    <h2>Project overview</h2>
+    <p class="case-lead">The NESSO Safety Monitoring System is an IoT-based project developed to monitor worker movements and identify potential workplace safety incidents using wearable NESSO sensors. Four NESSO devices collect accelerometer and gyroscope data at 2 Hz and transmit the readings to a laptop through Bluetooth Low Energy (BLE). A Python application processes the sensor data, calculates movement features, and uses threshold-based logic to classify worker activities and safety events such as Near Miss, Slip/Trip/Fall (STF), and Fall From Height (FFH). Processed readings and detected events are stored in an SQLite database and displayed through an interactive Flask web dashboard. A separate version of the dashboard was deployed using Render for browser-based access to the stored dataset, while live BLE sensor collection continues to run locally.</p>
+  </div>
+</section>
+
+<section class="visual-journey section">
+  <div class="journey-heading reveal">
+    <p class="section-label">DASHBOARD FEATURES</p>
+    <h2>What the dashboard can do.</h2>
+  </div>
+  <div class="journey-list">
+    
+    <article class="journey-row reveal">
+      <div class="journey-image"><img src="../static/images/nesso/worker-search.png" alt="Worker Search"></div>
+      <div class="journey-copy">
+        <span>01</span>
+        <h3>Worker Search</h3>
+        <p>Search and view records for specific workers.</p>
+        <strong>ANDREA · SANIYA · TRILO · YXING</strong>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image"><img src="../static/images/nesso/date-time-filter.png" alt="Date and Time Filter"></div>
+      <div class="journey-copy">
+        <span>02</span>
+        <h3>Date and Time Filter</h3>
+        <p>Retrieve records within a selected date and time range.</p>
+        <strong>Historical date-time filtering</strong>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image"><img src="../static/images/nesso/event-filters.png" alt="Event Filters"></div>
+      <div class="journey-copy">
+        <span>03</span>
+        <h3>Event Filters</h3>
+        <p>Filter safety events individually to focus on a specific incident category.</p>
+        <strong>Near Miss · STF · FFH</strong>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image"><img src="../static/images/nesso/latest-worker-status.png" alt="Latest Worker Status"></div>
+      <div class="journey-copy">
+        <span>04</span>
+        <h3>Latest Worker Status</h3>
+        <p>View the latest status of all four workers at one glance.</p>
+        <strong>Real-time local worker overview</strong>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image"><img src="../static/images/nesso/highlighted-events.png" alt="Highlighted Events"></div>
+      <div class="journey-copy">
+        <span>05</span>
+        <h3>Highlighted Events</h3>
+        <p>Important events are colour-highlighted so users can identify them quickly.</p>
+        <strong>Orange — Near Miss · Red — STF · Purple — FFH</strong>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image"><img src="../static/images/nesso/analysis-report.png" alt="Analysis and Report"></div>
+      <div class="journey-copy">
+        <span>06</span>
+        <h3>Analysis and Report</h3>
+        <p>Daily incident graphs and incident-distribution summaries support safety analysis.</p>
+        <strong>Trend and distribution analysis</strong>
+      </div>
+    </article>
+    
+  </div>
+</section>
+
+<section class="case-sections section">
+  <article class="case-block reveal"><span>01</span><div><h2>The problem</h2><p>Raw sensor readings are difficult to interpret directly, especially when multiple workers and large amounts of historical data are involved. The project needed a way to collect motion data, detect possible safety incidents, store the results and make them easy to inspect.</p></div></article>
+  <article class="case-block reveal"><span>02</span><div><h2>The solution</h2><p>Four NESSO devices collect accelerometer and gyroscope readings at 2 Hz and send them to a laptop using BLE. Python processes the incoming readings and applies threshold-based logic to classify movement and safety events. The processed records are stored in SQLite and presented through a Flask dashboard for searching, filtering, monitoring and analysis.</p></div></article>
+  <article class="case-block reveal"><span>03</span><div><h2>What I worked on</h2><ul><li>Configured and worked with four NESSO devices for worker monitoring.</li><li>Used 2 Hz accelerometer and gyroscope sampling for movement-data collection.</li><li>Implemented BLE communication between the NESSO devices and laptop.</li><li>Worked with Python processing logic for movement features and safety-event classification.</li><li>Stored processed sensor readings and detected events in an SQLite database.</li><li>Developed worker search, date/time filtering and event filtering.</li><li>Added latest worker status cards and highlighted Near Miss, STF and FFH events.</li><li>Added daily incident graphs and incident-distribution visualisations.</li><li>Prepared the web application for deployment through GitHub and Render.</li></ul></div></article>
+  <article class="case-block reveal"><span>04</span><div><h2>Technologies</h2><div class="tool-tags"><span>Python</span><span>Flask</span><span>SQLite</span><span>BLE</span><span>Arduino</span><span>NESSO Sensors</span><span>HTML/CSS/JavaScript</span><span>Chart.js</span><span>GitHub</span><span>Render</span></div></div></article>
+  <article class="case-block reveal"><span>05</span><div><h2>Outcome</h2><p>The final prototype combines local live BLE sensor collection with an online dashboard for remote analysis of the stored dataset, demonstrating an end-to-end data engineering workflow from sensing and processing to database storage, visualisation and deployment.</p><a class="btn case-button" href="https://nesso-safety-dashboard.onrender.com/">Open Live Dashboard ↗</a></div></article>
+</section>
+
+
+
+<section class="next-project"><p>Finished reading?</p><a href="../index.html#projects">View all projects ↗</a></section>
+</main>
+
+<footer>
+  <a class="logo" href="../index.html">andrea</a>
+  <p>NESSO Safety Monitoring System</p>
+  <a href="../index.html#projects">All Projects ↑</a>
+</footer>
+<script src="../static/js/main.js"></script>
+</body>
+</html>

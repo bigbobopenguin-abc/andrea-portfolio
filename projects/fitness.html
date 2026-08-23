@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Fitness Band | Andrea Lee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body class="project-page">
+<div id="progressBar" class="progress-bar"></div>
+<header class="site-header">
+  <a class="logo" href="../index.html">andrea</a>
+  <nav class="project-nav">
+    <a href="../index.html#projects">← All Projects</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<section class="case-hero">
+  <div class="case-heading reveal">
+    <p class="case-kicker">02 / IOT & EMBEDDED SYSTEMS</p>
+    <h1>Smart Fitness Band</h1>
+    <p>An IoT wearable system that combines activity tracking, ambient-light sensing, inactivity alerts, Raspberry Pi processing, database logging and a Flask web interface.</p>
+  </div>
+  <div class="case-cover reveal">
+    
+      <img src="../static/images/fitness/fitness-band.jpg" alt="Smart Fitness Band">
+    
+  </div>
+</section>
+
+
+
+<section class="case-summary section">
+  <div class="case-side reveal">
+    <p class="section-label">PROJECT INFO</p>
+    <div class="info-block"><span>Type</span><strong>IoT Wearable</strong></div>
+    <div class="info-block"><span>Sensors</span><strong>Step Counter + Light Sensor</strong></div>
+    <div class="info-block"><span>Processing</span><strong>Arduino + Raspberry Pi</strong></div>
+    <div class="info-block"><span>Storage</span><strong>MariaDB</strong></div>
+    <div class="info-block"><span>Web</span><strong>Flask</strong></div>
+  </div>
+  <div class="case-main reveal">
+    <h2>Project overview</h2>
+    <p class="case-lead">The Smart Fitness Band is a wearable IoT device developed to encourage healthier everyday habits by tracking user movement and ambient light conditions. A step counter monitors physical activity while a light sensor provides environmental context. By combining both readings, the system can distinguish between active periods, prolonged daytime inactivity and periods of rest or sleep.</p>
+  </div>
+</section>
+
+<section class="fitness-features section">
+  <div class="journey-heading reveal">
+    <p class="section-label">WHAT THE SYSTEM DOES</p>
+    <h2>A wearable that understands activity and rest.</h2>
+  </div>
+
+  <div class="fitness-feature-grid">
+    
+    <article class="fitness-feature reveal">
+      <span>01</span>
+      <h3>Step & Movement Tracking</h3>
+      <p>A Grove step-counter sensor detects movement and tracks the user's step count.</p>
+    </article>
+    
+    <article class="fitness-feature reveal">
+      <span>02</span>
+      <h3>Ambient Light Detection</h3>
+      <p>A Grove light sensor measures environmental brightness so the system can distinguish daytime inactivity from low-light rest.</p>
+    </article>
+    
+    <article class="fitness-feature reveal">
+      <span>03</span>
+      <h3>Smart Inactivity Alert</h3>
+      <p>After 10 seconds without movement in a bright environment, the system activates a red LED and buzzer reminder.</p>
+    </article>
+    
+    <article class="fitness-feature reveal">
+      <span>04</span>
+      <h3>Sleep / Rest Awareness</h3>
+      <p>When no movement occurs in a dark environment, the system suppresses alerts instead of treating the user as inactive.</p>
+    </article>
+    
+    <article class="fitness-feature reveal">
+      <span>05</span>
+      <h3>Real-Time LCD Feedback</h3>
+      <p>The LCD displays current light and step information directly on the wearable prototype.</p>
+    </article>
+    
+    <article class="fitness-feature reveal">
+      <span>06</span>
+      <h3>Data Logging & Web Access</h3>
+      <p>The Raspberry Pi stores readings in MariaDB and Flask provides browser-based access to the logged data.</p>
+    </article>
+    
+  </div>
+</section>
+
+<section class="visual-journey section fitness-journey">
+  <div class="journey-heading reveal">
+    <p class="section-label">SYSTEM DEVELOPMENT</p>
+    <h2>From sensor readings to stored data.</h2>
+    <p>The project connects embedded hardware, Python processing, database storage and a web interface into one IoT workflow.</p>
+  </div>
+
+  <div class="journey-list">
+    
+    <article class="journey-row reveal">
+      <div class="journey-image fitness-image">
+        <img src="../static/images/fitness/system-architecture.png" alt="System Architecture">
+      </div>
+      <div class="journey-copy">
+        <span>01</span>
+        <h3>System Architecture</h3>
+        <p>The complete IoT workflow connects the step counter and light sensor to an Arduino. The Arduino handles sensor readings and inactivity logic, while a Raspberry Pi receives the processed data through serial communication. The Raspberry Pi logs the records in MariaDB and serves the data to a Flask web interface.</p>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image fitness-image">
+        <img src="../static/images/fitness/arduino-serial.png" alt="Real-Time Arduino Processing">
+      </div>
+      <div class="journey-copy">
+        <span>02</span>
+        <h3>Real-Time Arduino Processing</h3>
+        <p>The Arduino continuously reports light level, step count, bright/dark status, movement detection, red LED state and buzzer state. The Serial Monitor screenshot shows a bright environment with no movement, causing the RedLED to switch ON and the alert song to play.</p>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image fitness-image">
+        <img src="../static/images/fitness/raspberry-pi-output.png" alt="Raspberry Pi Integration">
+      </div>
+      <div class="journey-copy">
+        <span>03</span>
+        <h3>Raspberry Pi Integration</h3>
+        <p>Python running on the Raspberry Pi receives and parses the Arduino serial data. The values are converted into readable information including light status, movement status, LED status and buzzer status.</p>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image fitness-image">
+        <img src="../static/images/fitness/database-insert.png" alt="Database Logging">
+      </div>
+      <div class="journey-copy">
+        <span>04</span>
+        <h3>Database Logging</h3>
+        <p>A Python script inserts sensor readings into the MariaDB database. Each record includes the user, light reading, step count and an alert status. The screenshot confirms a successful database update.</p>
+      </div>
+    </article>
+    
+    <article class="journey-row reveal">
+      <div class="journey-image fitness-image">
+        <img src="../static/images/fitness/database-table.png" alt="MariaDB Data Storage">
+      </div>
+      <div class="journey-copy">
+        <span>05</span>
+        <h3>MariaDB Data Storage</h3>
+        <p>The MariaDB table stores the project data with fields for timestamp, light level, step count and alert state, allowing the readings to be reviewed historically and displayed through the web application.</p>
+      </div>
+    </article>
+    
+  </div>
+</section>
+
+<section class="fitness-video section">
+  <div class="journey-heading reveal">
+    <p class="section-label">FINAL OUTCOME</p>
+    <h2>See the Smart Fitness Band in action.</h2>
+    <p>The final demonstration shows the physical prototype, LCD output and system behaviour.</p>
+  </div>
+
+  <div class="video-container reveal">
+    <video controls playsinline preload="metadata" poster="../static/images/fitness/fitness-band.jpg">
+      <source src="../static/videos/fitness-demo.mp4" type="video/mp4">
+      Your browser does not support HTML video.
+    </video>
+  </div>
+</section>
+
+<section class="fitness-testing section">
+  <div class="journey-heading reveal">
+    <p class="section-label">TESTING & RESULTS</p>
+    <h2>Five test cases. Five passes.</h2>
+  </div>
+
+  <div class="test-grid">
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>TC1</span>
+        <strong>PASS</strong>
+      </div>
+      <h3>Bright environment + no movement for 10 seconds</h3>
+      <p>Inactive alert triggered; buzzer/LED activated</p>
+    </article>
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>TC2</span>
+        <strong>PASS</strong>
+      </div>
+      <h3>Low-light environment + no movement for 10 seconds</h3>
+      <p>Rest/sleep recognised; no alert triggered</p>
+    </article>
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>TC3</span>
+        <strong>PASS</strong>
+      </div>
+      <h3>Continuous movement / increasing step count</h3>
+      <p>Normal/active state; inactivity alert remains off</p>
+    </article>
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>TC4</span>
+        <strong>PASS</strong>
+      </div>
+      <h3>Movement detected after an inactivity alert</h3>
+      <p>Alert stops and status returns to normal</p>
+    </article>
+    
+    <article class="test-card reveal">
+      <div class="test-top">
+        <span>TC5</span>
+        <strong>PASS</strong>
+      </div>
+      <h3>Arduino data received by Raspberry Pi every 5 seconds</h3>
+      <p>Database updated and dashboard refreshed successfully</p>
+    </article>
+    
+  </div>
+</section>
+
+<section class="case-sections section">
+  <article class="case-block reveal">
+    <span>01</span>
+    <div>
+      <h2>The problem</h2>
+      <p>People who spend long periods studying, working at a desk or using digital devices may remain inactive without noticing it. Basic activity trackers may also treat legitimate rest or sleep as inactivity. The project therefore aimed to create a wearable monitoring system that could provide relevant activity alerts while reducing unnecessary notifications during low-light rest periods.</p>
+    </div>
+  </article>
+
+  <article class="case-block reveal">
+    <span>02</span>
+    <div>
+      <h2>The solution</h2>
+      <p>The Arduino reads step-count and ambient-light data and applies threshold-based logic to determine the user's status. When no movement is detected for 10 seconds in a bright environment, the red LED turns on and the buzzer plays an alert. When it is dark and there is no movement, the system assumes the user is resting or sleeping and suppresses the inactivity alert. Sensor information is sent by serial communication to a Raspberry Pi, stored in MariaDB and made available through a Flask web interface.</p>
+    </div>
+  </article>
+
+  <article class="case-block reveal">
+    <span>03</span>
+    <div>
+      <h2>What I worked on</h2>
+      <ul><li>Worked on the Smart Fitness Band as part of a two-person project team.</li><li>Integrated activity and environmental sensing using the step counter and light sensor.</li><li>Worked with Arduino logic for movement, light conditions, LED alerts, buzzer alerts and LCD feedback.</li><li>Connected Arduino output to the Raspberry Pi through serial communication.</li><li>Used Python on the Raspberry Pi to parse sensor readings.</li><li>Logged processed readings and alert states into a MariaDB database.</li><li>Worked with Flask and HTML to display stored project data through a web interface.</li><li>Tested bright, dark, active and inactive conditions and verified successful database updates.</li></ul>
+    </div>
+  </article>
+
+  <article class="case-block reveal">
+    <span>04</span>
+    <div>
+      <h2>Technologies</h2>
+      <div class="tool-tags"><span>Arduino Uno</span><span>Raspberry Pi</span><span>Python</span><span>Arduino IDE</span><span>Flask</span><span>MariaDB</span><span>Serial Communication</span><span>Grove Step Counter</span><span>Grove Light Sensor</span><span>LCD</span><span>Red LED</span><span>Buzzer</span><span>HTML</span></div>
+    </div>
+  </article>
+
+  <article class="case-block reveal">
+    <span>05</span>
+    <div>
+      <h2>Outcome</h2>
+      <p>The completed prototype successfully demonstrated an end-to-end IoT workflow from sensing and embedded processing to Raspberry Pi communication, database storage and browser-based visualisation. All five documented test cases passed. The project also highlighted how combining multiple sensors can produce more meaningful activity decisions than relying on movement data alone.</p>
+    </div>
+  </article>
+</section>
+
+
+
+
+<section class="next-project"><p>Finished reading?</p><a href="../index.html#projects">View all projects ↗</a></section>
+</main>
+
+<footer>
+  <a class="logo" href="../index.html">andrea</a>
+  <p>Smart Fitness Band</p>
+  <a href="../index.html#projects">All Projects ↑</a>
+</footer>
+<script src="../static/js/main.js"></script>
+</body>
+</html>
