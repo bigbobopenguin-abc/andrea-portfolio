@@ -423,67 +423,6 @@
     <a href="#home">Back to top ↑</a>
   </footer>
 
-
-  <!-- Lime-green interactive cursor (desktop mouse only) -->
-  <script>
-  (() => {
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-    if (!finePointer.matches || reducedMotion.matches) return;
-
-    const dot = document.createElement('div');
-    const halo = document.createElement('div');
-    dot.className = 'glow-cursor-dot';
-    halo.className = 'glow-cursor-halo';
-    dot.setAttribute('aria-hidden', 'true');
-    halo.setAttribute('aria-hidden', 'true');
-    document.body.append(dot, halo);
-    document.documentElement.classList.add('glow-cursor-enabled');
-
-    let x = -100, y = -100, hx = -100, hy = -100;
-    let visible = false;
-    const interactive = 'a, button, input, textarea, select, label, [role="button"]';
-
-    document.addEventListener('pointermove', (event) => {
-      if (event.pointerType !== 'mouse') return;
-      x = event.clientX;
-      y = event.clientY;
-      dot.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
-      if (!visible) {
-        hx = x; hy = y;
-        visible = true;
-        document.documentElement.classList.add('glow-cursor-visible');
-      }
-      halo.classList.toggle('is-hovering', !!event.target.closest(interactive));
-    }, { passive: true });
-
-    document.addEventListener('pointerdown', (event) => {
-      if (event.pointerType !== 'mouse') return;
-      halo.classList.remove('is-clicking');
-      void halo.offsetWidth;
-      halo.classList.add('is-clicking');
-    });
-    halo.addEventListener('animationend', () => halo.classList.remove('is-clicking'));
-    document.addEventListener('mouseout', (event) => {
-      if (!event.relatedTarget) {
-        visible = false;
-        document.documentElement.classList.remove('glow-cursor-visible');
-      }
-    });
-    window.addEventListener('blur', () => {
-      visible = false;
-      document.documentElement.classList.remove('glow-cursor-visible');
-    });
-
-    function animate() {
-      hx += (x - hx) * 0.18;
-      hy += (y - hy) * 0.18;
-      halo.style.transform = `translate3d(${hx}px, ${hy}px, 0) translate(-50%, -50%)`;
-      requestAnimationFrame(animate);
-    }
-    animate();
-  })();
-  </script>
   <script src="static/js/main.js"></script>
 </body>
 </html>
