@@ -843,3 +843,53 @@
     object-position: center;
     background-color: #111;
 }
+
+/* Lime-green glowing cursor — desktop mouse only */
+.glow-cursor-dot,
+.glow-cursor-halo {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0;
+  will-change: transform;
+}
+.glow-cursor-dot {
+  width: 9px;
+  height: 9px;
+  background: #caff42;
+  border: 1px solid #263300;
+  box-shadow: 0 0 10px #caff42, 0 0 20px rgba(202,255,66,.6);
+}
+.glow-cursor-halo {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid rgba(202,255,66,.9);
+  background: rgba(202,255,66,.10);
+  box-shadow: 0 0 18px rgba(202,255,66,.42), inset 0 0 12px rgba(202,255,66,.12);
+  transition: width .2s ease, height .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.glow-cursor-halo.is-hovering {
+  width: 52px;
+  height: 52px;
+  background: rgba(202,255,66,.18);
+  box-shadow: 0 0 26px rgba(202,255,66,.55);
+}
+.glow-cursor-halo.is-clicking { animation: glow-cursor-pulse .32s ease-out; }
+@keyframes glow-cursor-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(202,255,66,.75); }
+  100% { box-shadow: 0 0 0 19px rgba(202,255,66,0); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .glow-cursor-enabled, .glow-cursor-enabled body,
+  .glow-cursor-enabled a, .glow-cursor-enabled button,
+  .glow-cursor-enabled input, .glow-cursor-enabled textarea,
+  .glow-cursor-enabled select, .glow-cursor-enabled label { cursor: none !important; }
+  .glow-cursor-visible .glow-cursor-dot,
+  .glow-cursor-visible .glow-cursor-halo { opacity: 1; }
+}
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .glow-cursor-dot, .glow-cursor-halo { display: none !important; }
+}
