@@ -756,5 +756,5 @@
     }
 
 }
-/* MACHINE LEARNING PROJECT CARD */
-.ml-project-art{background:radial-gradient(circle at 80% 20%,#374b1e 0,transparent 40%),linear-gradient(135deg,#20291b,#101510);display:flex;align-items:center;justify-content:center;color:#f2efe8}.ml-art-content{display:flex;flex-direction:column;align-items:flex-start;width:80%;gap:22px}.ml-art-label,.ml-art-foot{font-size:.72rem;letter-spacing:.12em;font-weight:700}.ml-art-symbol{font-size:clamp(5rem,12vw,10rem);font-weight:800;line-height:1;letter-spacing:-.09em}.ml-art-dot{color:#caff42}
+/* Machine Learning project artwork and light-background tags */
+.ml-project-art{display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 75% 25%,#d9ff89,#caff42 38%,#1f3221);color:#101b0c;font-size:clamp(5rem,11vw,11rem);font-weight:800;letter-spacing:-.12em}.ml-project-art .ml-art-dot{color:#fff}.ml-project-art .view-chip{letter-spacing:normal}.ml-light-tags span{color:#111;border-color:#999}
