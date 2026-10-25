@@ -785,7 +785,7 @@
     transform: scale(1.05);
 }
 
-/* Seamless infinite scrolling text */
+/* Continuous scrolling skills bar */
 
 .marquee {
     width: 100%;
@@ -798,17 +798,18 @@
 .marquee-track {
     display: flex;
     width: max-content;
-    animation: marquee-scroll 15s linear infinite;
+    animation: marquee-scroll 30s linear infinite;
 }
 
 .marquee-content {
     display: flex;
-    flex-shrink: 0;
+    flex: 0 0 auto;
     white-space: nowrap;
 }
 
 .marquee-content span {
     display: inline-block;
+    flex-shrink: 0;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 1px;
