@@ -833,3 +833,13 @@
     object-fit: contain;
     background: #fff;
 }
+
+/* Engineering Exploration Project - show full image */
+
+.engineering-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    object-position: center;
+    background-color: #111;
+}
