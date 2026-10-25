@@ -3,3 +3,7 @@
 
 /* Evidence cards */
 .aw-evidence{padding:0;overflow:hidden}.aw-preview{display:block;background:#e8e5dd;height:270px;overflow:hidden}.aw-preview img{width:100%;height:100%;object-fit:contain;padding:14px;transition:transform .25s}.aw-preview:hover img{transform:scale(1.03)}.aw-card-content{padding:24px 28px 28px;display:flex;flex-direction:column;flex:1}.aw-card-content .aw-card-type{margin:0 0 12px}.aw-card-content h3{line-height:1.2}.aw-card-content>p:not(.aw-card-type){color:#77736c;line-height:1.65;margin:12px 0 18px}.aw-action{display:inline-flex;align-self:flex-start;margin-top:auto;padding:11px 15px;border-radius:999px;background:#caff42;color:#111;font-size:.8rem;font-weight:800}.aw-action:hover{background:#b8f12c}.aw-dark .aw-card-content>p:not(.aw-card-type){color:#aaa}.aw-quote{gap:22px}.aw-quote-meta{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-top:auto}.aw-quote-meta span{font-size:.85rem;color:#77736c}.aw-quote-meta .aw-action{margin-top:12px}.aw-dark .aw-preview{background:#f2efe8}@media(max-width:680px){.aw-preview{height:230px}.aw-card-content{padding:22px}}
+
+/* Testimonials use the same evidence-card layout as certificates and awards. */
+.aw-testimonial-byline{font-size:.83rem;color:#77736c;margin:0 0 22px!important;line-height:1.55}
+#testimonials .aw-card-content .aw-action{margin-top:auto}
