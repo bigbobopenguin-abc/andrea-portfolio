@@ -756,3 +756,5 @@
     }
 
 }
+/* MACHINE LEARNING PROJECT CARD */
+.ml-project-art{background:radial-gradient(circle at 80% 20%,#374b1e 0,transparent 40%),linear-gradient(135deg,#20291b,#101510);display:flex;align-items:center;justify-content:center;color:#f2efe8}.ml-art-content{display:flex;flex-direction:column;align-items:flex-start;width:80%;gap:22px}.ml-art-label,.ml-art-foot{font-size:.72rem;letter-spacing:.12em;font-weight:700}.ml-art-symbol{font-size:clamp(5rem,12vw,10rem);font-weight:800;line-height:1;letter-spacing:-.09em}.ml-art-dot{color:#caff42}
