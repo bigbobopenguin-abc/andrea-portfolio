@@ -825,3 +825,11 @@
         transform: translateX(-50%);
     }
 }
+
+/* NESSO project cover */
+.nesso-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #fff;
+}
