@@ -785,33 +785,34 @@
     transform: scale(1.05);
 }
 
-/* Continuous scrolling marquee */
+/* Seamless infinite scrolling text */
 
 .marquee {
     width: 100%;
     overflow: hidden;
     background: #111;
-    color: #fff;
+    color: white;
     padding: 14px 0;
 }
 
 .marquee-track {
     display: flex;
     width: max-content;
-    animation: marquee-scroll 25s linear infinite;
+    animation: marquee-scroll 15s linear infinite;
 }
 
 .marquee-content {
     display: flex;
-    flex: 0 0 auto;
+    flex-shrink: 0;
     white-space: nowrap;
 }
 
 .marquee-content span {
+    display: inline-block;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 1px;
-    padding-right: 30px;
+    padding-right: 20px;
 }
 
 @keyframes marquee-scroll {
