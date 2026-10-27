@@ -870,3 +870,7 @@
   .featured-projects .project-media, .all-projects-page .project-media { height:260px; }
   .all-projects-main { padding-top:68px; }
 }
+
+/* Projects heading typography matches About and Contact */
+.featured-projects .projects-heading h2 span,
+.all-projects-page .projects-heading h2 span { font-style:italic; font-weight:500; }
