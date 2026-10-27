@@ -36,6 +36,18 @@
 .dpv-note{margin-top:25px;font-size:.9rem!important}
 .dpv-back{display:inline-flex;margin-top:30px;padding:14px 21px;border-radius:40px;background:#caff42;color:#111;font-weight:800}
 @media(max-width:720px){.dpv-hero{padding:115px 22px 60px}.dpv-section{padding:65px 22px}.dpv-process,.dpv-findings{grid-template-columns:1fr}.dpv-figure{border-radius:12px}}
+
+.dpv-workstreams{grid-template-columns:repeat(3,minmax(0,1fr))}
+.dpv-workstreams article{background:#232323;border-color:#3d3d3d;color:#fff}
+.dpv-workstreams p{color:#c9c9c9}
+.dpv-workstreams strong{color:#caff42}
+.dpv-team-case{display:grid;grid-template-columns:.85fr 1.15fr;align-items:center;gap:30px;padding:38px 0;border-bottom:1px solid #363636}
+.dpv-team-case h3{font-size:clamp(1.4rem,2.3vw,2.1rem);margin-bottom:16px;letter-spacing:-.03em}
+.dpv-team-case img{width:100%;border-radius:14px;background:#f6f6f6;object-fit:contain}
+.dpv-team-case small{display:block;margin-top:16px;color:#caff42;font-weight:700}
+.dpv-takeaway{padding:32px;background:#272727;border-left:4px solid #caff42;margin-top:45px;border-radius:8px}
+.dpv-takeaway h3{font-size:1.6rem;margin-bottom:12px}
+@media(max-width:760px){.dpv-workstreams{grid-template-columns:1fr}.dpv-team-case{grid-template-columns:1fr}.dpv-team-case img{order:-1}}
 </style>
 </head>
 <body>
@@ -47,7 +59,7 @@
 <section class="dpv-hero">
   <p class="dpv-kicker">DATA ANALYTICS / DATA PREPARATION &amp; VISUALISATION</p>
   <h1>Singapore's Graduate Pathways.</h1>
-  <p class="dpv-intro">How have graduate numbers changed in Singapore, and what does that mean for students choosing what to study? In this group project, we explored education pathways and the job market using public datasets. My main focus was university graduate supply from 2015 to 2024.</p>
+  <p class="dpv-intro">How have graduate numbers changed in Singapore, and what does that mean for students choosing what to study? Our group explored graduate supply, labour-market demand and qualification outcomes using public Singapore datasets from 2015 to 2024. My focus was university graduate supply and Power BI visualisation.</p>
   <div class="dpv-tags"><span>Python</span><span>Pandas</span><span>Google Colab</span><span>Power BI</span><span>Data Visualisation</span><span>Group project · 2026</span></div>
 </section>
 
@@ -58,8 +70,32 @@
   <p style="margin-top:18px">The wider project used seven public datasets. Each group member worked on a different area of the analysis. I was responsible for university graduate supply, and also helped with the team slides and data exploration.</p>
 </section>
 
+
+<section class="dpv-section dpv-dark" style="background:#171717">
+  <p class="dpv-label">02 / TEAM ANALYSIS</p>
+  <h2>Five perspectives, one question.</h2>
+  <p>We split the project into five areas to avoid judging education pathways using just one statistic. Each person analysed a different part of the picture. The dashboards use public Singapore data covering the common period 2015–2024.</p>
+  <div class="dpv-process dpv-workstreams">
+    <article><h3>Polytechnic supply</h3><p>How intake, enrolment and graduate numbers changed across polytechnic fields. <strong>Led by Ming Kai.</strong></p></article>
+    <article><h3>University supply</h3><p>How graduate numbers, composition and growth differed across university fields. <strong>My focus.</strong></p></article>
+    <article><h3>Labour demand</h3><p>How job vacancies changed and how reported vacancies compared with graduate supply. <strong>Led by Saniya.</strong></p></article>
+    <article><h3>University outcomes</h3><p>Employment rates and starting salaries across course clusters. <strong>Led by Shin Ren.</strong></p></article>
+    <article><h3>Qualification outcomes</h3><p>Income and unemployment comparisons for diploma and degree holders. <strong>Led by Kai Kiat.</strong></p></article>
+  </div>
+</section>
 <section class="dpv-section">
-  <p class="dpv-label">02 / MY CONTRIBUTION</p>
+  <p class="dpv-label">03 / OUR METHOD</p>
+  <h2>Making the datasets comparable.</h2>
+  <p>Our group combined seven public datasets from Singapore government sources. We inspected and cleaned them in Google Colab using Python and pandas, then prepared five main analytical datasets for Power BI. To support comparisons, course, degree, industry and occupation labels were mapped into 11 common clusters, with approximately 292 mappings. We checked missing values, corrected types and applied filters to avoid double counting.</p>
+  <div class="dpv-process">
+    <article><h3>7 raw datasets</h3><p>Education supply, graduate outcomes, vacancies, income and unemployment.</p></article>
+    <article><h3>11 common clusters</h3><p>Shared subject groupings for more consistent descriptive comparisons.</p></article>
+    <article><h3>Power BI dashboards</h3><p>Charts for trends, composition, vacancies, employment and income outcomes.</p></article>
+  </div>
+</section>
+
+<section class="dpv-section">
+  <p class="dpv-label">04 / MY CONTRIBUTION</p>
   <h2>Preparing the data.</h2>
   <p>I explored the university supply dataset using Python and pandas, checked missing values and duplicate records, and worked with the team's shared course-cluster categories. Missing numerical observations were kept as unavailable values rather than changing them to zero. This helped avoid misleading totals and comparisons in Power BI.</p>
   <div class="dpv-process">
@@ -70,7 +106,7 @@
 </section>
 
 <section class="dpv-section dpv-dark">
-  <p class="dpv-label">03 / POWER BI DASHBOARDS</p>
+  <p class="dpv-label">05 / MY POWER BI DASHBOARDS</p>
   <h2>University graduate supply.</h2>
   <p>I created visuals to understand how university graduate supply changed across course clusters. These included graduate trends, an intake–enrolment–graduate comparison, composition by field and growth from 2015 to 2024.</p>
   <figure class="dpv-figure">
@@ -84,7 +120,7 @@
 </section>
 
 <section class="dpv-section dpv-dark" style="background:#1b1b1b">
-  <p class="dpv-label">04 / KEY FINDINGS</p>
+  <p class="dpv-label">06 / UNIVERSITY SUPPLY FINDINGS</p>
   <h2>What the data showed.</h2>
   <div class="dpv-findings">
     <div class="dpv-finding"><strong>+153%</strong><span>Information Technology university graduate growth, 2015–2024.</span></div>
@@ -94,8 +130,33 @@
   <p class="dpv-note">These are graduate-supply trends from our project findings, not measures of job availability or predictions of future demand.</p>
 </section>
 
+
+<section class="dpv-section dpv-dark dpv-team-results">
+  <p class="dpv-label">07 / GROUP FINDINGS</p>
+  <h2>What our wider analysis found.</h2>
+  <p>My university dashboard was one part of a broader investigation. The other dashboards provided context about diploma pathways, job vacancies, salary and employment outcomes.</p>
+  <div class="dpv-team-case">
+    <div><h3>Polytechnic graduate supply</h3><p>The team's polytechnic analysis found that graduate numbers decreased from around 37,000 in 2015 to around 28,000 in 2024. Engineering Sciences and Business &amp; Administration accounted for large shares of the graduate supply.</p><small>Dashboard analysis by Ming Kai</small></div>
+    <img src="../static/images/dpv/polytechnic-supply.png" alt="Polytechnic graduate supply dashboards and findings from the group presentation" loading="lazy">
+  </div>
+  <div class="dpv-team-case">
+    <div><h3>Labour-market demand</h3><p>Job vacancies rose sharply around the post-pandemic recovery before easing by 2024. The team also compared reported vacancies against graduates, while noting that not every vacancy represents a graduate-level position or maps directly to a field of study.</p><small>Dashboard analysis by Saniya</small></div>
+    <img src="../static/images/dpv/labour-demand.png" alt="Labour demand analysis dashboards from the group presentation" loading="lazy">
+  </div>
+  <div class="dpv-team-case">
+    <div><h3>University graduate outcomes</h3><p>Starting salaries generally increased across fields, but employment rates did not always improve alongside them. The analysis showed why salary and employment should be considered together when judging outcomes.</p><small>Dashboard analysis by Shin Ren</small></div>
+    <img src="../static/images/dpv/graduate-outcomes.png" alt="University graduate salary outcome dashboards from the group presentation" loading="lazy">
+  </div>
+  <div class="dpv-team-case">
+    <div><h3>Diploma versus degree outcomes</h3><p>Degree holders generally appeared more often in higher income bands and had relatively resilient unemployment outcomes. However, the income comparison includes workers of different ages and experience levels, so it does not isolate the effect of qualification alone.</p><small>Dashboard analysis by Kai Kiat</small></div>
+    <img src="../static/images/dpv/qualification-outcomes.png" alt="Qualification-level employment and unemployment dashboards from the group presentation" loading="lazy">
+  </div>
+  <div class="dpv-takeaway"><h3>Our conclusion</h3><p>No single post-secondary pathway is best for everyone. Graduate supply, vacancies, salaries and employment rates each answer different questions. Students should consider the field of study and qualification together, alongside their interests and goals. Our findings are descriptive, not predictions of future job demand.</p></div>
+  <p class="dpv-note">This was a five-person group project. The contributions and dashboard ownership shown above follow the group's final report. Screenshots are taken from our presentation.</p>
+</section>
+
 <section class="dpv-section">
-  <p class="dpv-label">05 / REFLECTION</p>
+  <p class="dpv-label">08 / REFLECTION</p>
   <h2>What I learned.</h2>
   <p>This project gave me more experience cleaning real-world data and presenting results in Power BI. I also learned why datasets need consistent labels before they can be compared, and why a rise in graduates does not automatically mean there are more jobs available.</p>
   <p style="margin-top:18px">Working as a team helped me see how education data, graduate outcomes and labour demand can contribute different perspectives to the same question.</p>
