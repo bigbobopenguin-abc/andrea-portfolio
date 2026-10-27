@@ -871,6 +871,22 @@
   .all-projects-main { padding-top:68px; }
 }
 
-/* Projects heading typography matches About and Contact */
+/* Project headings: consistent bold upright type, no italics */
 .featured-projects .projects-heading h2 span,
-.all-projects-page .projects-heading h2 span { font-style:italic; font-weight:500; }
+.all-projects-page .projects-heading h2 span {
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Project headings: same upright font on one line when space allows */
+.featured-projects .projects-heading h2,
+.all-projects-page .projects-heading h2 {
+  font-style: normal;
+  font-weight: 600;
+  white-space: normal;
+  overflow-wrap: normal;
+}
+@media (min-width: 1000px) {
+  .featured-projects .projects-heading h2,
+  .all-projects-page .projects-heading h2 { white-space: nowrap; }
+}
