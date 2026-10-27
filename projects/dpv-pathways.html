@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Andrea Lee's data preparation and visualisation project analysing Singapore university graduate supply using Python, pandas and Power BI.">
+<title>Singapore's Graduate Pathways | Andrea Lee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../static/css/style.css">
+<style>
+.dpv-hero{padding:150px 6vw 92px;background:#f2efe8}
+.dpv-hero .dpv-kicker{font-size:.75rem;letter-spacing:.13em;text-transform:uppercase;font-weight:800}
+.dpv-hero h1{max-width:1000px;margin:24px 0;font-size:clamp(3rem,6.3vw,6.7rem);line-height:1.01;letter-spacing:-.065em;font-weight:700}
+.dpv-intro{max-width:780px;color:#77736c;font-size:1.1rem;line-height:1.8}
+.dpv-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.dpv-tags span{padding:10px 16px;border-radius:30px;border:1px solid #bbb5ab;font-weight:700;font-size:.84rem}
+.dpv-section{padding:85px 6vw;background:#fffdf7}
+.dpv-section.dpv-dark{background:#111;color:#fff}
+.dpv-section .dpv-label{font-size:.75rem;letter-spacing:.13em;text-transform:uppercase;font-weight:800;margin-bottom:25px;color:#777}
+.dpv-section h2{font-weight:700;letter-spacing:-.05em;line-height:1.07;font-size:clamp(2.5rem,4.6vw,4.8rem);margin-bottom:25px}
+.dpv-section p{max-width:930px;line-height:1.85;color:#6d6a63;font-size:1.04rem}
+.dpv-dark p{color:#bdbdbd}
+.dpv-process{margin-top:34px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.dpv-process article{background:#efebe2;border:1px solid #e3dcd0;padding:25px;border-radius:20px}
+.dpv-process h3{font-size:1.4rem;margin:0 0 12px}
+.dpv-process p{font-size:.94rem}
+.dpv-figure{margin:35px 0 0;border-radius:22px;overflow:hidden;background:#fff;border:1px solid #333}
+.dpv-figure img{width:100%;height:auto;display:block;object-fit:contain}
+.dpv-figure figcaption{color:#aaa;padding:18px 22px;font-size:.9rem;line-height:1.7;background:#1b1b1b}
+.dpv-findings{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:35px}
+.dpv-finding{border:1px solid #353535;background:#1d1d1d;border-radius:20px;padding:25px}
+.dpv-finding strong{display:block;color:#caff42;font-size:clamp(2rem,4vw,3rem)}
+.dpv-finding span{display:block;color:#ddd;margin-top:10px;line-height:1.5}
+.dpv-note{margin-top:25px;font-size:.9rem!important}
+.dpv-back{display:inline-flex;margin-top:30px;padding:14px 21px;border-radius:40px;background:#caff42;color:#111;font-weight:800}
+@media(max-width:720px){.dpv-hero{padding:115px 22px 60px}.dpv-section{padding:65px 22px}.dpv-process,.dpv-findings{grid-template-columns:1fr}.dpv-figure{border-radius:12px}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="../index.html">andrea</a>
+  <nav class="project-nav"><a href="../pages/projects.html">← ALL PROJECTS</a><a href="../index.html#contact">CONTACT</a></nav>
+</header>
+<main>
+<section class="dpv-hero">
+  <p class="dpv-kicker">DATA ANALYTICS / DATA PREPARATION &amp; VISUALISATION</p>
+  <h1>Singapore's Graduate Pathways.</h1>
+  <p class="dpv-intro">How have graduate numbers changed in Singapore, and what does that mean for students choosing what to study? In this group project, we explored education pathways and the job market using public datasets. My main focus was university graduate supply from 2015 to 2024.</p>
+  <div class="dpv-tags"><span>Python</span><span>Pandas</span><span>Google Colab</span><span>Power BI</span><span>Data Visualisation</span><span>Group project · 2026</span></div>
+</section>
+
+<section class="dpv-section">
+  <p class="dpv-label">01 / THE PROJECT</p>
+  <h2>Looking beyond graduate numbers.</h2>
+  <p>Our team explored whether different post-secondary pathways were associated with different job opportunities and outcomes in Singapore. We looked at university and polytechnic graduate supply, vacancies, employment, salaries and qualification outcomes, using a common analysis window of 2015–2024.</p>
+  <p style="margin-top:18px">The wider project used seven public datasets. Each group member worked on a different area of the analysis. I was responsible for university graduate supply, and also helped with the team slides and data exploration.</p>
+</section>
+
+<section class="dpv-section">
+  <p class="dpv-label">02 / MY CONTRIBUTION</p>
+  <h2>Preparing the data.</h2>
+  <p>I explored the university supply dataset using Python and pandas, checked missing values and duplicate records, and worked with the team's shared course-cluster categories. Missing numerical observations were kept as unavailable values rather than changing them to zero. This helped avoid misleading totals and comparisons in Power BI.</p>
+  <div class="dpv-process">
+    <article><h3>01 / Explore</h3><p>Review the university dataset, column types, missing values and duplicate records.</p></article>
+    <article><h3>02 / Prepare</h3><p>Clean and standardise course categories to align with the team's shared clusters.</p></article>
+    <article><h3>03 / Visualise</h3><p>Build Power BI charts showing trends, intake and enrolment, graduate composition and growth.</p></article>
+  </div>
+</section>
+
+<section class="dpv-section dpv-dark">
+  <p class="dpv-label">03 / POWER BI DASHBOARDS</p>
+  <h2>University graduate supply.</h2>
+  <p>I created visuals to understand how university graduate supply changed across course clusters. These included graduate trends, an intake–enrolment–graduate comparison, composition by field and growth from 2015 to 2024.</p>
+  <figure class="dpv-figure">
+    <img src="../static/images/dpv/university-supply-trends.png" alt="Andrea's Power BI university graduate trend and intake enrolment graduate comparison with findings" loading="lazy">
+    <figcaption>University graduate supply trends and intake, enrolment and graduate comparison — from our group presentation.</figcaption>
+  </figure>
+  <figure class="dpv-figure">
+    <img src="../static/images/dpv/university-supply-growth.png" alt="Andrea's Power BI university graduate composition and growth visualisations" loading="lazy">
+    <figcaption>Graduate composition and percentage growth across university fields — from our group presentation.</figcaption>
+  </figure>
+</section>
+
+<section class="dpv-section dpv-dark" style="background:#1b1b1b">
+  <p class="dpv-label">04 / KEY FINDINGS</p>
+  <h2>What the data showed.</h2>
+  <div class="dpv-findings">
+    <div class="dpv-finding"><strong>+153%</strong><span>Information Technology university graduate growth, 2015–2024.</span></div>
+    <div class="dpv-finding"><strong>+104%</strong><span>Health Sciences university graduate growth over the same period.</span></div>
+    <div class="dpv-finding"><strong>−58%</strong><span>Change in Natural &amp; Mathematical Sciences university graduates.</span></div>
+  </div>
+  <p class="dpv-note">These are graduate-supply trends from our project findings, not measures of job availability or predictions of future demand.</p>
+</section>
+
+<section class="dpv-section">
+  <p class="dpv-label">05 / REFLECTION</p>
+  <h2>What I learned.</h2>
+  <p>This project gave me more experience cleaning real-world data and presenting results in Power BI. I also learned why datasets need consistent labels before they can be compared, and why a rise in graduates does not automatically mean there are more jobs available.</p>
+  <p style="margin-top:18px">Working as a team helped me see how education data, graduate outcomes and labour demand can contribute different perspectives to the same question.</p>
+  <a class="dpv-back" href="../pages/projects.html">← Back to all projects</a>
+</section>
+</main>
+<footer><a class="logo" href="../index.html">andrea</a><p>Lee En Qi Andrea · Portfolio 2026</p><a href="../index.html#contact">Get in touch ↗</a></footer>
+</body>
+</html>
