@@ -890,3 +890,41 @@
   .featured-projects .projects-heading h2,
   .all-projects-page .projects-heading h2 { white-space: nowrap; }
 }
+
+/* CONSISTENT HEADINGS — all homepage sections */
+.home-hero-copy h1,
+.about h2,
+.contact h2,
+.featured-projects .projects-heading h2,
+.all-projects-page .projects-heading h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -.06em;
+  line-height: 1.06;
+  white-space: normal;
+  overflow-wrap: normal;
+}
+.home-hero-copy h1 span,
+.home-hero-copy h1 em,
+.about h2 span,
+.contact h2 span,
+.featured-projects .projects-heading h2 span,
+.all-projects-page .projects-heading h2 span {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+}
+/* Avoid enormous headings spilling outside their columns. */
+.home-hero-copy h1 { font-size: clamp(2.65rem, 5.5vw, 6rem); }
+.about h2, .contact h2 { font-size: clamp(2.7rem, 4.5vw, 5.5rem); }
+.featured-projects .projects-heading h2,
+.all-projects-page .projects-heading h2 { font-size: clamp(2.7rem, 4.7vw, 5.5rem); }
+@media (max-width: 680px) {
+  .home-hero-copy h1 { font-size: clamp(2.35rem, 9.3vw, 3.5rem); }
+  .about h2, .contact h2,
+  .featured-projects .projects-heading h2,
+  .all-projects-page .projects-heading h2 { font-size: clamp(2.35rem, 9vw, 3.35rem); }
+}
+
+@media (min-width: 1000px) { .featured-projects .projects-heading h2, .all-projects-page .projects-heading h2 { white-space: normal; } }

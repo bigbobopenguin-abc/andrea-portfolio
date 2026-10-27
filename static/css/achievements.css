@@ -7,3 +7,21 @@
 /* Testimonials use the same evidence-card layout as certificates and awards. */
 .aw-testimonial-byline{font-size:.83rem;color:#77736c;margin:0 0 22px!important;line-height:1.55}
 #testimonials .aw-card-content .aw-action{margin-top:auto}
+
+/* CONSISTENT HEADINGS — achievements page */
+.achievements-page .aw-hero h1,
+.achievements-page .aw-section-head h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -.06em;
+  line-height: 1.08;
+  white-space: normal;
+  overflow-wrap: normal;
+}
+.achievements-page .aw-hero h1 { font-size: clamp(2.5rem, 5.7vw, 6.5rem); }
+.achievements-page .aw-section-head h2 { font-size: clamp(2.5rem, 4.8vw, 5.2rem); }
+@media (max-width: 680px) {
+  .achievements-page .aw-hero h1 { font-size: clamp(2.35rem, 8.3vw, 3.5rem); }
+  .achievements-page .aw-section-head h2 { font-size: clamp(2.2rem, 8vw, 3.2rem); }
+}
