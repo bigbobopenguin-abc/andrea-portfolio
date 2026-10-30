@@ -23,3 +23,11 @@
 .intern-gallery-work .intern-photo img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:contain;background:#f1eee7;border-radius:12px}
 .intern-gallery-work .intern-photo figcaption{font-weight:700;padding:14px 7px 5px;color:#24231f;font-size:.9rem}
 @media(max-width:650px){.intern-gallery-work{grid-template-columns:1fr}.intern-gallery-group{margin-top:38px}}
+
+/* 2026 internship photos: show each COMPLETE image with no crop or forced aspect ratio */
+.intern-gallery-work { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; align-items:start; }
+.intern-gallery-work .intern-photo { margin:0; min-width:0; padding:14px; background:#fffdf7; border:1px solid #ddd8ce; border-radius:22px; }
+.intern-gallery-work .intern-photo-link { display:block; text-decoration:none; border-radius:12px; background:#f1eee7; overflow:hidden; }
+.intern-gallery-work .intern-photo img { display:block; width:100%; height:auto !important; max-height:none !important; aspect-ratio:auto !important; object-fit:contain !important; object-position:center !important; border-radius:0; }
+.intern-gallery-work .intern-photo figcaption { font-weight:700; padding:14px 7px 5px; color:#24231f; font-size:.9rem; }
+@media(max-width:700px){ .intern-gallery-work{grid-template-columns:1fr;} }
