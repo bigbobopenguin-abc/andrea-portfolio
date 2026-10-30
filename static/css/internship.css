@@ -123,3 +123,47 @@
 .internship-page .ia-leadership-points h3{font-size:clamp(1.2rem,2vw,1.65rem);line-height:1.15;letter-spacing:-.035em;margin:11px 0 7px;font-style:normal}
 .internship-page .ia-leadership-points p{color:#68645c;line-height:1.7;font-size:.96rem}
 @media(max-width:780px){.internship-page .ia-leadership-layout{grid-template-columns:1fr}}
+
+/* 08 / Learning section — featured leadership statement + concise lessons */
+.internship-page .ia-takeaways-redesign .aw-section-head{max-width:900px}
+.internship-page .ia-takeaways-redesign .aw-section-head p{max-width:760px}
+.internship-page .ia-learning-layout{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px;margin-top:40px;align-items:stretch}
+.internship-page .ia-learning-feature{background:#caff42;color:#111;border-radius:23px;min-height:440px;padding:clamp(26px,3vw,42px);display:flex;flex-direction:column}
+.internship-page .ia-learning-feature-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;font-size:.7rem;letter-spacing:.13em;font-weight:800}
+.internship-page .ia-learning-feature-top span:last-child{font-size:2rem;line-height:1}
+.internship-page .ia-learning-feature h3{font-size:clamp(2.45rem,4.3vw,5.3rem);line-height:1.0;letter-spacing:-.065em;font-weight:750;margin:45px 0 28px;color:#111}
+.internship-page .ia-learning-feature-dot{font-size:.6em;margin-left:.13em}
+.internship-page .ia-learning-feature>p{max-width:520px;font-size:1rem;line-height:1.8;color:#292d16}
+.internship-page .ia-learning-feature-bottom{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:30px}
+.internship-page .ia-learning-feature-bottom span{font-size:.67rem;font-weight:800;letter-spacing:.055em;border:1px solid #1119;border-radius:100px;padding:9px 11px}
+.internship-page .ia-learning-list{display:grid;gap:12px}
+.internship-page .ia-learning-item{display:grid;grid-template-columns:35px minmax(0,1fr) 24px;gap:14px;align-items:start;border:1px solid #3a3a3a;border-radius:20px;background:#1e1e1e;padding:clamp(20px,2.2vw,30px)}
+.internship-page .ia-learning-num{color:#caff42;font-size:.83rem;font-weight:800}
+.internship-page .ia-learning-icon{font-size:1.15rem;color:#caff42}
+.internship-page .ia-learning-item h3{font-size:clamp(1.25rem,1.8vw,1.72rem);font-weight:700;letter-spacing:-.035em;line-height:1.2;margin:0 0 10px;color:#fff}
+.internship-page .ia-learning-item p{color:#b8b8b8;line-height:1.7;font-size:.92rem;margin:0;max-width:550px}
+.internship-page .ia-learning-closing{display:flex;align-items:flex-start;gap:clamp(20px,6vw,120px);border-top:1px solid #444;margin-top:38px;padding-top:28px}
+.internship-page .ia-learning-closing>span{color:#caff42;flex:0 0 220px;font-size:.69rem;letter-spacing:.12em;font-weight:800}
+.internship-page .ia-learning-closing>p{color:#ddd;max-width:800px;font-size:1.1rem;line-height:1.6;margin:0}
+@media(max-width:850px){.internship-page .ia-learning-layout{grid-template-columns:1fr}.internship-page .ia-learning-feature{min-height:355px}.internship-page .ia-learning-feature h3{margin:35px 0 20px}.internship-page .ia-learning-closing{flex-direction:column;gap:12px}.internship-page .ia-learning-closing>span{flex:auto}}
+@media(max-width:600px){.internship-page .ia-learning-feature{padding:25px;min-height:350px}.internship-page .ia-learning-item{grid-template-columns:26px minmax(0,1fr);gap:12px;padding:22px}.internship-page .ia-learning-icon{display:none}.internship-page .ia-learning-feature h3{font-size:clamp(2.5rem,10vw,3.8rem)}}
+
+/* 09 / Genuine employer recommendation */
+.internship-page .ia-recommendation{background:#f2efe8}
+.internship-page .ia-recommendation-card{margin-top:35px;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.75fr);border:1px solid #dcd8cf;border-radius:24px;overflow:hidden;background:#fffdf7}
+.internship-page .ia-recommendation-main{padding:clamp(27px,4vw,60px)}
+.internship-page .ia-recommendation-kicker,.internship-page .ia-recommendation-label,.internship-page .ia-recommendation-duration{display:block;font-size:.71rem;letter-spacing:.13em;font-weight:800}
+.internship-page .ia-recommendation-quote-mark{color:#7ca02a;font-size:5rem;font-weight:700;line-height:1;margin-top:20px;height:62px}
+.internship-page .ia-recommendation-main blockquote{color:#111;font-size:clamp(1.65rem,2.6vw,3.1rem);font-weight:700;letter-spacing:-.047em;line-height:1.18;margin:5px 0 25px;border:0;padding:0;max-width:800px}
+.internship-page .ia-recommendation-main>p{max-width:650px;color:#69655e;font-size:1.01rem;line-height:1.75}
+.internship-page .ia-recommendation-button{display:inline-flex;margin-top:30px;padding:15px 23px;background:#caff42;color:#111!important;font-size:.91rem;font-weight:800;border-radius:100px;text-decoration:none;transition:transform .2s}
+.internship-page .ia-recommendation-button:hover{transform:translateY(-2px)}
+.internship-page .ia-recommendation-side{background:#181818;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(28px,3.5vw,52px)}
+.internship-page .ia-recommendation-initial{font-family:'DM Sans',sans-serif;font-weight:800;font-size:clamp(3rem,5.5vw,6rem);letter-spacing:-.08em;color:#caff42;line-height:1;margin-bottom:auto;padding-bottom:70px}
+.internship-page .ia-recommendation-initial span{font-size:.55em;margin-left:10px}
+.internship-page .ia-recommendation-label{color:#aaa}
+.internship-page .ia-recommendation-side h3{font-weight:750;font-size:clamp(1.5rem,2.2vw,2.4rem);letter-spacing:-.04em;margin:13px 0 4px}
+.internship-page .ia-recommendation-side p{color:#c1c1c1;line-height:1.5;margin:0}
+.internship-page .ia-recommendation-divider{height:1px;background:#444;margin:25px 0}
+.internship-page .ia-recommendation-duration{color:#caff42;margin-top:18px}
+@media(max-width:820px){.internship-page .ia-recommendation-card{grid-template-columns:1fr}.internship-page .ia-recommendation-initial{padding-bottom:25px}}
