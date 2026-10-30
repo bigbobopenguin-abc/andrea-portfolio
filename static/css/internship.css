@@ -112,3 +112,14 @@
   .internship-page .ia-image-frame{height:300px;padding:14px}
   .internship-page .ia-photo-caption{min-height:72px}
 }
+
+/* Leadership section follows the same editorial/card system as the Achievements page. */
+.internship-page .ia-leadership-layout{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(22px,5vw,72px);align-items:start;margin-top:34px}
+.internship-page .ia-leadership-intro p{font-size:1.08rem;line-height:1.8;color:#59564f;max-width:640px}
+.internship-page .ia-leadership-intro p+p{margin-top:18px}
+.internship-page .ia-leadership-points{display:grid;gap:12px}
+.internship-page .ia-leadership-points article{padding:24px 26px;border:1px solid #ddd9d0;background:#fffdf7;border-radius:18px}
+.internship-page .ia-leadership-points article>span{font-size:.71rem;font-weight:800;letter-spacing:.13em;color:#736f67}
+.internship-page .ia-leadership-points h3{font-size:clamp(1.2rem,2vw,1.65rem);line-height:1.15;letter-spacing:-.035em;margin:11px 0 7px;font-style:normal}
+.internship-page .ia-leadership-points p{color:#68645c;line-height:1.7;font-size:.96rem}
+@media(max-width:780px){.internship-page .ia-leadership-layout{grid-template-columns:1fr}}
