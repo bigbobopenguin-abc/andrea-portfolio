@@ -45,3 +45,39 @@
 @media(max-width:760px){.internship-page .ia-overview-grid{grid-template-columns:1fr}.internship-page .ia-group-heading{display:block}.internship-page .ia-group-heading>p{margin-top:13px;max-width:670px}.internship-page .ia-gallery-group+.ia-gallery-group{margin-top:60px;padding-top:55px}.internship-page .ia-image-frame{height:260px}}
 @media(max-width:600px){.internship-page .ia-hero{padding:82px 22px 75px}.internship-page .ia-hero h1{font-size:clamp(2.45rem,9vw,3.5rem)}.internship-page .ia-hero>p:not(.aw-eyebrow){font-size:1rem}.internship-page .ia-facts-grid,.internship-page .ia-responsibilities-grid,.internship-page .ia-photo-grid,.internship-page .ia-takeaway-grid{grid-template-columns:1fr}.internship-page .ia-fact{min-height:112px;padding:22px}.internship-page .ia-responsibility-card,.internship-page .ia-takeaway{min-height:0;padding:26px}.internship-page .ia-responsibility-card h3{margin-top:22px}.internship-page .ia-photo-card{border-radius:18px}.internship-page .ia-image-frame{height:auto;min-height:260px;max-height:520px;padding:12px}.internship-page .ia-image-frame img{height:auto;max-height:496px;width:100%;object-fit:contain}.internship-page .ia-gallery-group+.ia-gallery-group{margin-top:54px;padding-top:48px}.internship-page .ia-group-heading h3{font-size:2.1rem}}
 @media(prefers-reduced-motion:reduce){.internship-page .ia-responsibility-card,.internship-page .ia-photo-card,.internship-page .ia-hero .aw-jump a{transition:none}}
+
+/* FULL PHOTO DISPLAY — retain original width and height, no clipping */
+.internship-page .ia-photo-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+.internship-page .ia-photo-card,
+.internship-page .ia-photo-card a {
+  height: auto;
+}
+.internship-page .ia-image-frame {
+  display: block !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  padding: 12px;
+}
+.internship-page .ia-image-frame img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+.internship-page .ia-photo-caption {
+  flex: none;
+}
+@media (max-width: 700px) {
+  .internship-page .ia-photo-grid {
+    grid-template-columns: 1fr;
+  }
+}
