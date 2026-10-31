@@ -14,6 +14,7 @@ if(form){form.addEventListener("submit",e=>{e.preventDefault();const n=document.
    STACKED PHOTO CAROUSEL
 ===================================================== */
 
+if (document.querySelectorAll(".photo-card").length && document.getElementById("carouselPrev") && document.getElementById("carouselNext") && document.getElementById("carouselCurrent")) {
 const carouselCards =
     Array.from(document.querySelectorAll(".photo-card"));
 
@@ -95,6 +96,8 @@ carouselPrev.addEventListener("click", () => {
 
 
 updateCarousel();
+
+}
 // Component details for the architecture walkthroughs.
 document.querySelectorAll('.architecture-section').forEach(section => {
   const detail = section.querySelector('.architecture-detail');

@@ -994,3 +994,68 @@ body .dpv-hero h1 { max-width: 1100px; }
   }
   body .journey-heading { margin-bottom: 28px; }
 }
+
+
+/* ==========================================================
+   CONSISTENT PROJECT HEADING SCALE
+   Reference: AWS "Explore the cloud stack" / "From network
+   design to a working web application" sections.
+   Only project detail pages. Does not change site navigation,
+   homepage, project directory, awards or internship pages.
+   ========================================================== */
+
+/* Major project section titles */
+body.project-page .case-main h2,
+body.project-page .case-block h2,
+body.project-page .journey-heading h2,
+body.project-page .architecture-intro h2,
+body .ml-section h2,
+body .dpv-section h2 {
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(2.25rem, 3.8vw, 4.25rem);
+  line-height: 1.1;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.055em;
+  overflow-wrap: break-word;
+}
+
+/* Main title: a modest step larger than section titles */
+body.project-page .case-hero .case-heading h1,
+body .ml-hero h1,
+body .dpv-hero h1 {
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(2.9rem, 4.6vw, 5rem);
+  line-height: 1.07;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.055em;
+  overflow-wrap: break-word;
+}
+
+/* Consistent gap beneath headings */
+body.project-page .journey-heading h2,
+body.project-page .architecture-intro h2,
+body .ml-section h2,
+body .dpv-section h2 {
+  margin-bottom: 20px;
+}
+
+/* Prevent old mobile rules from making one project larger than another */
+@media (max-width: 700px) {
+  body.project-page .case-main h2,
+  body.project-page .case-block h2,
+  body.project-page .journey-heading h2,
+  body.project-page .architecture-intro h2,
+  body .ml-section h2,
+  body .dpv-section h2 {
+    font-size: clamp(1.95rem, 7.1vw, 2.8rem);
+    line-height: 1.13;
+  }
+  body.project-page .case-hero .case-heading h1,
+  body .ml-hero h1,
+  body .dpv-hero h1 {
+    font-size: clamp(2.4rem, 8vw, 3.35rem);
+    line-height: 1.1;
+  }
+}
