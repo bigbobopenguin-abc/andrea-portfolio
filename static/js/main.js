@@ -95,3 +95,14 @@ carouselPrev.addEventListener("click", () => {
 
 
 updateCarousel();
+// Component details for the architecture walkthroughs.
+document.querySelectorAll('.architecture-section').forEach(section => {
+  const detail = section.querySelector('.architecture-detail');
+  section.querySelectorAll('.architecture-node').forEach(button => {
+    button.addEventListener('click', () => {
+      section.querySelectorAll('.architecture-node').forEach(node => node.setAttribute('aria-pressed', String(node === button)));
+      detail.querySelector('h3').textContent = button.dataset.title;
+      detail.querySelector('p').textContent = button.dataset.detail;
+    });
+  });
+});
