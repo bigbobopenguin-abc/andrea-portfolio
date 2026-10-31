@@ -8,6 +8,84 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../static/css/style.css">
+
+  <style>
+    /* Scoped to the AWS build walkthrough; does not affect other pages. */
+    .project-page .aws-build-journey .journey-heading {
+      max-width: 1120px;
+      margin-bottom: 42px;
+    }
+    .project-page .aws-build-journey .journey-heading .section-label {
+      margin-bottom: 17px;
+    }
+    .project-page .aws-build-journey .journey-heading h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(2.5rem, 4.1vw, 4.75rem);
+      font-weight: 700;
+      font-style: normal;
+      letter-spacing: -.055em;
+      line-height: 1.08;
+      max-width: 1000px;
+      margin: 0;
+      text-wrap: balance;
+    }
+    .project-page .aws-build-journey .journey-heading > p:last-child {
+      max-width: 740px;
+      margin: 22px 0 0;
+      font-size: clamp(.97rem, 1.2vw, 1.08rem);
+      line-height: 1.7;
+      color: #69665e;
+    }
+    .project-page .aws-build-journey .journey-list {
+      gap: 22px;
+    }
+    .project-page .aws-build-journey .journey-row {
+      grid-template-columns: minmax(0, 1.06fr) minmax(0, .94fr);
+      align-items: stretch;
+    }
+    .project-page .aws-build-journey .journey-image {
+      min-height: 0;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: #fffdf8;
+    }
+    .project-page .aws-build-journey .journey-image img {
+      width: 100%;
+      height: auto;
+      max-height: 410px;
+      object-fit: contain;
+      display: block;
+      background: transparent;
+    }
+    .project-page .aws-build-journey .journey-copy {
+      padding: clamp(26px, 3vw, 46px);
+    }
+    .project-page .aws-build-journey .journey-copy h3 {
+      font-size: clamp(1.7rem, 2.6vw, 3rem);
+      line-height: 1.12;
+    }
+    @media(max-width: 920px) {
+      .project-page .aws-build-journey .journey-row {
+        grid-template-columns: 1fr;
+      }
+      .project-page .aws-build-journey .journey-row:nth-child(even) .journey-image {
+        order: 0;
+      }
+      .project-page .aws-build-journey .journey-image img {
+        max-height: 390px;
+      }
+    }
+    @media(max-width: 650px) {
+      .project-page .aws-build-journey .journey-heading {margin-bottom: 28px;}
+      .project-page .aws-build-journey .journey-heading h2 {font-size: clamp(2.3rem, 9vw, 3.4rem);}
+      .project-page .aws-build-journey .journey-heading > p:last-child {margin-top: 17px;}
+      .project-page .aws-build-journey .journey-image {padding: 10px;}
+      .project-page .aws-build-journey .journey-copy {padding: 25px;}
+    }
+  </style>
 </head>
 <body class="project-page">
 <div id="progressBar" class="progress-bar"></div>
@@ -51,10 +129,10 @@
 </section>
 
 <section class="architecture-section section" aria-labelledby="architecture-title"><div class="architecture-intro"><p class="section-label">CLICKABLE ARCHITECTURE</p><h2 id="architecture-title">Explore the cloud stack.</h2><p>Select a component to see its place in the gardening products application.</p></div><div class="architecture-layout"><div class="architecture-flow" role="group" aria-label="Architecture components"><button type="button" class="architecture-node" aria-pressed="true" data-title="Visitor" data-detail="A visitor opens the product listing in a browser and sends an HTTP request to the hosted application."><span>01</span><strong>Visitor</strong><small>HTTP request</small></button><button type="button" class="architecture-node" aria-pressed="false" data-title="VPC and subnets" data-detail="The custom VPC separates the public web layer from private database subnets. Security groups control allowed traffic."><span>02</span><strong>VPC and subnets</strong><small>Network boundary</small></button><button type="button" class="architecture-node" aria-pressed="false" data-title="EC2 web server" data-detail="An Ubuntu EC2 instance hosts the Flask application, served through Nginx and Gunicorn."><span>03</span><strong>EC2 web server</strong><small>Flask · Nginx · Gunicorn</small></button><button type="button" class="architecture-node" aria-pressed="false" data-title="RDS MySQL" data-detail="Amazon RDS MySQL holds structured product data in a private database subnet group."><span>04</span><strong>RDS MySQL</strong><small>Product records</small></button><button type="button" class="architecture-node" aria-pressed="false" data-title="Amazon S3" data-detail="Amazon S3 stores the product images retrieved by the application for display."><span>05</span><strong>Amazon S3</strong><small>Product images</small></button></div><div class="architecture-detail" aria-live="polite"><span>SELECTED COMPONENT</span><h3>Visitor</h3><p>A visitor opens the product listing in a browser and sends an HTTP request to the hosted application.</p></div></div><p class="architecture-foot">The diagram is a guided explanation of the documented project architecture; arrows show the main request and data path.</p></section>
-<section class="visual-journey section">
+<section class="visual-journey section aws-build-journey">
   <div class="journey-heading reveal">
     <p class="section-label">CLOUD ARCHITECTURE & DEVELOPMENT</p>
-    <h2>From network design to deployed web application.</h2>
+    <h2>From network design to a working web application.</h2>
     <p>The project connects AWS networking, compute, database and object storage into one working cloud solution.</p>
   </div>
 
