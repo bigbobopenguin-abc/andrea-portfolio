@@ -66,3 +66,90 @@ body .ml-section:not(.ml-dark),body .dpv-section:not(.dpv-dark){background:var(-
   body.project-page .case-main h2,body.project-page .case-block h2,body.project-page .architecture-intro h2,body.project-page .journey-heading h2,body .ml-section h2,body .dpv-section h2{font-size:clamp(2rem,7.3vw,2.8rem)!important}
   body.project-page .case-cover{margin-top:34px;border-radius:15px!important}
 }
+
+/* ================================================================
+   CENTERED EDITORIAL LAYOUT — project detail pages only
+   Width mirrors Lunar Expedition: 1140px on large screens.
+   Background sections stay full-width; contents sit inside a centred
+   column with equal space on both sides. No text centering is forced.
+   ================================================================ */
+:root { --andrea-detail-width: 1140px; }
+
+/* These projects use two markup patterns. Keep each section's native
+   grid layout, but centre the whole grid via symmetrical gutters. */
+body.project-page > main > section,
+body:has(.ml-hero) > main > section.ml-section,
+body:has(.ml-hero) > main > section.ml-hero,
+body:has(.dpv-hero) > main > section.dpv-section,
+body:has(.dpv-hero) > main > section.dpv-hero {
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: max(24px, calc((100vw - var(--andrea-detail-width)) / 2)) !important;
+  padding-right: max(24px, calc((100vw - var(--andrea-detail-width)) / 2)) !important;
+}
+
+/* Do not force every heading into the entire 1140px width. Hero copy
+   is compact, while figures and interactive diagrams can use the width. */
+body.project-page .case-heading {
+  width: 100%;
+  max-width: 940px;
+  margin-left: 0;
+  margin-right: 0;
+}
+body.project-page .case-heading h1,
+body:has(.ml-hero) .ml-hero h1,
+body:has(.dpv-hero) .dpv-hero h1 {
+  max-width: 1050px !important;
+  font-size: clamp(2.9rem, 5vw, 5rem) !important;
+}
+body.project-page .case-cover {
+  box-sizing: border-box;
+  width: 100% !important;
+  max-width: var(--andrea-detail-width) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+body.project-page .case-summary {
+  grid-template-columns: minmax(210px, 0.35fr) minmax(0, 0.65fr);
+  gap: clamp(28px, 4vw, 80px);
+}
+body.project-page .visual-journey,
+body.project-page .case-summary,
+body.project-page .architecture-section,
+body.project-page .fitness-features,
+body.project-page .fitness-video,
+body.project-page .fitness-testing,
+body.project-page .case-sections,
+body.project-page .next-project {
+  max-width: none;
+}
+body.project-page .architecture-intro,
+body.project-page .journey-heading {
+  max-width: 900px;
+}
+body:has(.ml-hero) .ml-hero > *,
+body:has(.dpv-hero) .dpv-hero > * {
+  max-width: 1140px;
+}
+/* Some older sections wrap content in a .container element. */
+body.project-page main > section > .container {
+  width: 100%;
+  max-width: var(--andrea-detail-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 760px) {
+  body.project-page > main > section,
+  body:has(.ml-hero) > main > section.ml-section,
+  body:has(.ml-hero) > main > section.ml-hero,
+  body:has(.dpv-hero) > main > section.dpv-section,
+  body:has(.dpv-hero) > main > section.dpv-hero {
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+  }
+  body.project-page .case-summary {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+}
