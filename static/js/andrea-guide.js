@@ -49,10 +49,17 @@
       button,input,a{font:inherit}
       button{cursor:pointer}
       button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #70a400;outline-offset:3px}
-      .launcher{pointer-events:auto;position:fixed;right:22px;bottom:22px;min-height:55px;border:1px solid #111;border-radius:999px;background:#caff42;color:#111;padding:11px 17px;display:flex;align-items:center;gap:9px;box-shadow:0 9px 34px #0003;font-size:13px;font-weight:800;transition:transform .16s ease}
-      .launcher:hover{transform:translateY(-3px)}
-      .spark{font-size:22px;line-height:1}
-      .panel{pointer-events:auto;position:fixed;right:22px;bottom:91px;width:min(390px,calc(100vw - 24px));height:min(555px,calc(100dvh - 110px));min-height:320px;display:none;flex-direction:column;background:#fffdf8;border:1px solid #d9d4c9;border-radius:22px;box-shadow:0 22px 68px #0004;overflow:hidden;color:#111}
+      .launcher{pointer-events:auto;position:fixed;right:var(--apg-right,24px);bottom:var(--apg-bottom,24px);display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:7px 19px 7px 8px;border:1px solid #393834;border-radius:999px;background:#151515;color:#fff;box-shadow:0 10px 28px rgba(0,0,0,.19);font-family:'DM Sans',Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:-.01em;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+      .launcher:hover{transform:translateY(-3px);background:#252525;box-shadow:0 13px 33px rgba(0,0,0,.26)}
+      .launcher:active{transform:translateY(0)}
+      .launcher.dragging{cursor:grabbing;transform:none!important;transition:none;touch-action:none}
+      @media(max-width:530px){.launcher{touch-action:pan-y}}
+      .launcher:focus:not(:focus-visible){outline:none}
+      .launcher-icon{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:50%;background:#caff42;color:#111}
+      .launcher-icon svg{width:19px;height:19px;display:block}
+      .launcher-label{line-height:1.2}
+      .launcher[aria-expanded="true"]{background:#252525}
+      .panel{pointer-events:auto;position:fixed;right:var(--apg-panel-right,22px);bottom:var(--apg-panel-bottom,91px);width:min(390px,calc(100vw - 24px));height:min(555px,calc(100dvh - 110px));min-height:min(320px,calc(100dvh - 30px));display:none;flex-direction:column;background:#fffdf8;border:1px solid #d9d4c9;border-radius:22px;box-shadow:0 22px 68px #0004;overflow:hidden;color:#111}
       .panel.open{display:flex;animation:pop .19s ease-out}
       @keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
       .head{flex:none;display:flex;align-items:center;gap:11px;padding:15px 16px;border-bottom:1px solid #e8e3d8;background:#f2efe8}
@@ -78,8 +85,52 @@
       .send{flex:none;border:0;background:#caff42;border-radius:10px;width:38px;height:37px;display:grid;place-items:center;color:#111;font-size:22px;font-weight:900}
       .foot{flex:none;margin:0;padding:9px 8px 12px;color:#77736b;text-align:center;font-size:10px}
       .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-      @media(max-width:530px){.launcher{right:13px;bottom:13px}.launcher-label{display:none}.panel{right:8px;bottom:78px;width:calc(100vw - 16px);height:min(570px,calc(100dvh - 90px))}}
+      @media(max-width:850px){.launcher-label{display:none}.launcher{width:54px;height:54px;padding:7px}.launcher-icon{width:38px;height:38px}}
+      @media(max-width:530px){.launcher{right:var(--apg-right,13px);bottom:var(--apg-bottom,13px)}.launcher-label{display:none}.launcher{width:54px;height:54px;padding:7px}.launcher-icon{width:38px;height:38px}.panel{right:var(--apg-panel-right,8px);bottom:var(--apg-panel-bottom,78px);width:calc(100vw - 16px);height:min(570px,calc(100dvh - 90px))}}
       @media(prefers-reduced-motion:reduce){.launcher{transition:none}.panel.open{animation:none}}
+      /* Fixed side-tab: keeps the page footer and Back to top button clear. */
+      .launcher,
+      .launcher:hover,
+      .launcher:active {
+        position:fixed;
+        top:50%;
+        right:0;
+        bottom:auto;
+        left:auto;
+        transform:translateY(-50%);
+        width:40px;
+        min-height:60px;
+        height:60px;
+        padding:7px 5px;
+        border-radius:14px 0 0 14px;
+        border-right:0;
+        gap:0;
+        box-shadow:0 5px 16px rgba(0,0,0,.16);
+        touch-action:manipulation;
+      }
+      .launcher:hover {width:46px;background:#252525;box-shadow:0 6px 18px rgba(0,0,0,.22)}
+      .launcher-label {display:none!important}
+      .launcher-icon {width:29px;height:29px;flex:none}
+      .launcher-icon svg {width:17px;height:17px}
+      .panel,
+      .panel.open {
+        position:fixed;
+        top:50%;
+        right:49px;
+        bottom:auto;
+        left:auto;
+        transform:translateY(-50%);
+        height:min(555px,calc(100dvh - 32px));
+        width:min(390px,calc(100vw - 65px));
+        min-height:0;
+      }
+      .panel.open {animation:none}
+      @media (max-width:530px) {
+        .launcher,.launcher:hover,.launcher:active {top:48%;right:0;bottom:auto;width:37px;height:56px;min-height:56px;padding:5px 4px}
+        .launcher-icon{width:28px;height:28px}
+        .panel,.panel.open {top:50%;right:8px;bottom:auto;width:calc(100vw - 16px);height:min(570px,calc(100dvh - 28px));}
+      }
+
     </style>
     <section class="panel" role="dialog" aria-modal="false" aria-label="Andrea's portfolio guide" aria-hidden="true">
       <header class="head"><div class="mark" aria-hidden="true">a</div><div class="head-copy"><b>Andrea's portfolio guide</b><small>Explore my projects & experience</small></div><button type="button" class="close" aria-label="Close chat">×</button></header>
@@ -88,7 +139,7 @@
       <form class="form"><label class="sr" for="apg-input">Ask Andrea's portfolio guide</label><input id="apg-input" type="text" maxlength="300" required placeholder="Ask me something…" autocomplete="off"/><button type="submit" class="send" aria-label="Send message">↑</button></form>
       <p class="foot">Instant portfolio answers · No AI API or account required</p>
     </section>
-    <button type="button" class="launcher" aria-expanded="false" aria-label="Open portfolio guide"><span class="spark" aria-hidden="true">✳</span><span class="launcher-label">Ask Andrea's bot</span></button>`;
+    <button type="button" class="launcher" aria-expanded="false" aria-label="Open Andrea's portfolio guide" title="Open portfolio guide"><span class="launcher-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8.5 8.5 0 0 1-8.5 8.5 8.7 8.7 0 0 1-3.5-.7L3 21l1.7-4.8A8.5 8.5 0 1 1 20 11.5Z"/><path d="M8 11h7M8 14h4"/></svg></span><span class="launcher-label">Ask about my work</span></button>`;
   document.body.appendChild(host);
 
   const launcher = shadow.querySelector('.launcher');
@@ -119,10 +170,13 @@
   let started=false;
   function setOpen(value){
     panel.classList.toggle('open',value);panel.setAttribute('aria-hidden',String(!value));launcher.setAttribute('aria-expanded',String(value));
-    launcher.setAttribute('aria-label',value?'Close portfolio guide':'Open portfolio guide');
+    launcher.setAttribute('aria-label',value?"Close Andrea's portfolio guide":"Open Andrea's portfolio guide");
     if(value){if(!started){display('Hey! ✳ I’m Andrea’s mini portfolio guide. What would you like to know about?',false);started=true;}input.focus();}
     else launcher.focus();
   }
+  // The launcher is docked at the middle of the right edge instead of the
+  // footer. This avoids footer actions such as “Back to top”.
+  // Unlike draggable controls, placement stays predictable on every page.
   launcher.addEventListener('click',()=>setOpen(!panel.classList.contains('open')));
   close.addEventListener('click',()=>setOpen(false));
   form.addEventListener('submit',(event)=>{event.preventDefault();ask(input.value);});
