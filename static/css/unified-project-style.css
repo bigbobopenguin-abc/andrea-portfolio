@@ -1,0 +1,68 @@
+/*
+ * Unified detail-page styling based on the Lunar Expedition case study.
+ * Scope: individual project pages only. Interactions and existing markup untouched.
+ */
+body.project-page:has(.case-hero),body:has(.ml-hero),body:has(.dpv-hero){
+  font-family:"DM Sans",Arial,sans-serif;
+  --up-cream:#f2efe8;
+  --up-card:#fffdf7;
+  --up-border:#dedad2;
+  --up-ink:#111;
+  --up-muted:#68645e;
+}
+/* Page titles follow Lunar Expedition's controlled, bold hero. */
+body.project-page .case-hero{padding:145px max(6vw,20px) 80px;background:var(--up-cream);color:var(--up-ink)}
+body.project-page .case-heading{max-width:1180px}
+body.project-page .case-heading h1,
+body .ml-hero h1,
+body .dpv-hero h1{font-size:clamp(2.9rem,5.4vw,6rem)!important;line-height:1.045!important;letter-spacing:-.06em!important;font-style:normal!important;font-weight:700!important;overflow-wrap:break-word!important;max-width:1120px;margin:22px 0 0!important}
+body.project-page .case-heading>p:last-child,
+body .ml-hero>p:not(.eyebrow),
+body .dpv-hero .dpv-intro{font-size:clamp(.99rem,1.1vw,1.1rem)!important;line-height:1.8!important;max-width:850px;color:#615e58;margin:27px 0 0!important}
+body.project-page .case-kicker,
+body .ml-hero .eyebrow,
+body .dpv-hero .dpv-kicker{font-size:.72rem!important;font-weight:800!important;letter-spacing:.15em!important;text-transform:uppercase;color:#77736c!important}
+/* Content headings match Lunar's secondary hierarchy, not oversized banners. */
+body.project-page .case-main h2,body.project-page .case-block h2,
+body.project-page .architecture-intro h2,body.project-page .journey-heading h2,
+body.project-page .fitness-section-title,body .ml-section h2,body .dpv-section h2{
+  font-size:clamp(2.2rem,4vw,4.25rem)!important;
+  line-height:1.09!important;letter-spacing:-.052em!important;
+  font-style:normal!important;font-weight:700!important;
+  overflow-wrap:break-word;
+}
+body.project-page .journey-copy h3,
+body.project-page .architecture-detail h3,
+body.project-page .fitness-feature h3{font-size:clamp(1.4rem,2.3vw,2.7rem)!important;line-height:1.16!important;letter-spacing:-.035em!important}
+/* Give text sections the same generous, readable whitespace. */
+body.project-page .case-summary,
+body.project-page .visual-journey,
+body.project-page .architecture-section,
+body.project-page .fitness-testing,
+body.project-page .fitness-features{scroll-margin-top:90px}
+body.project-page .case-summary{background:var(--up-cream)}
+/* Match Lunar's rounded, calm image frames. Keep entire image visible. */
+body.project-page .case-cover,
+body.project-page .journey-image,
+body .ml-figure,
+body .dpv-figure,
+body .dpv-team-case{border-radius:19px!important;overflow:hidden;border:1px solid var(--up-border)}
+body.project-page .case-cover{background:#191919;max-width:1180px;margin:48px auto 0}
+body.project-page .case-cover img{display:block;width:100%;height:auto;object-fit:contain!important;max-height:none}
+body.project-page .journey-image{background:var(--up-card);min-height:0}
+body.project-page .journey-image img{display:block;width:100%;height:auto!important;max-height:none;object-fit:contain!important;object-position:center}
+body .ml-figure img,body .dpv-figure img,body .dpv-team-case img{max-width:100%;object-fit:contain!important;object-position:center}
+body .ml-figure figcaption,body .dpv-figure figcaption{line-height:1.6}
+/* Keep interactive architecture controls unchanged in behaviour. */
+body.project-page .architecture-flow>*{border-radius:16px}
+body.project-page .architecture-detail{border-radius:19px}
+/* Rhythm for the two stand-alone case-study designs. */
+body .ml-hero,body .dpv-hero{background:var(--up-cream);color:var(--up-ink)}
+body .ml-section,body .dpv-section{scroll-margin-top:90px}
+body .ml-section:not(.ml-dark),body .dpv-section:not(.dpv-dark){background:var(--up-card)}
+@media(max-width:720px){
+  body.project-page .case-hero{padding:112px 22px 58px}
+  body.project-page .case-heading h1,body .ml-hero h1,body .dpv-hero h1{font-size:clamp(2.55rem,8vw,3.5rem)!important;line-height:1.08!important}
+  body.project-page .case-main h2,body.project-page .case-block h2,body.project-page .architecture-intro h2,body.project-page .journey-heading h2,body .ml-section h2,body .dpv-section h2{font-size:clamp(2rem,7.3vw,2.8rem)!important}
+  body.project-page .case-cover{margin-top:34px;border-radius:15px!important}
+}
