@@ -1,0 +1,20 @@
+/* Dedicated project image viewer: no styles leak into existing pages. */
+#apv-overlay, #apv-overlay * { box-sizing: border-box; }
+#apv-overlay { position:fixed; inset:0; z-index:2147483000; display:none;
+  background:rgba(12,12,12,.94); padding:64px 22px 32px;
+  align-items:center;justify-content:center;font-family:"DM Sans",Arial,sans-serif; }
+#apv-overlay.apv-open {display:flex;}
+#apv-overlay .apv-layout { display:flex;flex-direction:column;align-items:center;justify-content:center;
+  width:100%;max-width:calc(100vw - 44px);max-height:100%;gap:13px; }
+#apv-overlay .apv-image { display:block;width:auto;height:auto;max-width:100%;max-height:calc(100dvh - 160px);
+  object-fit:contain; background:transparent;border-radius:9px;box-shadow:0 15px 55px #0006; }
+#apv-overlay .apv-caption {color:#e8e5df;text-align:center;font-size:13px;line-height:1.5;max-width:860px;margin:0;}
+#apv-overlay .apv-close {position:absolute;top:16px;right:18px;display:grid;place-items:center;
+  border:1px solid #666;border-radius:99px;width:42px;height:42px;background:#242424;color:#fff;
+  font-size:27px;line-height:1;cursor:pointer;}
+#apv-overlay .apv-close:hover {background:#caff42;color:#111;border-color:#caff42;}
+#apv-overlay .apv-openfile {display:inline-block;color:#caff42;font-weight:700;font-size:12px;text-decoration:none;}
+#apv-overlay .apv-openfile:hover{text-decoration:underline;}
+.apv-image-target {cursor:zoom-in !important;}
+.apv-image-target:focus-visible {outline:3px solid #a7df2e;outline-offset:4px;}
+@media(max-width:650px){#apv-overlay{padding:60px 12px 18px}#apv-overlay .apv-image{max-height:calc(100dvh - 147px)}#apv-overlay .apv-layout{max-width:100%}}

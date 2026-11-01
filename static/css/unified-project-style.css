@@ -46,7 +46,7 @@ body.project-page .case-cover,
 body.project-page .journey-image,
 body .ml-figure,
 body .dpv-figure,
-body .dpv-team-case{border-radius:19px!important;overflow:hidden;border:1px solid var(--up-border)}
+
 body.project-page .case-cover{background:#191919;max-width:1180px;margin:48px auto 0}
 body.project-page .case-cover img{display:block;width:100%;height:auto;object-fit:contain!important;max-height:none}
 body.project-page .journey-image{background:var(--up-card);min-height:0}
@@ -152,4 +152,38 @@ body.project-page main > section > .container {
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
   }
+}
+
+/* Preserve DPV’s original text-and-image rows; no rounded square around the whole row. */
+body:has(.dpv-hero) .dpv-team-case {
+  overflow: visible !important;
+  border: 0 !important;
+  border-bottom: 1px solid #363636 !important;
+  border-radius: 0 !important;
+  padding: 28px 0 !important;
+  background: transparent !important;
+  align-items: center;
+  gap: clamp(20px,3vw,42px);
+}
+body:has(.dpv-hero) .dpv-team-case > div { min-width:0; }
+body:has(.dpv-hero) .dpv-team-case img { display:block;width:100%;height:auto !important;max-height:none !important;object-fit:contain;border-radius:15px; }
+/* Keep NESSO’s extra-wide dashboard images visually centred in their cards. */
+body.project-page .journey-row { align-items:center; }
+body.project-page .journey-row .journey-image {
+  display:flex; align-items:center; justify-content:center;
+  height:auto !important; min-height:0 !important;
+  overflow:hidden; align-self:center;
+}
+body.project-page .journey-row .journey-image img {
+  display:block;width:100%;height:auto !important;max-height:none !important;
+  object-fit:contain !important;
+}
+/* These are architecture diagrams, not photos: do not crop their labels. */
+body.project-page .case-cover img,
+body.project-page .journey-image img,
+body .ml-figure img,
+body .dpv-figure img,
+body .dpv-team-case img { cursor:zoom-in; }
+@media(max-width:760px){
+  body:has(.dpv-hero) .dpv-team-case{grid-template-columns:1fr;}
 }
