@@ -3,11 +3,9 @@ window.addEventListener("scroll",()=>{const m=document.documentElement.scrollHei
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 const menuBtn=document.getElementById("menuBtn"),nav=document.getElementById("nav");
-if(menuBtn&&nav){menuBtn.addEventListener("click",()=>nav.classList.toggle("open"));nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>nav.classList.remove("open")));}
+if(menuBtn&&nav){const setMenu=open=>{nav.classList.toggle("open",open);menuBtn.setAttribute("aria-expanded",String(open));menuBtn.setAttribute("aria-label",open?"Close navigation menu":"Open navigation menu");};menuBtn.addEventListener("click",()=>setMenu(!nav.classList.contains("open")));nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>setMenu(false)));document.addEventListener("keydown",e=>{if(e.key==="Escape"&&nav.classList.contains("open")){setMenu(false);menuBtn.focus();}});}
 const filters=document.querySelectorAll(".filter"),cards=document.querySelectorAll(".project-card");
 filters.forEach(btn=>btn.addEventListener("click",()=>{filters.forEach(x=>x.classList.remove("active"));btn.classList.add("active");cards.forEach(card=>{card.style.display=(btn.dataset.filter==="all"||card.dataset.category===btn.dataset.filter)?"":"none";});}));
-const form=document.getElementById("contactForm");
-if(form){form.addEventListener("submit",e=>{e.preventDefault();const n=document.getElementById("name").value.trim(),em=document.getElementById("email").value.trim(),s=document.getElementById("subject").value.trim(),m=document.getElementById("message").value.trim();const body=`Name: ${n}\nEmail: ${em}\n\n${m}`;document.getElementById("formStatus").textContent="Opening your email application...";window.location.href=`mailto:andrealee1406@gmail.com?subject=${encodeURIComponent(s)}&body=${encodeURIComponent(body)}`;});}
 
 
 /* =====================================================

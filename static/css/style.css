@@ -1059,3 +1059,23 @@ body .dpv-section h2 {
     line-height: 1.1;
   }
 }
+
+/* ----------------------------------------------------------------
+   About: quick facts
+---------------------------------------------------------------- */
+.about-side h2{margin-bottom:48px}
+.quick-facts{display:grid;gap:0;border-top:1px solid var(--line,#ddd6ca);max-width:460px}
+.quick-facts>div{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line,#ddd6ca)}
+.quick-facts dt{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted,#6b665e);padding-top:3px}
+.quick-facts dd{margin:0;font-weight:600;color:#111;line-height:1.45}
+@media(max-width:520px){.quick-facts>div{grid-template-columns:1fr;gap:4px}}
+
+/* ----------------------------------------------------------------
+   Accessibility: keyboard focus + reduced motion
+---------------------------------------------------------------- */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #8fbf00;outline-offset:3px;border-radius:6px}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
