@@ -73,3 +73,8 @@
 .lunar-page .lunar-cert-image:hover img{transform:scale(1.015)}
 .lunar-page .lunar-cert p{color:#b9b9b9;line-height:1.8;margin:0 0 28px;max-width:520px}
 @media(max-width:760px){.lunar-page .lunar-flares,.lunar-page .lunar-cert{grid-template-columns:1fr;gap:18px}.lunar-page .lunar-stat-row strong{font-size:1.9rem}}
+.lunar-page .lunar-team{margin:0 0 26px;font-weight:600;color:#33322e}
+.lunar-page .lunar-team span{font-size:.68rem;letter-spacing:.14em;font-weight:800;color:#77736c;margin-right:8px}
+.lunar-page .lunar-video{margin-top:36px;border-radius:20px;overflow:hidden;border:1px solid #333;background:#000}
+.lunar-page .lunar-video video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
+.lunar-page .lunar-actions-end{margin:30px 0 0}
