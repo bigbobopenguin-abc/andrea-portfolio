@@ -1155,3 +1155,5 @@ input:focus,textarea:focus,input:focus-visible,textarea:focus-visible{outline:no
 .experience-stats span{font-size:.72rem;font-weight:700;color:var(--muted,#6b665e)}
 .experience-side .experience-points{margin:0}
 @media(max-width:900px){.experience-card{grid-template-columns:1fr}.experience-side{border-left:0;border-top:1px solid var(--line,#ddd6ca)}.experience-body .btn{margin-top:4px}}
+.project-pager{grid-template-columns:1fr 1fr}
+@media(max-width:760px){.project-pager{grid-template-columns:1fr}}
