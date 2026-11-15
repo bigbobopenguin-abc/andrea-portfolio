@@ -1130,7 +1130,7 @@ input:focus,textarea:focus,input:focus-visible,textarea:focus-visible{outline:no
 .experience-meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.68rem;font-weight:800;letter-spacing:.12em;color:var(--muted,#6b665e)}
 .experience-meta span:first-child{color:#4a6a00}
 .experience-body h2{margin:18px 0 16px;font-size:clamp(1.9rem,3.2vw,3.1rem);line-height:1.05;letter-spacing:-.045em;font-weight:600}
-.experience-body h2 span{font-style:italic;font-weight:500;color:#55534d}
+.experience-body h2 span{font-style:normal;font-weight:500;color:#6b6862}
 .experience-body>p{color:var(--muted,#6b665e);line-height:1.75;max-width:560px}
 .experience-points{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px;max-width:560px}
 .experience-points li{position:relative;padding-left:22px;line-height:1.55;color:#2c2b28;font-weight:500}
