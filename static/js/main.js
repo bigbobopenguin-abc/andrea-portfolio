@@ -1,6 +1,9 @@
 const progressBar=document.getElementById("progressBar");
 window.addEventListener("scroll",()=>{const m=document.documentElement.scrollHeight-window.innerHeight;if(progressBar&&m>0)progressBar.style.width=`${(window.scrollY/m)*100}%`;});
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}}),{threshold:.12});
+const observer=new IntersectionObserver(entries=>{let i=0;entries.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;observer.unobserve(el);
+  // Cards that appear together slide in one after another.
+  if(el.classList.contains("project-card")){const d=i++*140;el.style.transitionDelay=`${d}ms`;setTimeout(()=>{el.style.transitionDelay=""},d+700);}
+  el.classList.add("visible");});},{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 const menuBtn=document.getElementById("menuBtn"),nav=document.getElementById("nav");
 if(menuBtn&&nav){const setMenu=open=>{nav.classList.toggle("open",open);menuBtn.setAttribute("aria-expanded",String(open));menuBtn.setAttribute("aria-label",open?"Close navigation menu":"Open navigation menu");};menuBtn.addEventListener("click",()=>setMenu(!nav.classList.contains("open")));nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>setMenu(false)));document.addEventListener("keydown",e=>{if(e.key==="Escape"&&nav.classList.contains("open")){setMenu(false);menuBtn.focus();}});}
@@ -107,3 +110,12 @@ document.querySelectorAll('.architecture-section').forEach(section => {
     });
   });
 });
+
+// Project cards with a video preview play it on hover or keyboard focus.
+(()=>{const canHover=window.matchMedia("(hover: hover) and (pointer: fine)").matches,reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(!canHover||reduce)return;
+document.querySelectorAll(".project-card").forEach(card=>{const v=card.querySelector(".card-preview");if(!v)return;
+  const start=()=>{const p=v.play();if(p)p.then(()=>card.classList.add("is-previewing")).catch(()=>{});};
+  const stop=()=>{card.classList.remove("is-previewing");v.pause();v.currentTime=0;};
+  card.addEventListener("mouseenter",start);card.addEventListener("mouseleave",stop);
+  card.addEventListener("focus",start);card.addEventListener("blur",stop);});})();

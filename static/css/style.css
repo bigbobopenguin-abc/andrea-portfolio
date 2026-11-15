@@ -1082,3 +1082,16 @@ input:focus,textarea:focus,input:focus-visible,textarea:focus-visible{outline:no
 
 /* Current page in the main menu */
 .site-header nav a[aria-current="page"]:not(.contact-pill){text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
+
+/* Readable text on lime buttons inside dark sections */
+.btn.accent{color:#111}
+
+/* Project cards: glow on hover + optional video preview */
+.project-card{transition:transform .28s,border-color .28s,box-shadow .28s,opacity .65s}
+.project-card.reveal{transition:transform .65s,border-color .28s,box-shadow .28s,opacity .65s}
+.project-card:hover,.project-card:focus-visible{border-color:rgba(202,255,66,.55);box-shadow:0 22px 50px -24px rgba(202,255,66,.45),0 0 0 1px rgba(202,255,66,.25)}
+.project-card .view-chip{z-index:2;transition:transform .28s}
+.project-card:hover .view-chip{transform:translateY(-3px)}
+.project-card .card-preview{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s;pointer-events:none}
+.project-card.is-previewing .card-preview{opacity:1}
+@media(prefers-reduced-motion:reduce){.project-card .card-preview{display:none}}
