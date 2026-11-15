@@ -1108,3 +1108,38 @@ input:focus,textarea:focus,input:focus-visible,textarea:focus-visible{outline:no
   .quick-facts>div{grid-template-columns:1fr;gap:6px}
 }
 @media(max-width:520px){.quick-facts{grid-template-columns:1fr}}
+
+/* Previous / next project links at the bottom of each project page */
+.project-pager{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:16px;padding:48px 6vw;background:#0d0d0d;border-top:1px solid #222;font-family:"DM Sans",sans-serif}
+.project-pager-link{display:flex;flex-direction:column;gap:10px;padding:24px 26px;border:1px solid #2a2a2a;border-radius:20px;background:#161616;color:#fff;text-decoration:none;transition:transform .25s,border-color .25s,box-shadow .25s}
+.project-pager-link span{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#caff42}
+.project-pager-link strong{font-size:clamp(1.1rem,1.8vw,1.55rem);line-height:1.2;letter-spacing:-.03em;font-weight:700}
+.project-pager-link.next{text-align:right;align-items:flex-end}
+.project-pager-link:hover,.project-pager-link:focus-visible{transform:translateY(-3px);border-color:rgba(202,255,66,.55);box-shadow:0 18px 40px -22px rgba(202,255,66,.45)}
+.project-pager-all{align-self:center;padding:12px 18px;border:1px solid #333;border-radius:999px;color:#ddd;font-size:.8rem;font-weight:700;text-decoration:none;white-space:nowrap}
+.project-pager-all:hover{border-color:#fff;color:#fff}
+@media(max-width:760px){.project-pager{grid-template-columns:1fr;padding:36px 20px}.project-pager-all{justify-self:center;order:3}.project-pager-link.next{order:2}}
+
+/* Homepage experience card */
+.experience{background:var(--paper,#f2efe8);padding-top:90px;padding-bottom:110px}
+.experience .section-label{margin-bottom:34px}
+.experience-card{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);border:1px solid var(--line,#ddd6ca);border-radius:28px;overflow:hidden;background:#fffdf8}
+.experience-media{min-height:100%;background:#ddd}
+.experience-media img{width:100%;height:100%;min-height:340px;object-fit:cover;object-position:center 35%;display:block}
+.experience-body{padding:clamp(28px,4vw,52px);display:flex;flex-direction:column;align-items:flex-start}
+.experience-meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.68rem;font-weight:800;letter-spacing:.12em;color:var(--muted,#6b665e)}
+.experience-meta span:first-child{color:#4a6a00}
+.experience-body h2{margin:18px 0 16px;font-size:clamp(1.9rem,3.2vw,3.1rem);line-height:1.05;letter-spacing:-.045em;font-weight:600}
+.experience-body h2 span{font-style:italic;font-weight:500;color:#55534d}
+.experience-body>p{color:var(--muted,#6b665e);line-height:1.75;max-width:560px}
+.experience-points{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px;max-width:560px}
+.experience-points li{position:relative;padding-left:22px;line-height:1.55;color:#2c2b28;font-weight:500}
+.experience-points li:before{content:"";position:absolute;left:0;top:.55em;width:9px;height:9px;border-radius:50%;background:var(--accent,#caff42);box-shadow:0 0 0 1px #9fcc1a}
+.experience-body .btn{margin-top:28px}
+@media(max-width:900px){.experience-card{grid-template-columns:1fr}.experience-media img{min-height:0;aspect-ratio:4/3}}
+
+/* Tool tags on featured project cards */
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 18px}
+.card-tags span{padding:6px 10px;border:1px solid #333;border-radius:999px;font-size:.7rem;font-weight:700;color:#cfcfcf;background:#1d1d1d;letter-spacing:.01em}
+.project-card:hover .card-tags span{border-color:#454545}
+.project-pager-link strong{text-transform:none}.project-pager-all{text-transform:none;letter-spacing:normal}

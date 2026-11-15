@@ -119,3 +119,15 @@ document.querySelectorAll(".project-card").forEach(card=>{const v=card.querySele
   const stop=()=>{card.classList.remove("is-previewing");v.pause();v.currentTime=0;};
   card.addEventListener("mouseenter",start);card.addEventListener("mouseleave",stop);
   card.addEventListener("focus",start);card.addEventListener("blur",stop);});})();
+
+// Internship photo journal: show one photo group at a time with tabs.
+(()=>{const gallery=document.querySelector(".ia-gallery");if(!gallery)return;
+const groups=[...gallery.querySelectorAll(".ia-gallery-group")];if(groups.length<2)return;
+const bar=document.createElement("div");bar.className="ia-tabs";bar.setAttribute("role","tablist");bar.setAttribute("aria-label","Photo groups");
+const tabs=groups.map((g,i)=>{const b=document.createElement("button");b.type="button";b.className="ia-tab";b.id=`ia-tab-${i}`;b.setAttribute("role","tab");b.setAttribute("aria-controls",g.id);
+  const count=g.querySelectorAll("figure").length;b.innerHTML=`<span></span><small>${count}</small>`;b.querySelector("span").textContent=g.querySelector("h3").textContent;
+  g.setAttribute("role","tabpanel");g.setAttribute("aria-labelledby",b.id);bar.appendChild(b);return b;});
+const select=i=>{tabs.forEach((b,j)=>{const on=i===j;b.setAttribute("aria-selected",String(on));b.tabIndex=on?0:-1;groups[j].hidden=!on;});};
+tabs.forEach((b,i)=>{b.addEventListener("click",()=>select(i));b.addEventListener("keydown",e=>{const k={ArrowRight:1,ArrowLeft:-1}[e.key];if(!k)return;e.preventDefault();const n=(i+k+tabs.length)%tabs.length;select(n);tabs[n].focus();});});
+gallery.classList.add("has-tabs");gallery.querySelector(".aw-section-head").after(bar);
+const hash=groups.findIndex(g=>"#"+g.id===location.hash);select(hash<0?0:hash);})();
