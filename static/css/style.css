@@ -1279,3 +1279,58 @@ html body .home-hero{background-image:none;background-color:var(--paper);positio
 html body .home-hero .hero-bg{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
 .hero-word{position:absolute;left:50%;bottom:-6%;transform:translateX(-50%);font-family:"Pacifico",cursive;font-size:clamp(9rem,24vw,26rem);line-height:1;color:transparent;-webkit-text-stroke:2px rgba(17,17,17,.09);white-space:nowrap;user-select:none}
 @media(max-width:680px){.hero-word{bottom:2%}}
+
+/* =====================================================
+   COPY EMAIL
+===================================================== */
+.contact-email{position:relative;cursor:copy}
+.copy-tip{position:absolute;left:0;top:calc(100% + 8px);padding:7px 12px;border-radius:999px;background:#111;color:#fff;font-size:.78rem;font-weight:700;white-space:nowrap;animation:copy-pop .25s ease}
+@keyframes copy-pop{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+
+/* =====================================================
+   PARKINSON'S DECISION TREE DEMO
+===================================================== */
+.tree-demo{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:22px;margin-top:34px;align-items:start}
+.td-panel,.td-out{border:1px solid var(--line);border-radius:22px;background:#fffdf8;padding:22px}
+.td-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.td-head span,.td-label{font-size:.68rem;font-weight:800;letter-spacing:.14em;color:var(--muted)}
+.td-reset{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font:inherit;font-size:.78rem;font-weight:700;cursor:pointer}
+.td-reset:hover{border-color:#111}
+.td-row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) 64px;gap:12px;align-items:center;padding:10px 10px;margin:0 -10px;border-radius:12px;text-transform:none;letter-spacing:normal;font-size:1rem;font-weight:400;transition:background .2s}
+.td-row.is-used{background:#f1ffc9}
+.td-name{display:flex;flex-direction:column;gap:2px;min-width:0}
+.td-name strong{font-size:.86rem;font-weight:700}
+.td-name small{font-size:.74rem;color:var(--muted)}
+.td-row input[type=range]{width:100%;padding:0;border:0;accent-color:#111;cursor:pointer}
+.td-row output{font-variant-numeric:tabular-nums;font-size:.82rem;font-weight:700;text-align:right}
+.td-key{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:.76rem;color:var(--muted)}
+.td-key i{width:14px;height:14px;border-radius:4px;background:#f1ffc9;border:1px solid #cfe98a}
+.td-out{position:sticky;top:96px}
+.td-result{padding:20px;border-radius:16px;background:#e9f2ff;margin-bottom:18px;transition:background .3s}
+.td-result.is-pd{background:#ffe6dc}
+.td-verdict{display:block;margin:8px 0 8px;font-size:clamp(1.7rem,2.6vw,2.4rem);letter-spacing:-.04em;line-height:1.05}
+.td-leaf{margin:0;color:#3d3b37;font-size:.9rem;line-height:1.55}
+.td-depth{display:inline-block;margin-top:10px;font-size:.72rem;font-weight:800;letter-spacing:.08em;color:#55534d}
+.td-path{list-style:none;margin:0;padding:0;display:grid;gap:8px;counter-reset:q}
+.td-path li{counter-increment:q;display:flex;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:12px;background:#f6f2ea;font-size:.84rem;animation:td-in .3s ease both}
+.td-path li:before{content:counter(q);flex:none;width:22px;height:22px;border-radius:50%;background:#111;color:#fff;display:grid;place-items:center;font-size:.7rem;font-weight:800}
+.td-q{flex:1;font-weight:700}
+.td-a{font-variant-numeric:tabular-nums;color:#55534d;white-space:nowrap}
+@keyframes td-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.td-note{margin-top:18px}
+@media(max-width:900px){.tree-demo{grid-template-columns:1fr}.td-out{position:static}}
+@media(max-width:520px){.td-row{grid-template-columns:1fr 56px}.td-row input[type=range]{grid-column:1/-1;grid-row:2}}
+
+/* =====================================================
+   OUTPOST 07: TONIGHT'S MOON
+===================================================== */
+.moon-widget{display:inline-flex;align-items:center;gap:16px;margin:0 0 40px;padding:14px 22px 14px 14px;border:1px solid #d0cabe;border-radius:999px;background:#111;color:#fff}
+.moon-widget[hidden]{display:none}
+.moon-widget svg{width:58px;height:58px;flex:none}
+.moon-dark{fill:#2b2b2b}
+.moon-lit{fill:#f4f1e6}
+.moon-edge{fill:none;stroke:rgba(255,255,255,.18);stroke-width:1}
+.moon-widget div{display:flex;flex-direction:column;gap:2px}
+.moon-kicker{font-size:.62rem;font-weight:800;letter-spacing:.14em;color:#caff42}
+.moon-name{font-size:1.05rem}
+.moon-pct,.moon-next{font-size:.76rem;color:#b9b9b9}

@@ -148,3 +148,16 @@ root.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")show(i-1);if(e.key===
 let x0=null;track.addEventListener("touchstart",e=>{x0=e.touches[0].clientX},{passive:true});
 track.addEventListener("touchend",e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)show(dx<0?i+1:i-1);x0=null;});
 show(0);fit();window.addEventListener("resize",fit);window.addEventListener("load",fit);})();
+
+// Clicking the email copies it and shows a confirmation; falls back to mailto.
+document.querySelectorAll("[data-copy]").forEach(a=>{
+  a.addEventListener("click",e=>{
+    if(!navigator.clipboard||!window.isSecureContext)return;
+    e.preventDefault();
+    navigator.clipboard.writeText(a.dataset.copy).then(()=>{
+      a.classList.add("is-copied");
+      const tip=document.createElement("span");tip.className="copy-tip";tip.setAttribute("role","status");tip.textContent="Copied! ✓";
+      a.appendChild(tip);setTimeout(()=>{tip.remove();a.classList.remove("is-copied");},1800);
+    }).catch(()=>{window.location.href=a.href;});
+  });
+});
