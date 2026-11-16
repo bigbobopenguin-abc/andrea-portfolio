@@ -1187,3 +1187,22 @@ input:focus,textarea:focus,input:focus-visible,textarea:focus-visible{outline:no
   .featured-projects .project-card.is-feature{grid-column:1/-1}
   .featured-projects .project-card:last-child{grid-column:auto}
 }
+
+/* =====================================================
+   CENTRED LAYOUT
+   On wide screens, keep content in a centred column (max 1320px) while
+   section backgrounds still run edge to edge.
+===================================================== */
+:root{--content-max:1320px;--edge:max(6vw,calc((100vw - var(--content-max)) / 2))}
+html body .site-header,
+html body .home-hero,
+html body .hero,
+html body .section,
+html body footer,
+html body .case-hero,
+html body .project-pager,
+html body .aw-header,
+html body .aw-hero,
+html body .aw-section,
+html body .aw-bottom,
+html body .aw-footer{padding-left:var(--edge);padding-right:var(--edge)}
