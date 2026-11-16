@@ -135,3 +135,7 @@ html body .aw-section{padding-top:64px!important;padding-bottom:64px!important}
 .project-sort select{appearance:none;-webkit-appearance:none;padding:9px 36px 9px 14px;border:1px solid #cfc8bb;border-radius:999px;background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23151515' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center/14px;color:var(--ink);font:inherit;font-weight:700;font-size:.86rem;cursor:pointer}
 .project-sort select:hover{border-color:var(--ink)}
 .filters-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+
+/* Certificate cards with two buttons: keep them on one row */
+.aw-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:12px}
+.aw-actions .aw-action{margin-top:0!important}
