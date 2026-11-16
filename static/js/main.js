@@ -167,11 +167,13 @@ document.querySelectorAll("[data-copy]").forEach(a=>{
 document.body.appendChild(b);b.addEventListener("click",()=>window.scrollTo({top:0,behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}));
 const t=()=>b.classList.toggle("show",window.scrollY>600);window.addEventListener("scroll",t,{passive:true});t();})();
 
-// Day / night theme switch (choice is remembered on this device).
-(()=>{const root=document.documentElement;const btns=document.querySelectorAll(".theme-toggle");if(!btns.length)return;
-const label=()=>{const dark=root.getAttribute("data-theme")==="dark";btns.forEach(b=>{b.setAttribute("aria-label",dark?"Switch to day mode":"Switch to night mode");b.setAttribute("aria-pressed",String(dark));});};
-btns.forEach(b=>b.addEventListener("click",()=>{const dark=root.getAttribute("data-theme")!=="dark";
-  root.classList.add("theme-anim");if(dark)root.setAttribute("data-theme","dark");else root.removeAttribute("data-theme");
-  try{localStorage.setItem("theme",dark?"dark":"light")}catch(e){}label();setTimeout(()=>root.classList.remove("theme-anim"),450);}));label();
-// With no saved choice, follow the device setting live.
-const mq=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)");if(mq&&mq.addEventListener)mq.addEventListener("change",e=>{let saved=null;try{saved=localStorage.getItem("theme")}catch(x){}if(saved)return;if(e.matches)root.setAttribute("data-theme","dark");else root.removeAttribute("data-theme");label();});})();
+// All Projects: sort by newest/oldest (project number = upload order) or by name.
+(()=>{const sel=document.getElementById("projectSort");const grid=document.querySelector(".all-projects-page .project-grid");if(!sel||!grid)return;
+const cards=[...grid.querySelectorAll(".project-card")];
+const num=c=>parseInt((c.querySelector(".project-meta span")||{}).textContent,10)||0;
+const name=c=>(c.querySelector("h3")||{}).textContent.trim().toLowerCase();
+const sorters={newest:(a,b)=>num(b)-num(a),oldest:(a,b)=>num(a)-num(b),az:(a,b)=>name(a).localeCompare(name(b)),za:(a,b)=>name(b).localeCompare(name(a))};
+const apply=v=>{(sorters[v]?cards.slice().sort(sorters[v]):cards).forEach(c=>{grid.appendChild(c);c.classList.add("visible")});};
+let saved=null;try{saved=sessionStorage.getItem("projectSort")}catch(e){}
+if(saved&&sorters[saved])sel.value=saved;apply(sel.value);
+sel.addEventListener("change",()=>{apply(sel.value);try{sessionStorage.setItem("projectSort",sel.value)}catch(e){}});})();
