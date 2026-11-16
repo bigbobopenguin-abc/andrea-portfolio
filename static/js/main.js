@@ -172,4 +172,6 @@ const t=()=>b.classList.toggle("show",window.scrollY>600);window.addEventListene
 const label=()=>{const dark=root.getAttribute("data-theme")==="dark";btns.forEach(b=>{b.setAttribute("aria-label",dark?"Switch to day mode":"Switch to night mode");b.setAttribute("aria-pressed",String(dark));});};
 btns.forEach(b=>b.addEventListener("click",()=>{const dark=root.getAttribute("data-theme")!=="dark";
   root.classList.add("theme-anim");if(dark)root.setAttribute("data-theme","dark");else root.removeAttribute("data-theme");
-  try{localStorage.setItem("theme",dark?"dark":"light")}catch(e){}label();setTimeout(()=>root.classList.remove("theme-anim"),450);}));label();})();
+  try{localStorage.setItem("theme",dark?"dark":"light")}catch(e){}label();setTimeout(()=>root.classList.remove("theme-anim"),450);}));label();
+// With no saved choice, follow the device setting live.
+const mq=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)");if(mq&&mq.addEventListener)mq.addEventListener("change",e=>{let saved=null;try{saved=localStorage.getItem("theme")}catch(x){}if(saved)return;if(e.matches)root.setAttribute("data-theme","dark");else root.removeAttribute("data-theme");label();});})();
