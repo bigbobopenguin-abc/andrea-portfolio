@@ -124,3 +124,7 @@ html body .home-hero{min-height:0!important;padding-top:128px!important;padding-
 html body .aw-hero{padding-bottom:28px!important}
 html body .aw-hero + .aw-section{padding-top:48px!important}
 html body .aw-section{padding-top:64px!important;padding-bottom:64px!important}
+
+/* Tools strip: each copy is wider than any screen, so the loop never shows a gap */
+.tools-marquee .marquee-track{animation-duration:95s!important}
+.tools-marquee:hover .marquee-track{animation-play-state:paused}
