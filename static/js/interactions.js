@@ -1,4 +1,4 @@
-/* Interactive touches: cursor ring, magnetic buttons, card tilt, hero spotlight,
+/* Interactive touches: magnetic buttons, card tilt, hero spotlight,
    word-by-word headings and a small easter egg. Desktop pointer only, and
    everything is skipped when the visitor prefers reduced motion. */
 (() => {
@@ -37,32 +37,6 @@
   headings.forEach(h => hio.observe(h));
 
   if (!finePointer) return;
-
-  /* ---------- Cursor ring ---------- */
-  const ring = document.createElement('div');
-  ring.className = 'cursor-ring'; ring.setAttribute('aria-hidden', 'true');
-  const label = document.createElement('span'); ring.appendChild(label);
-  document.body.appendChild(ring);
-  let mx = -100, my = -100, rx = -100, ry = -100, shown = false;
-  window.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    if (!shown) { rx = mx; ry = my; ring.classList.add('on'); shown = true; }
-  }, { passive: true });
-  document.addEventListener('mouseleave', () => { ring.classList.remove('on'); shown = false; });
-  const loop = () => {
-    rx += (mx - rx) * .2; ry += (my - ry) * .2;
-    ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
-    requestAnimationFrame(loop);
-  };
-  requestAnimationFrame(loop);
-  const setMode = (cls, text) => { ring.className = 'cursor-ring on' + (cls ? ' ' + cls : ''); label.textContent = text || ''; };
-  document.addEventListener('mouseover', e => {
-    const t = e.target;
-    if (t.closest('.project-card, .project-pager-link')) setMode('is-view', 'View');
-    else if (t.closest('input, textarea')) setMode('is-text');
-    else if (t.closest('a, button, [role="tab"]')) setMode('is-link');
-    else setMode('');
-  });
 
   /* ---------- Magnetic buttons ---------- */
   document.querySelectorAll('.btn, .contact-pill, .carousel-arrow, .fp-arrow, .contact-social-icon, .hero-sticker').forEach(el => {
