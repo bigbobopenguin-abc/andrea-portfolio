@@ -166,3 +166,10 @@ document.querySelectorAll("[data-copy]").forEach(a=>{
 (()=>{const b=document.createElement("button");b.type="button";b.className="to-top";b.setAttribute("aria-label","Back to top");b.textContent="↑";
 document.body.appendChild(b);b.addEventListener("click",()=>window.scrollTo({top:0,behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}));
 const t=()=>b.classList.toggle("show",window.scrollY>600);window.addEventListener("scroll",t,{passive:true});t();})();
+
+// Day / night theme switch (choice is remembered on this device).
+(()=>{const root=document.documentElement;const btns=document.querySelectorAll(".theme-toggle");if(!btns.length)return;
+const label=()=>{const dark=root.getAttribute("data-theme")==="dark";btns.forEach(b=>{b.setAttribute("aria-label",dark?"Switch to day mode":"Switch to night mode");b.setAttribute("aria-pressed",String(dark));});};
+btns.forEach(b=>b.addEventListener("click",()=>{const dark=root.getAttribute("data-theme")!=="dark";
+  root.classList.add("theme-anim");if(dark)root.setAttribute("data-theme","dark");else root.removeAttribute("data-theme");
+  try{localStorage.setItem("theme",dark?"dark":"light")}catch(e){}label();setTimeout(()=>root.classList.remove("theme-anim"),450);}));label();})();

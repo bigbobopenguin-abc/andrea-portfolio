@@ -1,0 +1,384 @@
+/* =====================================================
+   NIGHT THEME
+   Applied when <html data-theme="dark">. The middle part of this file is
+   generated from the site's colour rules (light backgrounds become near
+   black, dark text becomes light, lime stays lime); hand-written fixes
+   and the theme switch styles follow at the end.
+===================================================== */
+html[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0a0a0a; --card:#161616; --ink:#f2f0ea; --ink-soft:#a9a59d; --hair:rgba(255,255,255,.1);
+  --paper:#0a0a0a; --cream:#161616; --muted:#a9a59d; --line:rgba(255,255,255,.12);
+  --up-cream:#0a0a0a; --up-ink:#f2f0ea; --up-muted:#a9a59d;
+}
+html[data-theme="dark"],html[data-theme="dark"] body{background:#0a0a0a!important;color:var(--ink)}
+
+/* ---------- generated ---------- */
+html[data-theme="dark"] .achievements-page{background-color:#111111 !important;color:var(--ink) !important}
+html[data-theme="dark"] .aw-header{border-bottom:1px solid rgba(255,255,255,.12) !important;background-color:#111111 !important}
+html[data-theme="dark"] .aw-eyebrow,
+html[data-theme="dark"] .aw-section-head>span{color:var(--ink-soft) !important}
+html[data-theme="dark"] .aw-hero>p:not(.aw-eyebrow){color:var(--ink-soft) !important}
+html[data-theme="dark"] .aw-light{background-color:#171717 !important}
+html[data-theme="dark"] .aw-section-head>p{color:var(--ink-soft) !important}
+html[data-theme="dark"] .aw-dark .aw-section-head>p{color:var(--ink-soft) !important}
+html[data-theme="dark"] .aw-card{border:1px solid rgba(255,255,255,.12) !important;background-color:#111111 !important}
+html[data-theme="dark"] .aw-card-type{color:var(--ink-soft) !important}
+html[data-theme="dark"] .aw-card>p:not(.aw-card-type){color:var(--ink-soft) !important}
+html[data-theme="dark"] .aw-placeholder{color:var(--ink-soft) !important}
+html[data-theme="dark"] .aw-dark .aw-card{border-color:rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .aw-dark .aw-card>p:not(.aw-card-type){color:var(--ink-soft) !important}
+html[data-theme="dark"] .aw-quote>p{color:var(--ink) !important}
+html[data-theme="dark"] .aw-quote footer{color:var(--ink-soft) !important}
+html[data-theme="dark"] .aw-footer span{color:var(--ink-soft) !important}
+html[data-theme="dark"] .aw-preview{background-color:#111111 !important}
+html[data-theme="dark"] .aw-card-content>p:not(.aw-card-type){color:var(--ink-soft) !important}
+html[data-theme="dark"] .aw-dark .aw-card-content>p:not(.aw-card-type){color:var(--ink-soft) !important}
+html[data-theme="dark"] .aw-quote-meta span{color:var(--ink-soft) !important}
+html[data-theme="dark"] .aw-dark .aw-preview{background-color:#111111 !important}
+html[data-theme="dark"] .aw-testimonial-byline{color:var(--ink-soft) !important}
+html[data-theme="dark"] .internship-page .ia-hero{background-color:#111111 !important}
+html[data-theme="dark"] .internship-page .ia-hero>p:not(.aw-eyebrow){color:var(--ink-soft) !important}
+html[data-theme="dark"] .internship-page .ia-hero strong{color:var(--ink) !important}
+html[data-theme="dark"] .internship-page .ia-overview-copy{color:var(--ink) !important}
+html[data-theme="dark"] .internship-page .ia-fact{border:1px solid rgba(255,255,255,.12) !important;background-color:#111111 !important}
+html[data-theme="dark"] .internship-page .ia-fact span{color:var(--ink-soft) !important}
+html[data-theme="dark"] .internship-page .ia-responsibility-card{border:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .internship-page .ia-card-top{color:var(--ink-soft) !important}
+html[data-theme="dark"] .internship-page .ia-responsibility-card p{color:var(--ink-soft) !important}
+html[data-theme="dark"] .internship-page .ia-gallery{background-color:#111111 !important}
+html[data-theme="dark"] .internship-page .ia-section-label{color:var(--ink-soft) !important}
+html[data-theme="dark"] .internship-page .ia-gallery-group+.ia-gallery-group{border-top:1px solid rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .internship-page .ia-group-heading>p{color:var(--ink-soft) !important}
+html[data-theme="dark"] .internship-page .ia-photo-card{background-color:#171717 !important;border:1px solid rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .internship-page .ia-photo-card a{color:var(--ink) !important}
+html[data-theme="dark"] .internship-page .ia-image-frame{background-color:#111111 !important}
+html[data-theme="dark"] .internship-page .ia-takeaway{border:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .internship-page .ia-takeaway p{color:var(--ink-soft) !important}
+html[data-theme="dark"] .internship-page .ia-photo-card{background-color:#171717 !important;border:1px solid rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .internship-page .ia-photo-card>a{color:var(--ink) !important}
+html[data-theme="dark"] .internship-page .ia-image-frame{background-color:#171717 !important}
+html[data-theme="dark"] .internship-page .ia-photo-caption{background-color:#171717 !important}
+html[data-theme="dark"] .internship-page .ia-leadership-intro p{color:var(--ink) !important}
+html[data-theme="dark"] .internship-page .ia-leadership-points article{border:1px solid rgba(255,255,255,.12) !important;background-color:#171717 !important}
+html[data-theme="dark"] .internship-page .ia-leadership-points article>span{color:var(--ink-soft) !important}
+html[data-theme="dark"] .internship-page .ia-leadership-points p{color:var(--ink-soft) !important}
+html[data-theme="dark"] .internship-page .ia-learning-feature h3{color:var(--ink) !important}
+html[data-theme="dark"] .internship-page .ia-learning-feature>p{color:var(--ink) !important}
+html[data-theme="dark"] .internship-page .ia-learning-feature-bottom span{border:1px solid rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .internship-page .ia-learning-item{border:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .internship-page .ia-recommendation{background-color:#111111 !important}
+html[data-theme="dark"] .internship-page .ia-recommendation-card{border:1px solid rgba(255,255,255,.12) !important;background-color:#171717 !important}
+html[data-theme="dark"] .internship-page .ia-recommendation-main blockquote{color:var(--ink) !important}
+html[data-theme="dark"] .internship-page .ia-recommendation-main>p{color:var(--ink-soft) !important}
+html[data-theme="dark"] .internship-page .ia-recommendation-label{color:var(--ink-soft) !important}
+html[data-theme="dark"] .ia-tab{border:1px solid rgba(255,255,255,.12) !important;background-color:#171717 !important;color:var(--ink) !important}
+html[data-theme="dark"] .ia-tab small{background-color:#111111 !important;color:var(--ink) !important}
+html[data-theme="dark"] .ia-tab:hover{border-color:rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .ia-tab[aria-selected="true"]{border-color:rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .lunar-page{background-color:#111111 !important;color:var(--ink) !important}
+html[data-theme="dark"] .lunar-page .lunar-hero{background-color:#111111 !important}
+html[data-theme="dark"] .lunar-page .lunar-kicker,
+html[data-theme="dark"] .lunar-page .lunar-label{color:var(--ink-soft) !important}
+html[data-theme="dark"] .lunar-page .lunar-subtitle{color:var(--ink) !important}
+html[data-theme="dark"] .lunar-page .lunar-status{border:1px solid rgba(255,255,255,.12) !important;background-color:#171717 !important}
+html[data-theme="dark"] .lunar-page .lunar-intro{color:var(--ink) !important}
+html[data-theme="dark"] .lunar-page .lunar-tags span{border:1px solid rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .lunar-page .lunar-cream{background-color:#111111 !important;color:var(--ink) !important}
+html[data-theme="dark"] .lunar-page .lunar-black .lunar-label{color:var(--ink-soft) !important}
+html[data-theme="dark"] .lunar-page .lunar-intro-grid p,
+html[data-theme="dark"] .lunar-page .lunar-section-desc{color:var(--ink-soft) !important}
+html[data-theme="dark"] .lunar-page .lunar-shot{background-color:#171717 !important;color:var(--ink) !important;border:1px solid rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .lunar-page .lunar-shot a{background-color:#111111 !important}
+html[data-theme="dark"] .lunar-page .lunar-shot figcaption span{color:var(--ink-soft) !important}
+html[data-theme="dark"] .lunar-page .lunar-stat-row>div{border:1px solid rgba(255,255,255,.12) !important;background-color:#171717 !important}
+html[data-theme="dark"] .lunar-page .lunar-stat-row strong{color:var(--ink) !important}
+html[data-theme="dark"] .lunar-page .lunar-stat-row span{color:var(--ink) !important}
+html[data-theme="dark"] .lunar-page .lunar-progress article{background-color:#171717 !important;border:1px solid rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .lunar-page .lunar-progress article>span{color:var(--ink) !important}
+html[data-theme="dark"] .lunar-page .lunar-progress p{color:var(--ink-soft) !important}
+html[data-theme="dark"] .lunar-page .lunar-honesty{color:var(--ink-soft) !important}
+html[data-theme="dark"] .lunar-page .lunar-ghost{border:1px solid rgba(255,255,255,.12) !important;color:var(--ink) !important;background-color:#171717 !important}
+html[data-theme="dark"] .lunar-page .lunar-ghost:hover{border-color:rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .lunar-page .lunar-ghost-dark:hover{border-color:rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .lunar-page .lunar-table-wrap{border:1px solid rgba(255,255,255,.12) !important;background-color:#171717 !important}
+html[data-theme="dark"] .lunar-page .lunar-table th,
+html[data-theme="dark"] .lunar-page .lunar-table td{border-bottom:1px solid rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .lunar-page .lunar-table thead th{color:var(--ink-soft) !important}
+html[data-theme="dark"] .lunar-page .lunar-table td{color:var(--ink) !important}
+html[data-theme="dark"] .lunar-page .lunar-flares>div{border:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .lunar-page .lunar-cert-image{border:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .lunar-page .lunar-team{color:var(--ink) !important}
+html[data-theme="dark"] .lunar-page .lunar-team span{color:var(--ink-soft) !important}
+html[data-theme="dark"] .lunar-page .lunar-video{border:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] :is(.projects,
+html[data-theme="dark"] .all-projects-main,
+html[data-theme="dark"] .aw-dark,
+html[data-theme="dark"] .case-sections,
+html[data-theme="dark"] .ml-dark,
+html[data-theme="dark"] .dpv-dark,
+html[data-theme="dark"] .lunar-black,
+html[data-theme="dark"] .fitness-video)
+  :is(.section-label,
+html[data-theme="dark"] .light,
+html[data-theme="dark"] .lunar-label,
+html[data-theme="dark"] .project-meta span,
+html[data-theme="dark"] [class*="label"]){color:var(--ink-soft) !important}
+html[data-theme="dark"] .lunar-page .lunar-ghost-dark{border-color:rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .project-card:hover,
+html[data-theme="dark"] .project-card:focus-visible,
+html[data-theme="dark"] .exp-row:hover,
+html[data-theme="dark"] .project-pager-link:hover{border-color:rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .card-tags span,
+html[data-theme="dark"] .tool-tags span{border-color:rgba(255,255,255,.12) !important;color:var(--ink) !important}
+html[data-theme="dark"] .project-media{background-color:#111111 !important}
+html[data-theme="dark"] .filter{border-color:rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .fp-arrow{border-color:rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .fp-counter span:last-child{color:var(--ink-soft) !important}
+@media(min-width:681px){html[data-theme="dark"] .site-header{background-color:rgba(255,255,255,0.08) !important}}
+@media(min-width:681px){html[data-theme="dark"] .site-header nav a{color:var(--ink) !important}}
+html[data-theme="dark"] .tools-label{color:var(--ink-soft) !important}
+html[data-theme="dark"] footer p,
+html[data-theme="dark"] .aw-footer span{color:var(--ink-soft) !important}
+html[data-theme="dark"] .site-header{background-color:rgba(255,255,255,0.08) !important;border-bottom:1px solid rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .availability{background-color:rgba(255,255,255,0.08) !important}
+html[data-theme="dark"] .outline{background-color:rgba(255,255,255,0.08) !important}
+html[data-theme="dark"] .portrait{background-color:#111111 !important}
+html[data-theme="dark"] .orbit{border:1px solid rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .about-copy .lead{color:var(--ink) !important}
+html[data-theme="dark"] .light{color:var(--ink-soft) !important}
+html[data-theme="dark"] .projects-heading p{color:var(--ink-soft) !important}
+html[data-theme="dark"] .filter{border:1px solid rgba(255,255,255,.18) !important;color:var(--ink-soft) !important}
+html[data-theme="dark"] .filter.active,
+html[data-theme="dark"] .filter:hover{color:var(--ink) !important}
+html[data-theme="dark"] .project-card{border:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .view-chip{color:var(--ink) !important}
+html[data-theme="dark"] .project-meta{color:var(--ink-soft) !important}
+html[data-theme="dark"] .project-body p{color:var(--ink-soft) !important}
+html[data-theme="dark"] .open-row{border-top:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .math-art{color:var(--ink) !important}
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea{border-bottom:1px solid rgba(255,255,255,.12) !important}
+html[data-theme="dark"] footer p{color:var(--ink-soft) !important}
+html[data-theme="dark"] .visual-journey{background-color:#111111 !important}
+html[data-theme="dark"] .journey-image{background-color:#111111 !important}
+html[data-theme="dark"] .journey-image img{background-color:#171717 !important}
+html[data-theme="dark"] .video-note{color:var(--ink-soft) !important}
+html[data-theme="dark"] .case-block{border-top:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .case-block>span{color:var(--ink-soft) !important}
+html[data-theme="dark"] .case-block p,
+html[data-theme="dark"] .case-block li{color:var(--ink-soft) !important}
+html[data-theme="dark"] .tool-tags span{border:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .case-button{color:var(--ink) !important}
+@media(max-width:680px){html[data-theme="dark"] .contact-pill{color:var(--ink) !important}}
+html[data-theme="dark"] .fitness-journey{background-color:#111111 !important}
+html[data-theme="dark"] .fitness-image{background-color:#171717 !important}
+html[data-theme="dark"] .fitness-video .section-label{color:var(--ink-soft) !important}
+html[data-theme="dark"] .fitness-video .journey-heading>p:last-child{color:var(--ink-soft) !important}
+html[data-theme="dark"] .test-top strong{color:var(--ink) !important}
+html[data-theme="dark"] .hover-hint{background-color:rgba(255,255,255,0.08) !important;border:1px solid rgba(255,255,255,.12) !important;color:var(--ink) !important}
+html[data-theme="dark"] .contact-social-icon{border:1px solid rgba(255,255,255,.12) !important;background-color:#111111 !important;color:var(--ink) !important}
+html[data-theme="dark"] .contact-social-icon.github svg{color:var(--ink) !important}
+html[data-theme="dark"] .contact-social-icon:hover{background-color:color-mix(in srgb, #e4ded2 16%, #141414) !important}
+html[data-theme="dark"] .photo-card{background-color:#171717 !important}
+html[data-theme="dark"] .carousel-arrow{border:1px solid rgba(255,255,255,.18) !important;background-color:#111111 !important;color:var(--ink) !important}
+html[data-theme="dark"] .ml-project-media{background-color:color-mix(in srgb, #dce9bb 16%, #141414) !important}
+html[data-theme="dark"] .ml-card-art{background:radial-gradient(circle at 30% 25%, #141414, #caff42 58%, #b0d634) !important}
+html[data-theme="dark"] .ml-card-art-icon{border:2px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .tool-tags.ml-light-tags span{color:var(--ink) !important}
+html[data-theme="dark"] .nesso-cover{background-color:#171717 !important}
+html[data-theme="dark"] .architecture-section{background-color:#111111 !important}
+html[data-theme="dark"] .architecture-intro>p:last-child,
+html[data-theme="dark"] .architecture-foot{color:var(--ink-soft) !important}
+html[data-theme="dark"] .architecture-node{background-color:#171717 !important;color:var(--ink) !important;border:1px solid rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .architecture-node:not(:last-child):after{color:var(--ink) !important}
+html[data-theme="dark"] .architecture-node:hover,
+html[data-theme="dark"] .architecture-node:focus-visible{border-color:rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .architecture-node[aria-pressed=true]{border-color:rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .architecture-node span{color:var(--ink) !important}
+html[data-theme="dark"] .architecture-node small{color:var(--ink) !important}
+html[data-theme="dark"] .quick-facts{border-top:1px solid var(--line,rgba(255,255,255,.12)) !important}
+html[data-theme="dark"] .quick-facts>div{border-bottom:1px solid var(--line,rgba(255,255,255,.12)) !important}
+html[data-theme="dark"] .quick-facts dt{color:var(--ink-soft) !important}
+html[data-theme="dark"] .quick-facts dd{color:var(--ink) !important}
+html[data-theme="dark"] .btn.accent{color:var(--ink) !important}
+html[data-theme="dark"] .project-pager{border-top:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .project-pager-link{border:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .project-pager-all{border:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .project-pager-all:hover{border-color:rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .experience{background-color:#111111 !important}
+html[data-theme="dark"] .experience-card{border:1px solid var(--line,rgba(255,255,255,.12)) !important;background-color:#171717 !important}
+html[data-theme="dark"] .experience-media{background-color:#111111 !important}
+html[data-theme="dark"] .experience-meta{color:var(--ink-soft) !important}
+html[data-theme="dark"] .experience-meta span:first-child{color:color-mix(in srgb, #4a6a00 35%, #e8e6df) !important}
+html[data-theme="dark"] .experience-body h2 span{color:var(--ink-soft) !important}
+html[data-theme="dark"] .experience-body>p{color:var(--ink-soft) !important}
+html[data-theme="dark"] .experience-points li{color:var(--ink) !important}
+html[data-theme="dark"] .card-tags span{border:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .experience-side{background-color:#111111 !important;border-left:1px solid var(--line,rgba(255,255,255,.12)) !important}
+html[data-theme="dark"] .experience-stats>div{border:1px solid var(--line,rgba(255,255,255,.12)) !important;background-color:#171717 !important}
+html[data-theme="dark"] .experience-stats span{color:var(--ink-soft) !important}
+@media(max-width:900px){html[data-theme="dark"] .experience-side{border-top:1px solid var(--line,rgba(255,255,255,.12)) !important}}
+html[data-theme="dark"] .fp-arrow:hover{color:var(--ink) !important}
+html[data-theme="dark"] .fp-counter span:last-child{color:var(--ink-soft) !important}
+html[data-theme="dark"] .about-portrait img{background-color:#171717 !important}
+html[data-theme="dark"] .about-note{color:var(--ink) !important}
+html[data-theme="dark"] .about-note:before{border-top:2px solid rgba(255,255,255,.18) !important;border-left:2px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .about-journey:before{background:linear-gradient(var(--accent),#141414) !important}
+html[data-theme="dark"] .about-journey li:before{background-color:#171717 !important;border:2px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .about-step{color:var(--ink) !important}
+html[data-theme="dark"] .tiltable:after{background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.04),transparent 55%) !important}
+html[data-theme="dark"] .td-panel,
+html[data-theme="dark"] .td-out{background-color:#171717 !important}
+html[data-theme="dark"] .td-reset{background-color:#171717 !important}
+html[data-theme="dark"] .td-reset:hover{border-color:rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .td-row.is-used{background-color:color-mix(in srgb, #f1ffc9 16%, #141414) !important}
+html[data-theme="dark"] .td-key i{background-color:color-mix(in srgb, #f1ffc9 16%, #141414) !important;border:1px solid rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .td-leaf{color:var(--ink) !important}
+html[data-theme="dark"] .td-depth{color:var(--ink) !important}
+html[data-theme="dark"] .td-path li{background-color:#111111 !important}
+html[data-theme="dark"] .td-a{color:var(--ink) !important}
+html[data-theme="dark"] .moon-widget{border:1px solid rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .td-card{background-color:color-mix(in srgb, #e9f2ff 16%, #141414) !important}
+html[data-theme="dark"] .td-card.is-pd{background-color:color-mix(in srgb, #ffe6dc 16%, #141414) !important}
+html[data-theme="dark"] .td-bar b{background-color:#171717 !important}
+html[data-theme="dark"] .td-sub,
+html[data-theme="dark"] .td-metrics{color:var(--ink) !important}
+html[data-theme="dark"] .td-dt .td-path li{background-color:rgba(255,255,255,0.08) !important}
+html[data-theme="dark"] .exp-row{background-color:#171717 !important}
+html[data-theme="dark"] .exp-row:hover{border-color:rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .exp-when{color:color-mix(in srgb, #4a6a00 35%, #e8e6df) !important}
+html[data-theme="dark"] .exp-link{border:1px solid rgba(255,255,255,.12) !important;color:var(--ink) !important;background-color:#171717 !important}
+html[data-theme="dark"] .exp-link:hover{border-color:rgba(255,255,255,.18) !important}
+html[data-theme="dark"] body.project-page .case-heading>p:last-child,
+html[data-theme="dark"] body .ml-hero>p:not(.eyebrow),
+html[data-theme="dark"] body .dpv-hero .dpv-intro{color:var(--ink) !important}
+html[data-theme="dark"] body.project-page .case-kicker,
+html[data-theme="dark"] body .ml-hero .eyebrow,
+html[data-theme="dark"] body .dpv-hero .dpv-kicker{color:var(--ink-soft) !important}
+html[data-theme="dark"] body:has(.dpv-hero) .dpv-team-case{border-bottom:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .nf{background-color:#111111 !important}
+html[data-theme="dark"] .nf-code{border:1px solid rgba(255,255,255,.12) !important;background-color:#171717 !important}
+html[data-theme="dark"] .nf p{color:var(--ink-soft) !important}
+html[data-theme="dark"] .nf-actions .outline{border:1px solid rgba(255,255,255,.12) !important;background-color:#171717 !important;color:var(--ink) !important}
+html[data-theme="dark"] .dpv-hero{background-color:#111111 !important}
+html[data-theme="dark"] .dpv-intro{color:var(--ink-soft) !important}
+html[data-theme="dark"] .dpv-tags span{border:1px solid rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .dpv-section{background-color:#171717 !important}
+html[data-theme="dark"] .dpv-section .dpv-label{color:var(--ink-soft) !important}
+html[data-theme="dark"] .dpv-section p{color:var(--ink-soft) !important}
+html[data-theme="dark"] .dpv-process article{background-color:#111111 !important;border:1px solid rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .dpv-figure{background-color:#171717 !important;border:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .dpv-figure figcaption{color:var(--ink-soft) !important}
+html[data-theme="dark"] .dpv-finding{border:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .dpv-workstreams article{border-color:rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .dpv-team-case{border-bottom:1px solid rgba(255,255,255,.18) !important}
+html[data-theme="dark"] .dpv-team-case img{background-color:#171717 !important}
+html[data-theme="dark"] .ml-hero{background-color:#111111 !important}
+html[data-theme="dark"] .ml-hero .eyebrow{color:var(--ink-soft) !important}
+html[data-theme="dark"] .ml-hero p{color:var(--ink-soft) !important}
+html[data-theme="dark"] .ml-metric{border:1px solid rgba(255,255,255,.12) !important;background-color:#171717 !important}
+html[data-theme="dark"] .ml-metric span{color:var(--ink-soft) !important}
+html[data-theme="dark"] .ml-section p,
+html[data-theme="dark"] .ml-section li{color:var(--ink-soft) !important}
+html[data-theme="dark"] .ml-panel{background-color:#171717 !important;color:var(--ink) !important}
+html[data-theme="dark"] .ml-dark .ml-panel p{color:var(--ink-soft) !important}
+html[data-theme="dark"] .ml-figure{background-color:#171717 !important;color:var(--ink) !important;border:1px solid rgba(255,255,255,.12) !important}
+html[data-theme="dark"] .ml-figure img{background-color:#171717 !important}
+html[data-theme="dark"] .ml-figure figcaption{color:var(--ink) !important}
+html[data-theme="dark"] .ml-figure figcaption strong{color:var(--ink) !important}
+html[data-theme="dark"] .ml-section .tool-tags.ml-light-tags span{color:var(--ink) !important}
+
+/* ---------- keep one continuous background in night mode ---------- */
+html[data-theme="dark"] body :is(main>section,main>div:not(.tree-demo),main section,
+.home-hero,.section,.about,.experience,.projects,.contact,.marquee,
+.all-projects-main,.project-pager,footer,.aw-header,.aw-hero,.aw-section,.aw-bottom,.aw-footer,
+.case-hero,.case-summary,.case-sections,.visual-journey,.architecture-section,.fitness-video,
+.ml-hero,.ml-section,.dpv-hero,.dpv-section,.lunar-hero,.lunar-section){background:transparent!important}
+html[data-theme="dark"] body.lunar-page,html[data-theme="dark"] .lunar-page main{background:#0a0a0a!important}
+
+/* Cards: one dark card style */
+html[data-theme="dark"] body :is(.project-card,.project-pager-link,.exp-row,.contact form,
+.aw-card,.ia-responsibility-card,.ia-takeaway,.ia-learning-item,.ia-overview-copy,.ia-fact,.ia-photo-card,.ia-recommendation-card,
+.lunar-flares>div,.lunar-shot,.lunar-progress article,.lunar-stat-row>div,.lunar-table-wrap,
+.dpv-finding,.dpv-workstreams article,.dpv-takeaway,.ml-panel,.ml-figure,.case-block,.info-block,.td-panel,.tool-pill){
+  background:var(--card)!important;border-color:rgba(255,255,255,.1)!important;box-shadow:none!important}
+html[data-theme="dark"] .project-media{background:#1d1d1d!important}
+
+/* Header + pill menu */
+html[data-theme="dark"] .site-header{background:rgba(10,10,10,.82)!important;border-bottom-color:rgba(255,255,255,.08)!important}
+html[data-theme="dark"] .site-header .logo,html[data-theme="dark"] .site-header nav a{color:#d9d6cf}
+html[data-theme="dark"] .site-header nav a:hover{background:rgba(255,255,255,.08);color:#fff}
+html[data-theme="dark"] .site-header nav a[aria-current="page"]:not(.contact-pill){background:#1f1f1f!important;color:#fff!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)!important}
+html[data-theme="dark"] .site-header nav .nav-resume{color:#111!important}
+html[data-theme="dark"] .menu-btn{color:var(--ink)}
+@media(max-width:680px){html[data-theme="dark"] .site-header nav:not(.project-nav){background:#111!important}}
+
+/* Text that must stay dark because it sits on lime */
+html[data-theme="dark"] :is(.btn.accent,.accent,.view-chip,.nav-resume,.lunar-back,.dpv-back,.ml-footer-link,.ia-recommendation-button,.aw-action,.td-reset:hover,.fp-arrow:hover,.to-top:hover,.filter.active),
+html[data-theme="dark"] :is(.btn.accent,.view-chip,.lunar-back,.dpv-back,.ml-footer-link,.ia-recommendation-button,.aw-action) *{color:#111!important}
+
+/* Dark buttons get a visible edge on the black page */
+html[data-theme="dark"] :is(.btn.dark,.td-load,.to-top,.hero-sticker,.carousel-counter,.photo-counter){background:#202020!important;color:#f2f0ea!important;box-shadow:0 0 0 1px rgba(255,255,255,.1)}
+html[data-theme="dark"] .exp-link,html[data-theme="dark"] .td-reset,html[data-theme="dark"] .lunar-ghost{background:#1a1a1a!important;color:var(--ink)!important;border-color:rgba(255,255,255,.16)!important}
+html[data-theme="dark"] .exp-link:hover{background:#caff42!important;color:#111!important}
+html[data-theme="dark"] .filter{color:var(--ink)!important;border-color:rgba(255,255,255,.18)!important}
+html[data-theme="dark"] .filter.active,html[data-theme="dark"] .filter:hover{background:#caff42!important;border-color:#caff42!important}
+html[data-theme="dark"] .contact-social-icon{background:#1a1a1a!important;border-color:rgba(255,255,255,.12)!important;color:var(--ink)!important}
+html[data-theme="dark"] .contact-social-icon.github svg{color:#f2f0ea}
+html[data-theme="dark"] .carousel-arrow,html[data-theme="dark"] .fp-arrow{background:#1a1a1a!important;color:var(--ink)!important;border-color:rgba(255,255,255,.2)!important}
+html[data-theme="dark"] .availability{background:#161616!important;border-color:rgba(255,255,255,.12)!important;color:var(--ink)!important}
+html[data-theme="dark"] input,html[data-theme="dark"] textarea{color:var(--ink)!important;border-bottom-color:rgba(255,255,255,.2)!important}
+html[data-theme="dark"] input::placeholder,html[data-theme="dark"] textarea::placeholder{color:#76726b}
+html[data-theme="dark"] .td-row.is-used{background:rgba(202,255,66,.12)!important}
+html[data-theme="dark"] .td-card{background:#181c24!important}
+html[data-theme="dark"] .td-card.is-pd{background:#24191a!important}
+html[data-theme="dark"] .td-bar{background:rgba(255,255,255,.14)!important}
+html[data-theme="dark"] .td-bar i{background:#caff42!important}
+html[data-theme="dark"] .td-dt .td-path li{background:rgba(255,255,255,.05)!important}
+html[data-theme="dark"] .td-path li:before{background:#caff42!important;color:#111!important}
+html[data-theme="dark"] .about-portrait img{border-color:rgba(255,255,255,.12)!important}
+html[data-theme="dark"] .about-note,html[data-theme="dark"] .about-note:before{color:var(--ink)!important;border-color:var(--ink)!important}
+html[data-theme="dark"] .about-journey li:before{background:#0a0a0a;border-color:var(--ink)}
+html[data-theme="dark"] .about-journey li:nth-child(2):before{background:#caff42}
+html[data-theme="dark"] .about-step{color:var(--ink)!important}
+html[data-theme="dark"] .exp-when,html[data-theme="dark"] .project-pager-link span{color:#caff42!important}
+html[data-theme="dark"] .tool-pill{color:var(--ink)!important}
+html[data-theme="dark"] .tool-pill svg path[fill="#000000"],html[data-theme="dark"] .tool-pill svg path[fill="#150458"],html[data-theme="dark"] .tool-pill svg path[fill="#013243"],html[data-theme="dark"] .tool-pill svg path[fill="#003B57"]{fill:#e8e6df}
+html[data-theme="dark"] .marquee,html[data-theme="dark"] footer,html[data-theme="dark"] .aw-footer{border-color:rgba(255,255,255,.08)!important}
+html[data-theme="dark"] :is(.projects,.all-projects-main,.aw-dark,.case-sections,.ml-dark,.dpv-dark,.lunar-black,.fitness-video,footer,.aw-footer,.project-pager) :is(h1,h2,h3,h4,h5,strong,b,dt,th,label,legend):not(.btn *):not(.view-chip):not(.fp-arrow){color:var(--ink)!important}
+html[data-theme="dark"] .project-card .project-body h3,html[data-theme="dark"] .open-row,html[data-theme="dark"] .open-row *{color:var(--ink)!important}
+html[data-theme="dark"] .card-tags span,html[data-theme="dark"] .tool-tags span{border-color:rgba(255,255,255,.16)!important;color:#d9d6cf!important}
+html[data-theme="dark"] .copy-tip,html[data-theme="dark"] .egg-toast{background:#f2f0ea;color:#111}
+html[data-theme="dark"] .moon-widget{border-color:rgba(255,255,255,.12)}
+
+/* ---------- theme switch ---------- */
+.theme-toggle{flex:none;width:38px;height:38px;margin-left:10px;border-radius:50%;border:1px solid var(--hair,rgba(0,0,0,.1));background:var(--card,#fffdf8);color:var(--ink,#151515);display:grid;place-items:center;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.theme-toggle:hover{transform:rotate(-12deg)}
+.theme-toggle svg{width:18px;height:18px}
+.theme-toggle .moon{display:block}
+.theme-toggle .sun{display:none}
+html[data-theme="dark"] .theme-toggle{background:#1a1a1a;border-color:rgba(255,255,255,.14);color:#f2f0ea}
+html[data-theme="dark"] .theme-toggle .moon{display:none}
+html[data-theme="dark"] .theme-toggle .sun{display:block}
+@media(max-width:680px){.site-header .theme-toggle{order:2;margin-left:auto;margin-right:12px}.site-header .menu-btn{order:3}}
+html.theme-anim,html.theme-anim *{transition:background-color .35s ease,color .35s ease,border-color .35s ease!important}
+
+/* ---------- fixes found by the night-mode contrast scan ---------- */
+/* Project pages set their own colour variables on <body> */
+html[data-theme="dark"] body.project-page:has(.case-hero),html[data-theme="dark"] body:has(.ml-hero),html[data-theme="dark"] body:has(.dpv-hero){
+  --up-cream:#0a0a0a;--up-card:#161616;--up-border:rgba(255,255,255,.12);--up-ink:#f2f0ea;--up-muted:#a9a59d}
+/* Lime buttons and badges keep dark text */
+html[data-theme="dark"] :is(.case-button,.lunar-enlarge,.btn.case-button){color:#111!important}
+html[data-theme="dark"] .btn.outline{background:#1a1a1a!important;border-color:rgba(255,255,255,.16)!important;color:var(--ink)!important}
+/* Internship "Taking ownership" stays a lime card with dark text */
+html[data-theme="dark"] .ia-learning-feature{background:#caff42!important;color:#111!important}
+html[data-theme="dark"] .ia-learning-feature *{color:#111!important}
+html[data-theme="dark"] .ia-learning-feature-bottom span{border-color:rgba(0,0,0,.25)!important}
+
+/* Every element with a lime background keeps dark text (collected from all stylesheets) */
+html[data-theme="dark"] body:not(#_) :is(.about-journey li:nth-child(2):before,.about-portrait-back,.accent,.architecture-node[aria-pressed=true],.aw-action,.aw-bottom,.aw-jump a,.case-button,.case-math,.dpv-back,.experience-points li:before,.filter.active,.hello,.ia-tab[aria-selected="true"] small,.internship-page .ia-bottom,.internship-page .ia-learning-feature,.internship-page .ia-recommendation-button,.lunar-page .lunar-back,.lunar-page .lunar-enlarge,.math-art,.ml-footer-link,.next-project,.progress-bar,.site-header nav .nav-resume,.test-top strong,.view-chip,::selection),
+html[data-theme="dark"] body:not(#_) :is(.about-journey li:nth-child(2):before,.about-portrait-back,.accent,.architecture-node[aria-pressed=true],.aw-action,.aw-bottom,.aw-jump a,.case-button,.case-math,.dpv-back,.experience-points li:before,.filter.active,.hello,.ia-tab[aria-selected="true"] small,.internship-page .ia-bottom,.internship-page .ia-learning-feature,.internship-page .ia-recommendation-button,.lunar-page .lunar-back,.lunar-page .lunar-enlarge,.math-art,.ml-footer-link,.next-project,.progress-bar,.site-header nav .nav-resume,.test-top strong,.view-chip,::selection) *{color:#111!important}
+html[data-theme="dark"] body:not(#_) .architecture-node[aria-pressed=true]{background:#caff42!important;border-color:#caff42!important}
+html[data-theme="dark"] .architecture-node:not([aria-pressed=true]) small,html[data-theme="dark"] .architecture-node:not([aria-pressed=true]) span{color:var(--ink-soft)!important}
+@media(min-width:681px){.site-header nav{margin-left:auto}}
