@@ -131,3 +131,10 @@ const select=i=>{tabs.forEach((b,j)=>{const on=i===j;b.setAttribute("aria-select
 tabs.forEach((b,i)=>{b.addEventListener("click",()=>select(i));b.addEventListener("keydown",e=>{const k={ArrowRight:1,ArrowLeft:-1}[e.key];if(!k)return;e.preventDefault();const n=(i+k+tabs.length)%tabs.length;select(n);tabs[n].focus();});});
 gallery.classList.add("has-tabs");gallery.querySelector(".aw-section-head").after(bar);
 const hash=groups.findIndex(g=>"#"+g.id===location.hash);select(hash<0?0:hash);})();
+
+// About stats count up the first time they scroll into view.
+(()=>{const nums=document.querySelectorAll(".about-stats [data-count]");if(!nums.length)return;
+if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+const run=el=>{const end=+el.dataset.count,dur=1100,t0=performance.now();const step=t=>{const k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(end*e);if(k<1)requestAnimationFrame(step);};el.textContent="0";requestAnimationFrame(step);};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){io.unobserve(e.target);run(e.target);}}),{threshold:.6});
+nums.forEach(n=>io.observe(n));})();
