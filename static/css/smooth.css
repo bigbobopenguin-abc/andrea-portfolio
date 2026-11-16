@@ -1,0 +1,127 @@
+/* =====================================================
+   SMOOTH THEME (loaded last on every page)
+   One continuous cream background, calmer headings, one card style,
+   a pill menu, a logo tools strip, an end banner and a back-to-top button.
+===================================================== */
+:root{
+  --bg:#f4f1ea;
+  --card:#fffdf8;
+  --ink:#151515;
+  --ink-soft:#5f5b54;
+  --hair:rgba(21,21,21,.1);
+  --olive:#4a6a00;
+  --radius:20px;
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 12px 32px -24px rgba(0,0,0,.25);
+}
+html,body{background:var(--bg)!important}
+html{scroll-behavior:smooth}
+
+/* ---------- 1. One background for every section ---------- */
+main>section,main>div:not(.tree-demo),main section,
+.home-hero,.section,.about,.experience,.projects,.contact,.marquee,
+.all-projects-main,.project-pager,footer,.aw-header,.aw-hero,.aw-section,.aw-bottom,.aw-footer,
+.case-hero,.case-summary,.case-sections,.visual-journey,.architecture-section,.fitness-video,
+.ml-hero,.ml-section,.dpv-hero,.dpv-section,.lunar-page,.lunar-hero,.lunar-section{
+  background:transparent!important;
+}
+.lunar-page,.lunar-page main{background:var(--bg)!important}
+
+/* Areas that used to be dark now use dark text */
+.projects,.all-projects-main,.aw-dark,.case-sections,.ml-dark,.dpv-dark,.lunar-black,.fitness-video,
+footer,.aw-footer,.project-pager,.marquee{color:var(--ink)!important}
+:is(.projects,.all-projects-main,.aw-dark,.case-sections,.ml-dark,.dpv-dark,.lunar-black,.fitness-video,footer,.aw-footer,.project-pager)
+  :is(h1,h2,h3,h4,h5,strong,b,dt,th,label,legend):not(.btn *):not(.view-chip):not(.fp-arrow):not(.cta-banner *){color:var(--ink)!important}
+:is(.projects,.all-projects-main,.aw-dark,.case-sections,.ml-dark,.dpv-dark,.lunar-black,.fitness-video,footer,.aw-footer,.project-pager)
+  :is(p,li,small,span,dd,td,figcaption,em,blockquote):not(.btn *):not(.view-chip):not(.view-chip *):not(.fp-counter *):not(.carousel-counter *):not(.wi):not(.w):not(.split-words *):not(.cta-banner *){color:var(--ink-soft)!important}
+:is(.projects,.all-projects-main,.aw-dark,.case-sections,.ml-dark,.dpv-dark,.lunar-black,.fitness-video)
+  :is(.section-label,.light,.lunar-label,.project-meta span,[class*="label"]){color:#7a756c!important}
+:is(.dpv-dark,.ml-dark,.lunar-black,.aw-dark) :is(.dpv-finding strong,.dpv-workstreams strong,.dpv-team-case small,.ml-results th,.lunar-flares span){color:var(--olive)!important}
+.lunar-page .lunar-ghost-dark{color:var(--ink)!important;border-color:#cfc8bb!important;background:var(--card)!important}
+.internship-page .ia-recommendation-side,.internship-page .ia-recommendation-side *{color:#f2f2f2}
+.internship-page .ia-recommendation-initial{color:#caff42!important}
+.architecture-detail,.architecture-detail *{color:#f2f2f2}
+.architecture-detail span{color:#caff42!important}
+
+/* ---------- 2. One card style ---------- */
+.project-card,.project-pager-link,.exp-row,.contact form,
+.aw-card,.internship-page .ia-responsibility-card,.internship-page .ia-takeaway,.internship-page .ia-learning-item,
+.lunar-page .lunar-flares>div,.lunar-page .lunar-shot,.lunar-page .lunar-progress article,.lunar-page .lunar-stat-row>div,.lunar-page .lunar-table-wrap,
+.dpv-finding,.dpv-workstreams article,.dpv-takeaway,.ml-panel,.ml-figure,.case-block,.info-block,.td-panel{
+  background:var(--card)!important;
+  border:1px solid var(--hair)!important;
+  border-radius:var(--radius)!important;
+  box-shadow:var(--shadow);
+}
+.dpv-figure figcaption{background:var(--card)!important}
+.project-card{color:var(--ink)!important}
+.project-card .project-body h3{color:var(--ink)!important}
+.project-card .project-body p{color:var(--ink-soft)!important}
+.project-card:hover,.project-card:focus-visible,.exp-row:hover,.project-pager-link:hover{border-color:#c9c2b4!important;box-shadow:0 22px 46px -30px rgba(0,0,0,.35)!important}
+.open-row{border-top-color:var(--hair)!important}
+.open-row,.open-row span,.open-row b{color:var(--ink)!important}
+.card-tags span,.tool-tags span{background:transparent!important;border-color:#d6cfc2!important;color:#3d3a35!important}
+.project-media{background:#ebe7de!important}
+.project-pager-link span{color:var(--olive)!important}
+.filter{background:transparent!important;color:var(--ink)!important;border-color:#cfc8bb!important}
+.filter.active,.filter:hover{background:var(--ink)!important;color:#fff!important;border-color:var(--ink)!important}
+.fp-arrow{background:var(--card)!important;color:var(--ink)!important;border-color:#cfc8bb!important}
+.fp-arrow:hover{background:#caff42!important;border-color:#caff42!important}
+.fp-counter{color:var(--ink)!important}
+.fp-counter span:last-child{color:#8a857c!important}
+
+/* ---------- 3. Calmer headings ---------- */
+.section h2,.aw-section-head h2,.case-main h2,.ml-section h2,.dpv-section h2,.lunar-page .lunar-section h2,.journey-heading h2,.architecture-intro h2{
+  font-size:clamp(1.9rem,3vw,2.6rem)!important;line-height:1.1!important;letter-spacing:-.035em!important;
+}
+.home-hero .section-label,#about>.section-label,#experience>.section-label,#projects>.section-label,.contact .section-label{display:none!important}
+.about h2 span,.contact h2 span{font-style:normal!important}
+.exp-head{margin-bottom:22px}
+.section{padding-top:96px;padding-bottom:96px}
+
+/* ---------- 4. Pill menu ---------- */
+@media(min-width:681px){
+  .site-header{background:rgba(244,241,234,.82)!important;backdrop-filter:blur(16px);border-bottom:1px solid var(--hair)!important}
+  .site-header nav{display:flex;align-items:center;gap:4px!important}
+  .site-header nav a{padding:8px 14px;border-radius:999px;font-size:.84rem!important;font-weight:700;letter-spacing:0!important;text-transform:none!important;text-decoration:none!important;color:#3d3a35;transition:background .2s,color .2s}
+  .site-header nav a:hover{background:rgba(21,21,21,.06);color:var(--ink)}
+  .site-header nav a[aria-current="page"]:not(.contact-pill){background:var(--card);color:var(--ink);box-shadow:inset 0 0 0 1px var(--hair);text-decoration:none!important}
+  .site-header nav .nav-resume{margin-left:8px;background:#caff42!important;color:#111!important;padding:9px 18px}
+  .site-header nav .nav-resume:hover{background:#b8f02a!important}
+}
+
+/* ---------- 5. Tools strip with logos ---------- */
+.tools-marquee{padding:34px 0 10px!important;border:0!important;overflow:hidden}
+.tools-label{text-align:center;margin:0 0 18px;font-size:.7rem;font-weight:800;letter-spacing:.16em;color:#7a756c!important}
+.tools-marquee .marquee-content{display:flex;gap:12px;padding-right:12px}
+.tool-pill{display:inline-flex;align-items:center;gap:9px;padding:10px 16px;border:1px solid var(--hair);border-radius:999px;background:var(--card);font-size:.88rem;font-weight:700;color:var(--ink)!important;white-space:nowrap;box-shadow:var(--shadow)}
+.tool-pill svg{width:18px;height:18px;flex:none}
+.tools-marquee{-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+
+/* ---------- 6. Footer ---------- */
+footer,.aw-footer{border-top:1px solid var(--hair)}
+footer a,.aw-footer a,footer .logo{color:var(--ink)!important}
+footer p,.aw-footer span{color:#8a857c!important}
+.project-pager{border-top:0!important}
+
+/* ---------- 7. End banner ---------- */
+.cta-banner{padding:24px var(--edge,6vw) 90px!important}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:38px 42px;border-radius:26px;background:#151515;color:#fff;box-shadow:0 30px 60px -36px rgba(0,0,0,.55);position:relative;overflow:hidden}
+.cta-inner h2{font-size:clamp(1.4rem,2.4vw,2rem)!important;letter-spacing:-.03em;line-height:1.15;color:#fff!important}
+.cta-inner p{margin-top:8px;color:#bdbdbd!important;font-size:.95rem}
+.cta-actions{display:flex;gap:10px;flex-wrap:wrap;flex:none;position:relative;z-index:1}
+.cta-primary,.cta-secondary{display:inline-flex;align-items:center;padding:12px 20px;border-radius:999px;font-weight:800;font-size:.9rem;text-decoration:none;transition:transform .2s,background .2s}
+.cta-primary{background:#caff42;color:#111!important}
+.cta-secondary{border:1px solid #444;color:#fff!important}
+.cta-primary:hover,.cta-secondary:hover{transform:translateY(-2px)}
+.cta-secondary:hover{border-color:#fff}
+@media(max-width:760px){.cta-inner{flex-direction:column;align-items:flex-start;padding:28px 24px}.cta-banner{padding:16px 20px 70px!important}}
+
+/* ---------- 8. Back to top ---------- */
+.to-top{position:fixed;right:22px;bottom:22px;z-index:900;width:46px;height:46px;border:0;border-radius:50%;display:grid;place-items:center;background:#151515;color:#fff;font-size:1.1rem;cursor:pointer;box-shadow:0 14px 30px -12px rgba(0,0,0,.5);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .25s,transform .25s,background .2s}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+.to-top:hover{background:#caff42;color:#111}
+@media(prefers-reduced-motion:reduce){.to-top{transition:none}}
+
+/* Fixes */
+.tools-marquee .marquee-content span.tool-pill{display:inline-flex;align-items:center;gap:9px;padding:10px 16px;font-size:.88rem;letter-spacing:0;flex-shrink:0}
+:is(.projects,.all-projects-main,.aw-dark,.case-sections,.ml-dark,.dpv-dark,.lunar-black,.fitness-video) :is(h1,h2,h3,h4) :is(span,.w,.wi){color:inherit!important}

@@ -161,3 +161,8 @@ document.querySelectorAll("[data-copy]").forEach(a=>{
     }).catch(()=>{window.location.href=a.href;});
   });
 });
+
+// Back-to-top button appears after scrolling down.
+(()=>{const b=document.createElement("button");b.type="button";b.className="to-top";b.setAttribute("aria-label","Back to top");b.textContent="↑";
+document.body.appendChild(b);b.addEventListener("click",()=>window.scrollTo({top:0,behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}));
+const t=()=>b.classList.toggle("show",window.scrollY>600);window.addEventListener("scroll",t,{passive:true});t();})();
