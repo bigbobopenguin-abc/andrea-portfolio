@@ -166,3 +166,14 @@ document.querySelectorAll("[data-copy]").forEach(a=>{
 (()=>{const b=document.createElement("button");b.type="button";b.className="to-top";b.setAttribute("aria-label","Back to top");b.textContent="↑";
 document.body.appendChild(b);b.addEventListener("click",()=>window.scrollTo({top:0,behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}));
 const t=()=>b.classList.toggle("show",window.scrollY>600);window.addEventListener("scroll",t,{passive:true});t();})();
+
+// All Projects: sort by newest/oldest (project number = upload order) or by name.
+(()=>{const sel=document.getElementById("projectSort");const grid=document.querySelector(".all-projects-page .project-grid");if(!sel||!grid)return;
+const cards=[...grid.querySelectorAll(".project-card")];
+const num=c=>parseInt((c.querySelector(".project-meta span")||{}).textContent,10)||0;
+const name=c=>(c.querySelector("h3")||{}).textContent.trim().toLowerCase();
+const sorters={newest:(a,b)=>num(b)-num(a),oldest:(a,b)=>num(a)-num(b),az:(a,b)=>name(a).localeCompare(name(b)),za:(a,b)=>name(b).localeCompare(name(a))};
+const apply=v=>{(sorters[v]?cards.slice().sort(sorters[v]):cards).forEach(c=>{grid.appendChild(c);c.classList.add("visible")});};
+let saved=null;try{saved=sessionStorage.getItem("projectSort")}catch(e){}
+if(saved&&sorters[saved])sel.value=saved;apply(sel.value);
+sel.addEventListener("change",()=>{apply(sel.value);try{sessionStorage.setItem("projectSort",sel.value)}catch(e){}});})();
