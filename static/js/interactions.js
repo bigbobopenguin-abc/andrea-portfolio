@@ -1,4 +1,4 @@
-/* Interactive touches: magnetic buttons, card tilt, hero spotlight,
+/* Interactive touches: magnetic buttons, card tilt,
    word-by-word headings and a small easter egg. Desktop pointer only, and
    everything is skipped when the visitor prefers reduced motion. */
 (() => {
@@ -63,17 +63,6 @@
   document.querySelectorAll('.all-projects-page .project-card').forEach(c => tilt(c, 6, 'translateY(-6px)'));
   document.querySelectorAll('.aw-card').forEach(c => tilt(c, 5, 'translateY(-4px)'));
   document.querySelectorAll('.about-portrait img').forEach(c => tilt(c, 10, 'scale(1.02)'));
-
-  /* ---------- Hero spotlight ---------- */
-  const hero = document.querySelector('.home-hero');
-  if (hero) {
-    hero.classList.add('has-spotlight');
-    hero.addEventListener('mousemove', e => {
-      const r = hero.getBoundingClientRect();
-      hero.style.setProperty('--sx', `${e.clientX - r.left}px`);
-      hero.style.setProperty('--sy', `${e.clientY - r.top}px`);
-    });
-  }
 
   /* ---------- Easter egg: type "moon" anywhere ---------- */
   let typed = '';
