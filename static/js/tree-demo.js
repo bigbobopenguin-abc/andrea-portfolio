@@ -1,120 +1,134 @@
-/* "Try the model": Andrea's baseline Decision Tree (sklearn, random_state=42),
-   rebuilt from the plotted tree in the project notebook. Thresholds are the
-   values shown in the plot (rounded to 3 decimal places). Educational only. */
+/* "Try the model": runs Andrea's tuned Gradient Boosting model and baseline
+   Decision Tree in the browser. Both were retrained from the project notebook
+   pipeline and exported to static/js/pd-model.js. Educational only. */
 (() => {
   'use strict';
   const root = document.getElementById('treeDemo');
-  if (!root) return;
+  const M = window.PD_MODEL;
+  if (!root || !M) return;
 
-  // Slider ranges follow the public UCI Parkinson's voice dataset.
-  const FEATURES = [
-    { key: 'PPE', label: 'PPE', hint: 'Pitch period entropy', min: 0.04, max: 0.53, step: 0.001, value: 0.194 },
-    { key: 'NHR', label: 'NHR', hint: 'Noise-to-harmonics ratio', min: 0.0005, max: 0.32, step: 0.0005, value: 0.0117 },
-    { key: 'Fo', label: 'MDVP:Fo(Hz)', hint: 'Average vocal pitch', min: 88, max: 261, step: 0.1, value: 148.8 },
-    { key: 'Flo', label: 'MDVP:Flo(Hz)', hint: 'Lowest vocal pitch', min: 65, max: 240, step: 0.1, value: 104.3 },
-    { key: 'ShimmerDb', label: 'MDVP:Shimmer(dB)', hint: 'Loudness variation (dB)', min: 0.08, max: 1.31, step: 0.001, value: 0.282 },
-    { key: 'Shimmer', label: 'MDVP:Shimmer', hint: 'Loudness variation', min: 0.009, max: 0.12, step: 0.0005, value: 0.0297 },
-    { key: 'PPQ', label: 'MDVP:PPQ', hint: 'Pitch perturbation quotient', min: 0.0009, max: 0.0196, step: 0.0001, value: 0.0027 },
-    { key: 'DDP', label: 'Jitter:DDP', hint: 'Cycle-to-cycle pitch jitter', min: 0.002, max: 0.065, step: 0.0005, value: 0.0075 },
-    { key: 'RAP', label: 'MDVP:RAP', hint: 'Relative pitch perturbation', min: 0.0006, max: 0.0215, step: 0.0001, value: 0.0025 },
-    { key: 'D2', label: 'D2', hint: 'Signal complexity', min: 1.4, max: 3.7, step: 0.01, value: 2.36 }
-  ];
-  const byKey = Object.fromEntries(FEATURES.map(f => [f.key, f]));
+  const F = M.gb.features;
+  const idx = Object.fromEntries(F.map((f, i) => [f, i]));
+  const HINTS = {
+    'PPE': 'Pitch period entropy', 'MDVP:Fo(Hz)': 'Average vocal pitch', 'RPDE': 'Recurrence period density entropy',
+    'NHR': 'Noise-to-harmonics ratio', 'MDVP:Fhi(Hz)': 'Highest vocal pitch', 'spread1': 'Pitch variation (nonlinear)',
+    'D2': 'Signal complexity', 'MDVP:PPQ': 'Pitch perturbation quotient', 'Jitter:DDP': 'Cycle-to-cycle pitch jitter',
+    'spread2': 'Pitch variation (nonlinear)', 'MDVP:Flo(Hz)': 'Lowest vocal pitch', 'MDVP:Shimmer(dB)': 'Loudness variation (dB)',
+    'MDVP:Shimmer': 'Loudness variation', 'MDVP:RAP': 'Relative pitch perturbation'
+  };
+  // Sliders: the Gradient Boosting top 10 plus the other features the Decision Tree uses.
+  const dtUsed = new Set(M.dt.f.filter(f => f >= 0).map(f => F[f]));
+  const byImp = Object.keys(M.importance);
+  const shown = [...byImp.slice(0, 10), ...byImp.slice(10).filter(f => dtUsed.has(f))];
 
-  const leaf = (no, yes) => ({ leaf: true, no, yes });
-  const split = (key, t, left, right, no, yes) => ({ key, t, left, right, no, yes });
-  const TREE =
-    split('PPE', 0.134,
-      split('PPE', 0.106,
-        leaf(17, 0),
-        split('PPE', 0.118,
-          leaf(0, 8),
-          split('Flo', 125.969, leaf(9, 0), leaf(0, 1), 9, 1),
-          9, 9),
-        26, 9),
-      split('NHR', 0.005,
-        split('PPQ', 0.002,
-          split('DDP', 0.005, leaf(0, 1), leaf(6, 0), 6, 1),
-          leaf(0, 4),
-          6, 5),
-        split('ShimmerDb', 0.19,
-          split('Fo', 117.986,
-            split('D2', 1.872, leaf(0, 1), leaf(4, 0), 4, 1),
-            split('Shimmer', 0.022, leaf(0, 20), leaf(1, 0), 1, 20),
-            5, 21),
-          split('Fo', 208.799,
-            leaf(0, 82),
-            split('RAP', 0.003, leaf(0, 1), leaf(1, 0), 1, 1),
-            1, 83),
-          6, 104),
-        12, 109),
-      38, 118);
+  const x = M.medians.slice();
+  let current = null; // loaded test recording, if any
 
-  const decimals = step => (String(step).split('.')[1] || '').length;
-  const fmt = (f, v) => Number(v).toFixed(Math.max(decimals(f.step), 0));
+  const decimalsFor = (min, max) => { const span = max - min; return span >= 50 ? 1 : span >= 5 ? 2 : span >= .5 ? 3 : 4; };
+  const fmt = (f, v) => Number(v).toFixed(decimalsFor(...M.ranges[f]));
 
   const controls = root.querySelector('.td-controls');
-  const pathEl = root.querySelector('.td-path');
-  const result = root.querySelector('.td-result');
-  const values = {};
-
-  FEATURES.forEach(f => {
-    values[f.key] = f.value;
+  const rows = {};
+  shown.forEach(f => {
+    const [min, max] = M.ranges[f];
     const row = document.createElement('label');
-    row.className = 'td-row'; row.dataset.key = f.key;
-    row.innerHTML = `<span class="td-name"><strong></strong><small></small></span>
-      <input type="range"><output></output>`;
-    row.querySelector('strong').textContent = f.label;
-    row.querySelector('small').textContent = f.hint;
+    row.className = 'td-row'; row.dataset.f = f;
+    row.innerHTML = '<span class="td-name"><strong></strong><small></small></span><input type="range"><output></output>';
+    row.querySelector('strong').textContent = f;
+    row.querySelector('small').textContent = HINTS[f] || '';
     const input = row.querySelector('input');
-    Object.assign(input, { min: f.min, max: f.max, step: f.step, value: f.value });
-    input.setAttribute('aria-label', `${f.label} (${f.hint})`);
-    const out = row.querySelector('output');
-    out.textContent = fmt(f, f.value);
-    input.addEventListener('input', () => {
-      values[f.key] = parseFloat(input.value);
-      out.textContent = fmt(f, input.value);
-      run();
-    });
+    Object.assign(input, { min, max, step: (max - min) / 400 });
+    input.setAttribute('aria-label', `${f} (${HINTS[f] || 'voice measurement'})`);
+    input.addEventListener('input', () => { x[idx[f]] = parseFloat(input.value); markEdited(); sync(f); run(); });
     controls.appendChild(row);
+    rows[f] = row;
   });
+  const sync = f => {
+    const row = rows[f], v = x[idx[f]];
+    row.querySelector('input').value = v;
+    row.querySelector('output').textContent = fmt(f, v);
+  };
 
-  root.querySelector('.td-reset').addEventListener('click', () => {
-    controls.querySelectorAll('.td-row').forEach(row => {
-      const f = byKey[row.dataset.key], input = row.querySelector('input');
-      input.value = f.value; values[f.key] = f.value;
-      row.querySelector('output').textContent = fmt(f, f.value);
-    });
-    run();
-  });
+  // ---- Models ----
+  const gbProb = v => {
+    let s = M.gb.init;
+    for (const t of M.gb.trees) {
+      let n = 0;
+      while (t.l[n] !== -1) n = v[t.f[n]] <= t.t[n] ? t.l[n] : t.r[n];
+      s += M.gb.lr * t.v[n];
+    }
+    return 1 / (1 + Math.exp(-s));
+  };
+  const dtRun = v => {
+    const T = M.dt; let n = 0; const steps = [];
+    while (T.l[n] !== -1) {
+      const f = F[T.f[n]], yes = v[T.f[n]] <= T.t[n];
+      steps.push({ f, v: v[T.f[n]], t: T.t[n], yes });
+      n = yes ? T.l[n] : T.r[n];
+    }
+    const [no, pd] = T.n[n];
+    return { pd: pd > no, no, yes: pd, steps };
+  };
+
+  // ---- Output ----
+  const gbCard = root.querySelector('.td-gb'), dtCard = root.querySelector('.td-dt');
+  const pathEl = root.querySelector('.td-path'), source = root.querySelector('.td-source');
+  const label = p => p ? "Parkinson's" : "No Parkinson's";
 
   function run() {
-    let node = TREE; const steps = [];
-    while (!node.leaf) {
-      const f = byKey[node.key], v = values[node.key], goLeft = v <= node.t;
-      steps.push({ f, v, t: node.t, goLeft });
-      node = goLeft ? node.left : node.right;
-    }
-    const used = new Set(steps.map(s => s.f.key));
-    controls.querySelectorAll('.td-row').forEach(r => r.classList.toggle('is-used', used.has(r.dataset.key)));
+    const p = gbProb(x), gbPd = p >= .5;
+    gbCard.classList.toggle('is-pd', gbPd);
+    gbCard.querySelector('.td-verdict').textContent = label(gbPd);
+    gbCard.querySelector('.td-prob').textContent = p > .999 ? '>99.9%' : p < .001 ? '<0.1%' : `${(p * 100).toFixed(1)}%`;
+    gbCard.querySelector('.td-bar i').style.width = `${(p * 100).toFixed(1)}%`;
 
+    const d = dtRun(x), total = d.no + d.yes;
+    dtCard.classList.toggle('is-pd', d.pd);
+    dtCard.querySelector('.td-verdict').textContent = label(d.pd);
+    dtCard.querySelector('.td-leaf').textContent =
+      `${total} of the 156 training recordings ended at this leaf; ${d.pd ? d.yes : d.no} were labelled “${label(d.pd)}”.`;
     pathEl.innerHTML = '';
-    steps.forEach((s, i) => {
+    d.steps.forEach((s, i) => {
       const li = document.createElement('li');
-      li.innerHTML = `<span class="td-q"></span><span class="td-a"></span>`;
-      li.querySelector('.td-q').textContent = `${s.f.label} ≤ ${s.t}?`;
-      li.querySelector('.td-a').textContent = `${fmt(s.f, s.v)} → ${s.goLeft ? 'yes' : 'no'}`;
-      li.style.animationDelay = `${i * 60}ms`;
+      li.innerHTML = '<span class="td-q"></span><span class="td-a"></span>';
+      li.querySelector('.td-q').textContent = `${s.f} ≤ ${+s.t.toFixed(4)}?`;
+      li.querySelector('.td-a').textContent = `${fmt(s.f, s.v)} → ${s.yes ? 'yes' : 'no'}`;
+      li.style.animationDelay = `${i * 50}ms`;
       pathEl.appendChild(li);
     });
+    const used = new Set(d.steps.map(s => s.f));
+    Object.entries(rows).forEach(([f, r]) => r.classList.toggle('is-used', used.has(f)));
 
-    const pd = node.yes > node.no;
-    const total = node.no + node.yes;
-    result.classList.toggle('is-pd', pd);
-    result.querySelector('.td-verdict').textContent = pd ? "Parkinson's" : "No Parkinson's";
-    result.querySelector('.td-leaf').textContent =
-      `All ${total} training record${total === 1 ? '' : 's'} that reached this leaf ${total === 1 ? 'was' : 'were'} labelled “${pd ? "Parkinson's" : "No Parkinson's"}”.`;
-    result.querySelector('.td-depth').textContent = `${steps.length} question${steps.length === 1 ? '' : 's'} deep`;
+    if (current) {
+      const ok = m => m === (current.y === 1);
+      source.querySelector('.td-check').textContent =
+        `Actual label: ${label(current.y === 1)} · Gradient Boosting ${ok(gbPd) ? '✓ correct' : '✗ wrong'} · Decision Tree ${ok(d.pd) ? '✓ correct' : '✗ wrong'}`;
+    }
   }
-  run();
+
+  function markEdited() {
+    if (current && !current.edited) { current.edited = true; source.querySelector('.td-src-title').textContent += ' (edited)'; }
+  }
+
+  function loadRecord(rec) {
+    current = rec ? { ...rec, edited: false } : null;
+    const vals = rec ? rec.x : M.medians;
+    vals.forEach((v, i) => { x[i] = v; });
+    shown.forEach(sync);
+    source.hidden = !rec;
+    if (rec) {
+      source.querySelector('.td-src-title').textContent = `Held-out test recording ${rec.id + 1} of ${M.tests.length}`;
+    }
+    run();
+  }
+
+  let order = M.tests.map((_, i) => i).sort(() => Math.random() - .5), pos = 0;
+  root.querySelector('.td-load').addEventListener('click', () => { loadRecord(M.tests[order[pos++ % order.length]]); });
+  root.querySelector('.td-reset').addEventListener('click', () => loadRecord(null));
+
+  root.querySelector('.td-gb-metrics').textContent = `${M.metrics.gb[0]}% test accuracy · ${M.metrics.gb[3]}% F1`;
+  root.querySelector('.td-dt-metrics').textContent = `${M.metrics.dt[0]}% test accuracy · ${M.metrics.dt[3]}% F1`;
+  root.querySelector('.td-fixed').textContent =
+    `The other ${F.length - shown.length} measurements stay at ${'the loaded recording’s values, or the training medians'}.`;
+  loadRecord(null);
 })();
