@@ -112,3 +112,10 @@ footer p,.aw-footer span{color:#8a857c!important}
 /* Fixes */
 .tools-marquee .marquee-content span.tool-pill{display:inline-flex;align-items:center;gap:9px;padding:10px 16px;font-size:.88rem;letter-spacing:0;flex-shrink:0}
 :is(.projects,.all-projects-main,.aw-dark,.case-sections,.ml-dark,.dpv-dark,.lunar-black,.fitness-video) :is(h1,h2,h3,h4) :is(span,.w,.wi){color:inherit!important}
+
+/* ---------- Hero: size to its content, not the full screen ---------- */
+html body .home-hero{min-height:0!important;padding-top:128px!important;padding-bottom:36px!important;align-items:center}
+.home-hero .hero-word{bottom:-14%!important;font-size:clamp(7rem,16vw,14rem)!important}
+.tools-marquee{padding-top:18px!important}
+@media(max-width:680px){html body .home-hero{padding-top:100px!important}.home-hero .hero-word{bottom:-4%!important}}
+.home-hero .hero-word{display:none!important}
