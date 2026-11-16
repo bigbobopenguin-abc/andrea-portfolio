@@ -131,3 +131,20 @@ const select=i=>{tabs.forEach((b,j)=>{const on=i===j;b.setAttribute("aria-select
 tabs.forEach((b,i)=>{b.addEventListener("click",()=>select(i));b.addEventListener("keydown",e=>{const k={ArrowRight:1,ArrowLeft:-1}[e.key];if(!k)return;e.preventDefault();const n=(i+k+tabs.length)%tabs.length;select(n);tabs[n].focus();});});
 gallery.classList.add("has-tabs");gallery.querySelector(".aw-section-head").after(bar);
 const hash=groups.findIndex(g=>"#"+g.id===location.hash);select(hash<0?0:hash);})();
+
+// Featured projects: stacked carousel, same idea as the hero photos.
+(()=>{const root=document.getElementById("fpCarousel");if(!root)return;
+const track=root.querySelector(".fp-track"),cards=[...root.querySelectorAll(".fp-card")],cur=root.querySelector(".fp-current");
+let i=0;const n=cards.length;
+const fit=()=>{const h=Math.max(...cards.map(c=>c.offsetHeight));track.style.setProperty("--fp-h",h+"px");};
+const show=k=>{i=(k+n)%n;cards.forEach((c,j)=>{c.classList.remove("is-active","is-prev","is-next");
+  if(j===i)c.classList.add("is-active");else if(j===(i-1+n)%n)c.classList.add("is-prev");else c.classList.add("is-next");
+  c.tabIndex=j===i?0:-1;c.setAttribute("aria-hidden",String(j!==i));});
+  if(cur)cur.textContent=String(i+1).padStart(2,"0");};
+root.querySelector(".fp-prev").addEventListener("click",()=>show(i-1));
+root.querySelector(".fp-next").addEventListener("click",()=>show(i+1));
+cards.forEach((c,j)=>c.addEventListener("click",e=>{if(j!==i){e.preventDefault();show(j);}}));
+root.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")show(i-1);if(e.key==="ArrowRight")show(i+1);});
+let x0=null;track.addEventListener("touchstart",e=>{x0=e.touches[0].clientX},{passive:true});
+track.addEventListener("touchend",e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)show(dx<0?i+1:i-1);x0=null;});
+show(0);fit();window.addEventListener("resize",fit);window.addEventListener("load",fit);})();

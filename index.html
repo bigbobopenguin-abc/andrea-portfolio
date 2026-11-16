@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/style.css?v=20261116">
 </head>
 
 <body>
@@ -53,7 +53,7 @@
         <p class="eyebrow">AI & DATA ENGINEERING · NANYANG POLYTECHNIC</p>
 
         <h1>
-    Hi, I'm <span class="hl">Andrea.</span> Welcome to my portfolio.
+    Hi, I'm <span>Andrea.</span> Welcome to my portfolio.
 </h1>
         <p class="hero-text">
     I'm an AI & Data Engineering student at Nanyang Polytechnic
@@ -226,8 +226,35 @@
           <p>A selection of my work in data engineering, machine learning and game development.</p>
         </div>
       </div>
-      <div class="project-grid featured-grid">
-        <a class="project-card reveal is-feature" data-category="game" href="projects/lunar-expedition.html">
+      <div class="fp-carousel reveal" id="fpCarousel" aria-roledescription="carousel" aria-label="Featured projects">
+        <div class="fp-track">
+<a class="project-card fp-card" data-category="data-cloud" href="projects/nesso.html">
+<div class="project-media">
+<img loading="lazy" decoding="async" alt="Safety First illustration representing the NESSO worker safety monitoring project" src="static/images/nesso-safety-cover.jpg"/>
+<span class="view-chip">VIEW PROJECT ↗</span>
+</div>
+<div class="project-body">
+<div class="project-meta"><span>03</span><span>DATA ENGINEERING</span></div>
+<h3>NESSO Safety Monitoring System</h3>
+<p>IoT worker safety monitoring using NESSO sensors, BLE, Python, SQLite and Flask.</p>
+<div class="card-tags"><span>Python</span><span>Flask</span><span>SQLite</span><span>BLE</span></div>
+<div class="open-row"><span>View Project</span><b>↗</b></div>
+</div>
+</a>
+<a class="project-card fp-card" data-category="ai" href="projects/parkinsons-prediction.html">
+<div class="project-media ml-project-media">
+<img loading="lazy" decoding="async" alt="Artificial intelligence robot with mathematical equations" class="parkinsons-cover" src="static/images/parkinsons-project-cover.png"/>
+<span class="view-chip">VIEW PROJECT ↗</span>
+</div>
+<div class="project-body">
+<div class="project-meta"><span>06</span><span>MACHINE LEARNING</span></div>
+<h3>Parkinson's Disease Prediction</h3>
+<p>Comparing Decision Tree and Gradient Boosting classifiers using Python and scikit-learn.</p>
+<div class="card-tags"><span>Python</span><span>scikit-learn</span><span>Pandas</span><span>NumPy</span></div>
+<div class="open-row"><span>View Project</span><b>↗</b></div>
+</div>
+</a>
+<a class="project-card fp-card" data-category="game" href="projects/lunar-expedition.html">
 <div class="project-media">
 <img loading="lazy" decoding="async" alt="Outpost 07 lunar outpost in Roblox" src="static/images/outpost-07/outpost.jpg"/>
 <video class="card-preview" src="static/videos/outpost07-card-preview.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
@@ -241,33 +268,11 @@
 <div class="open-row"><span>View Project</span><b>↗</b></div>
 </div>
 </a>
-<a class="project-card reveal" data-category="data-cloud" href="projects/nesso.html">
-<div class="project-media">
-<img loading="lazy" decoding="async" alt="Safety First illustration representing the NESSO worker safety monitoring project" src="static/images/nesso-safety-cover.jpg"/>
-<span class="view-chip">VIEW PROJECT ↗</span>
-</div>
-<div class="project-body">
-<div class="project-meta"><span>03</span><span>DATA ENGINEERING</span></div>
-<h3>NESSO Safety Monitoring System</h3>
-<p>IoT worker safety monitoring using NESSO sensors, BLE, Python, SQLite and Flask.</p>
-<div class="card-tags"><span>Python</span><span>Flask</span><span>SQLite</span><span>BLE</span></div>
-<div class="open-row"><span>View Project</span><b>↗</b></div>
-</div>
-</a>
-<a class="project-card reveal" data-category="ai" href="projects/parkinsons-prediction.html">
-<div class="project-media ml-project-media">
-<img loading="lazy" decoding="async" alt="Artificial intelligence robot with mathematical equations" class="parkinsons-cover" src="static/images/parkinsons-project-cover.png"/>
-<span class="view-chip">VIEW PROJECT ↗</span>
-</div>
-<div class="project-body">
-<div class="project-meta"><span>06</span><span>MACHINE LEARNING</span></div>
-<h3>Parkinson's Disease Prediction</h3>
-<p>Comparing Decision Tree and Gradient Boosting classifiers using Python and scikit-learn.</p>
-<div class="card-tags"><span>Python</span><span>scikit-learn</span><span>Pandas</span><span>NumPy</span></div>
-<div class="open-row"><span>View Project</span><b>↗</b></div>
-</div>
-</a>
-</div>
+        </div>
+        <button class="fp-arrow fp-prev" type="button" aria-label="Previous project">←</button>
+        <button class="fp-arrow fp-next" type="button" aria-label="Next project">→</button>
+        <div class="fp-counter" aria-live="polite"><span class="fp-current">01</span><span>/ 03</span></div>
+      </div>
       <div class="all-projects-action reveal">
         <a href="pages/projects.html" class="btn accent">View all projects ↗</a>
       </div>
@@ -373,7 +378,7 @@
     <a href="#home">Back to top ↑</a>
   </footer>
 
-  <script src="static/js/main.js"></script>
-  <script src="static/js/formsubmit-contact.js" defer></script>
+  <script src="static/js/main.js?v=20261116"></script>
+  <script src="static/js/formsubmit-contact.js?v=20261116" defer></script>
 </body>
 </html>
