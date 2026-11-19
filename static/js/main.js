@@ -177,3 +177,27 @@ const apply=v=>{(sorters[v]?cards.slice().sort(sorters[v]):cards).forEach(c=>{gr
 let saved=null;try{saved=sessionStorage.getItem("projectSort")}catch(e){}
 if(saved&&sorters[saved])sel.value=saved;apply(sel.value);
 sel.addEventListener("change",()=>{apply(sel.value);try{sessionStorage.setItem("projectSort",sel.value)}catch(e){}});})();
+
+// Hero photos advance on their own every 3 seconds.
+// Pauses on hover/focus and when the tab is hidden; an arrow click restarts the timer.
+(()=>{const box=document.getElementById("heroCardCarousel"),next=document.getElementById("carouselNext"),prev=document.getElementById("carouselPrev");
+if(!box||!next||window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+const DELAY=3000;let timer=null,paused=false,auto=false;
+const start=()=>{clearInterval(timer);timer=setInterval(()=>{if(!paused&&!document.hidden){auto=true;next.click();auto=false;}},DELAY);};
+box.addEventListener("mouseenter",()=>{paused=true});box.addEventListener("mouseleave",()=>{paused=false});
+box.addEventListener("focusin",()=>{paused=true});box.addEventListener("focusout",()=>{paused=false});
+[next,prev].forEach(b=>b&&b.addEventListener("click",()=>{if(!auto)start();}));
+start();})();
+
+// Featured projects advance on their own every 4 seconds while the section is on screen.
+// Pauses on hover/focus and when the tab is hidden; any manual move restarts the timer.
+(()=>{const root=document.getElementById("fpCarousel");if(!root||window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+const next=root.querySelector(".fp-next");if(!next)return;
+const DELAY=4000;let timer=null,paused=false,visible=false,auto=false;
+const start=()=>{clearInterval(timer);timer=setInterval(()=>{if(visible&&!paused&&!document.hidden){auto=true;next.click();auto=false;}},DELAY);};
+root.addEventListener("mouseenter",()=>{paused=true});root.addEventListener("mouseleave",()=>{paused=false});
+root.addEventListener("focusin",()=>{paused=true});root.addEventListener("focusout",()=>{paused=false});
+root.addEventListener("click",()=>{if(!auto)start();});
+root.addEventListener("touchend",()=>start(),{passive:true});
+new IntersectionObserver(es=>es.forEach(e=>{visible=e.isIntersecting;}),{threshold:.4}).observe(root);
+start();})();
