@@ -384,3 +384,11 @@ html[data-theme="dark"] .architecture-node:not([aria-pressed=true]) small,html[d
 @media(min-width:681px){.site-header nav{margin-left:auto}}
 html[data-theme="dark"] .project-sort select{background-color:#1a1a1a;border-color:rgba(255,255,255,.18);color:var(--ink);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f2f0ea' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")}
 html[data-theme="dark"] .project-sort span{color:var(--ink-soft)!important}
+html[data-theme="dark"] .ab-polaroid{background:#f4f1ea}
+html[data-theme="dark"] .ab-polaroid figcaption{color:#222!important}
+html[data-theme="dark"] .ab-num{background:#f2f0ea;color:#111}
+html[data-theme="dark"] .ab-path li.is-now .ab-num{background:#caff42}
+html[data-theme="dark"] .ab-path:before{border-color:rgba(255,255,255,.18)}
+html[data-theme="dark"] .ab-lead mark{background:linear-gradient(transparent 60%,rgba(202,255,66,.35) 60%)}
+html[data-theme="dark"] .ab-path li{background:#161616!important;border-color:rgba(255,255,255,.1)!important}
+html[data-theme="dark"] .ab-path li.is-now{border-color:#caff42!important}

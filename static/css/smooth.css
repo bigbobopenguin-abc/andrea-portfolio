@@ -139,3 +139,37 @@ html body .aw-section{padding-top:64px!important;padding-bottom:64px!important}
 /* Certificate cards with two buttons: keep them on one row */
 .aw-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:12px}
 .aw-actions .aw-action{margin-top:0!important}
+
+/* =====================================================
+   ABOUT v3: polaroid + intro, then a three-step path
+===================================================== */
+.about-v3{display:flex;flex-direction:column;gap:64px}
+.ab-top{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(40px,6vw,96px);align-items:center}
+.ab-polaroid{position:relative;margin:0;justify-self:center;width:min(340px,100%);padding:14px 14px 0;background:#fff;border-radius:6px;box-shadow:0 30px 60px -32px rgba(0,0,0,.45),0 2px 6px rgba(0,0,0,.06);transform:rotate(-2.5deg);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.ab-polaroid:hover{transform:rotate(0deg) translateY(-4px)}
+.ab-polaroid img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px}
+.ab-polaroid figcaption{padding:16px 6px 20px;text-align:center;font-family:"Pacifico",cursive;font-size:1.25rem;color:#222}
+.ab-tape{position:absolute;top:-14px;left:50%;width:120px;height:30px;transform:translateX(-50%) rotate(2deg);background:rgba(202,255,66,.75);box-shadow:0 2px 4px rgba(0,0,0,.08)}
+.ab-intro h2{font-size:clamp(1.9rem,3vw,2.6rem)!important;line-height:1.1;letter-spacing:-.035em}
+.ab-intro h2 span{font-style:normal!important}
+.ab-lead{margin-top:22px;font-size:clamp(1.35rem,2vw,1.75rem);line-height:1.35;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.ab-lead mark{background:linear-gradient(transparent 60%,rgba(202,255,66,.85) 60%);color:inherit;padding:0 .1em}
+.ab-text{margin-top:16px;max-width:560px;color:var(--ink-soft);line-height:1.75}
+.ab-intro .btn{margin-top:28px}
+.ab-path{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:none;position:relative}
+.ab-path:before{content:"";position:absolute;left:4%;right:4%;top:34px;border-top:2px dashed #cfc8bb;z-index:0}
+.ab-path li{position:relative;z-index:1;display:flex;flex-direction:column;gap:8px;padding:22px 24px 26px;border:1px solid var(--hair);border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow);transition:transform .25s,border-color .25s}
+.ab-path li:hover{transform:translateY(-4px);border-color:#c9c2b4}
+.ab-num{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;font-size:.72rem;font-weight:800}
+.ab-path li.is-now .ab-num{background:#caff42;color:#111}
+.ab-path li.is-now{border-color:#caff42}
+.ab-when{margin-top:8px;font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#7a756c}
+.ab-path h3{font-size:1.2rem;letter-spacing:-.02em;line-height:1.25}
+.ab-path p{margin:0;color:var(--ink-soft);line-height:1.65;font-size:.94rem}
+@media(max-width:900px){.ab-top{grid-template-columns:1fr}.ab-path{grid-template-columns:1fr}.ab-path:before{left:39px;right:auto;top:30px;bottom:30px;border-top:0;border-left:2px dashed #cfc8bb}.about-v3{gap:44px}}
+@media(prefers-reduced-motion:reduce){.ab-polaroid,.ab-path li{transition:none}}
+.about-v3 .ab-polaroid img{height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:4/5!important;object-fit:cover!important;object-position:center 40%}
+.about-v3 .ab-polaroid{width:min(320px,100%)}
+@media(max-width:900px){.about-v3 .ab-polaroid{width:min(300px,86%)}}
+.about-v3 .ab-polaroid{rotate:-2.5deg;transition:rotate .35s cubic-bezier(.2,.8,.2,1),translate .35s,opacity .65s,transform .65s}
+.about-v3 .ab-polaroid:hover{rotate:0deg;translate:0 -4px}
