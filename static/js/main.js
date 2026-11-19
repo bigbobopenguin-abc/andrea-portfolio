@@ -177,3 +177,16 @@ const apply=v=>{(sorters[v]?cards.slice().sort(sorters[v]):cards).forEach(c=>{gr
 let saved=null;try{saved=sessionStorage.getItem("projectSort")}catch(e){}
 if(saved&&sorters[saved])sel.value=saved;apply(sel.value);
 sel.addEventListener("change",()=>{apply(sel.value);try{sessionStorage.setItem("projectSort",sel.value)}catch(e){}});})();
+
+// Featured projects: spin the 3D ring as the section scrolls past.
+(()=>{const wrap=document.getElementById("ringScroll"),ring=document.getElementById("ring");if(!wrap||!ring)return;
+if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+const cards=[...ring.querySelectorAll(".ring-card")],n=cards.length;let ticking=false;
+const stepDeg=()=>parseFloat(getComputedStyle(ring).getPropertyValue("--step"))||360/n;
+const update=()=>{ticking=false;const r=wrap.getBoundingClientRect();const total=r.height-innerHeight;
+  const p=Math.min(1,Math.max(0,-r.top/Math.max(total,1)));const step=stepDeg();const deg=-p*step*(n-1);
+  ring.style.transform=`translateZ(calc(var(--r) * -1)) rotateX(-6deg) rotateY(${deg}deg)`;
+  cards.forEach((c,i)=>{let a=((i*step+deg)%360+360)%360;if(a>180)a-=360;const back=Math.abs(a)>step/2;
+    c.classList.toggle("is-back",back);c.tabIndex=back?-1:0;});};
+const req=()=>{if(!ticking){ticking=true;requestAnimationFrame(update);}};
+window.addEventListener("scroll",req,{passive:true});window.addEventListener("resize",req);update();})();
